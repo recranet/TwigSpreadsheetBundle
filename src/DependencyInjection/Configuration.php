@@ -17,8 +17,8 @@ class Configuration implements ConfigurationInterface
      */
     public function getConfigTreeBuilder()
     {
-        $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('recranet_twig_spreadsheet');
+        $treeBuilder = new TreeBuilder('recranet_twig_spreadsheet');
+        $rootNode = $treeBuilder->getRootNode();
 
         $rootNode
             ->children()
