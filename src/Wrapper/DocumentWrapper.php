@@ -8,7 +8,6 @@ use PhpOffice\PhpSpreadsheet\IOFactory;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\BaseWriter;
 use PhpOffice\PhpSpreadsheet\Writer\Csv;
-use PhpOffice\PhpSpreadsheet\Writer\Pdf\Mpdf;
 use Symfony\Bridge\Twig\AppVariable;
 
 /**
@@ -104,14 +103,6 @@ class DocumentWrapper extends BaseWrapper
             $format = 'xlsx';
         } else {
             $format = strtolower($format);
-        }
-
-        // set up mPDF
-        if ($format === 'pdf') {
-            if (!class_exists('\Mpdf\Mpdf')) {
-                throw new \RuntimeException('Error loading mPDF. Is mPDF correctly installed?');
-            }
-            IOFactory::registerWriter('Pdf', Mpdf::class);
         }
 
         /**
