@@ -8,9 +8,9 @@ namespace Recranet\TwigSpreadsheetBundle\Twig\Node;
 class CellNode extends BaseNode
 {
     /**
-     * @param \Twig_Compiler $compiler
+     * @param \Twig\Compiler $compiler
      */
-    public function compile(\Twig_Compiler $compiler)
+    public function compile(\Twig\Compiler $compiler)
     {
         $compiler->addDebugInfo($this)
             ->write(self::CODE_FIX_CONTEXT)

@@ -16,10 +16,10 @@ class RowWrapper extends BaseWrapper
      * RowWrapper constructor.
      *
      * @param array             $context
-     * @param \Twig_Environment $environment
+     * @param \Twig\Environment $environment
      * @param SheetWrapper      $sheetWrapper
      */
-    public function __construct(array $context, \Twig_Environment $environment, SheetWrapper $sheetWrapper)
+    public function __construct(array $context, \Twig\Environment $environment, SheetWrapper $sheetWrapper)
     {
         parent::__construct($context, $environment);
 

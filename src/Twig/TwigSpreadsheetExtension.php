@@ -19,7 +19,7 @@ use Recranet\TwigSpreadsheetBundle\Wrapper\PhpSpreadsheetWrapper;
 /**
  * Class TwigSpreadsheetExtension.
  */
-class TwigSpreadsheetExtension extends \Twig_Extension
+class TwigSpreadsheetExtension extends \Twig\Extension\AbstractExtension
 {
     /**
      * @var array
@@ -50,9 +50,9 @@ class TwigSpreadsheetExtension extends \Twig_Extension
     public function getFunctions()
     {
         return [
-            new \Twig_SimpleFunction('xlsmergestyles', [$this, 'mergeStyles']),
-            new \Twig_SimpleFunction('xlscellindex', [$this, 'getCurrentColumn'], ['needs_context' => true]),
-            new \Twig_SimpleFunction('xlsrowindex', [$this, 'getCurrentRow'], ['needs_context' => true]),
+            new \Twig\TwigFunction('xlsmergestyles', [$this, 'mergeStyles']),
+            new \Twig\TwigFunction('xlscellindex', [$this, 'getCurrentColumn'], ['needs_context' => true]),
+            new \Twig\TwigFunction('xlsrowindex', [$this, 'getCurrentRow'], ['needs_context' => true]),
         ];
     }
 
@@ -92,14 +92,14 @@ class TwigSpreadsheetExtension extends \Twig_Extension
      * @param array $style1
      * @param array $style2
      *
-     * @throws \Twig_Error_Runtime
+     * @throws \Twig\Error\RuntimeError
      *
      * @return array
      */
     public function mergeStyles(array $style1, array $style2): array
     {
         if (!\is_array($style1) || !\is_array($style2)) {
-            throw new \Twig_Error_Runtime('The xlsmergestyles function only works with arrays.');
+            throw new \Twig\Error\RuntimeError('The xlsmergestyles function only works with arrays.');
         }
         return Arrays::mergeRecursive($style1, $style2);
     }
@@ -107,13 +107,13 @@ class TwigSpreadsheetExtension extends \Twig_Extension
     /**
      * @param array $context
      *
-     * @throws \Twig_Error_Runtime
+     * @throws \Twig\Error\RuntimeError
      *
      * @return int|null
      */
     public function getCurrentColumn(array $context) {
         if (!isset($context[PhpSpreadsheetWrapper::INSTANCE_KEY])) {
-            throw new \Twig_Error_Runtime('The PhpSpreadsheetWrapper instance is missing.');
+            throw new \Twig\Error\RuntimeError('The PhpSpreadsheetWrapper instance is missing.');
         }
         return $context[PhpSpreadsheetWrapper::INSTANCE_KEY]->getCurrentColumn();
     }
@@ -121,13 +121,13 @@ class TwigSpreadsheetExtension extends \Twig_Extension
     /**
      * @param array $context
      *
-     * @throws \Twig_Error_Runtime
+     * @throws \Twig\Error\RuntimeError
      *
      * @return int|null
      */
     public function getCurrentRow(array $context) {
         if (!isset($context[PhpSpreadsheetWrapper::INSTANCE_KEY])) {
-            throw new \Twig_Error_Runtime('The PhpSpreadsheetWrapper instance is missing.');
+            throw new \Twig\Error\RuntimeError('The PhpSpreadsheetWrapper instance is missing.');
         }
         return $context[PhpSpreadsheetWrapper::INSTANCE_KEY]->getCurrentRow();
     }

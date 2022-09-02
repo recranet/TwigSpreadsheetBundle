@@ -7,7 +7,7 @@ use Recranet\TwigSpreadsheetBundle\Wrapper\PhpSpreadsheetWrapper;
 /**
  * Class MacroContextNodeVisitor.
  */
-class MacroContextNodeVisitor extends \Twig_BaseNodeVisitor
+class MacroContextNodeVisitor extends \Twig\NodeVisitor\AbstractNodeVisitor
 {
     /**
      * {@inheritdoc}
@@ -20,18 +20,18 @@ class MacroContextNodeVisitor extends \Twig_BaseNodeVisitor
     /**
      * {@inheritdoc}
      */
-    protected function doEnterNode(\Twig_Node $node, \Twig_Environment $env)
+    protected function doEnterNode(\Twig\Node\Node $node, \Twig\Environment $env)
     {
         // add wrapper instance as argument on all method calls
-        if ($node instanceof \Twig_Node_Expression_MethodCall) {
-            $keyNode = new \Twig_Node_Expression_Constant(PhpSpreadsheetWrapper::INSTANCE_KEY, $node->getTemplateLine());
+        if ($node instanceof \Twig\Node\Expression\MethodCallExpression) {
+            $keyNode = new \Twig\Node\Expression\ConstantExpression(PhpSpreadsheetWrapper::INSTANCE_KEY, $node->getTemplateLine());
 
             // add wrapper even if it not exists, we fix that later
-            $valueNode = new \Twig_Node_Expression_Name(PhpSpreadsheetWrapper::INSTANCE_KEY, $node->getTemplateLine());
+            $valueNode = new \Twig\Node\Expression\NameExpression(PhpSpreadsheetWrapper::INSTANCE_KEY, $node->getTemplateLine());
             $valueNode->setAttribute('ignore_strict_check', true);
 
             /**
-             * @var \Twig_Node_Expression_Array $argumentsNode
+             * @var \Twig\Node\Expression\ArrayExpression $argumentsNode
              */
             $argumentsNode = $node->getNode('arguments');
             $argumentsNode->addElement($valueNode, $keyNode);
@@ -43,7 +43,7 @@ class MacroContextNodeVisitor extends \Twig_BaseNodeVisitor
     /**
      * {@inheritdoc}
      */
-    protected function doLeaveNode(\Twig_Node $node, \Twig_Environment $env)
+    protected function doLeaveNode(\Twig\Node\Node $node, \Twig\Environment $env)
     {
         return $node;
     }

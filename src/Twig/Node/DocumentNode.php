@@ -10,9 +10,9 @@ use Recranet\TwigSpreadsheetBundle\Wrapper\PhpSpreadsheetWrapper;
 class DocumentNode extends BaseNode
 {
     /**
-     * @param \Twig_Compiler $compiler
+     * @param \Twig\Compiler $compiler
      */
-    public function compile(\Twig_Compiler $compiler)
+    public function compile(\Twig\Compiler $compiler)
     {
         $compiler->addDebugInfo($this)
             ->write("ob_start();\n")

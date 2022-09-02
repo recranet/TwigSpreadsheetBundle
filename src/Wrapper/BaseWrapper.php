@@ -13,7 +13,7 @@ abstract class BaseWrapper
     protected $context;
 
     /**
-     * @var \Twig_Environment
+     * @var \Twig\Environment
      */
     protected $environment;
 
@@ -30,9 +30,9 @@ abstract class BaseWrapper
      * BaseWrapper constructor.
      *
      * @param array             $context
-     * @param \Twig_Environment $environment
+     * @param \Twig\Environment $environment
      */
-    public function __construct(array $context, \Twig_Environment $environment)
+    public function __construct(array $context, \Twig\Environment $environment)
     {
         $this->context = $context;
         $this->environment = $environment;

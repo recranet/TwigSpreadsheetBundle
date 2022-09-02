@@ -3,7 +3,6 @@
 namespace Recranet\TwigSpreadsheetBundle\Wrapper;
 
 use Recranet\TwigSpreadsheetBundle\Helper\Filesystem;
-use PhpOffice\PhpSpreadsheet\Exception;
 use PhpOffice\PhpSpreadsheet\IOFactory;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\BaseWriter;
@@ -28,10 +27,10 @@ class DocumentWrapper extends BaseWrapper
      * DocumentWrapper constructor.
      *
      * @param array             $context
-     * @param \Twig_Environment $environment
+     * @param \Twig\Environment $environment
      * @param array             $attributes
      */
-    public function __construct(array $context, \Twig_Environment $environment, array $attributes = [])
+    public function __construct(array $context, \Twig\Environment $environment, array $attributes = [])
     {
         parent::__construct($context, $environment);
 
@@ -198,7 +197,7 @@ class DocumentWrapper extends BaseWrapper
     {
         $loader = $this->environment->getLoader();
 
-        if ($loader instanceof \Twig_Loader_Filesystem && mb_strpos($path, '@') === 0) {
+        if ($loader instanceof \Twig\Loader\FilesystemLoader && mb_strpos($path, '@') === 0) {
             /*
              * @var \Twig_Loader_Filesystem
              */

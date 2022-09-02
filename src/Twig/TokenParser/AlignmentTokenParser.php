@@ -35,7 +35,7 @@ class AlignmentTokenParser extends BaseTokenParser
      *
      * @throws \InvalidArgumentException
      */
-    public function createNode(array $nodes = [], int $lineNo = 0): \Twig_Node
+    public function createNode(array $nodes = [], int $lineNo = 0): \Twig\Node\Node
     {
         return new AlignmentNode($nodes, $this->getAttributes(), $lineNo, $this->getTag(), $this->alignment);
     }

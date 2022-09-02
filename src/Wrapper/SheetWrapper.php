@@ -43,10 +43,10 @@ class SheetWrapper extends BaseWrapper
      * SheetWrapper constructor.
      *
      * @param array             $context
-     * @param \Twig_Environment $environment
+     * @param \Twig\Environment $environment
      * @param DocumentWrapper   $documentWrapper
      */
-    public function __construct(array $context, \Twig_Environment $environment, DocumentWrapper $documentWrapper)
+    public function __construct(array $context, \Twig\Environment $environment, DocumentWrapper $documentWrapper)
     {
         parent::__construct($context, $environment);
 

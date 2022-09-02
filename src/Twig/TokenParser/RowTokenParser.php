@@ -12,12 +12,12 @@ class RowTokenParser extends BaseTokenParser
     /**
      * {@inheritdoc}
      */
-    public function configureParameters(\Twig_Token $token): array
+    public function configureParameters(\Twig\Token $token): array
     {
         return [
             'index' => [
                 'type' => self::PARAMETER_TYPE_VALUE,
-                'default' => new \Twig_Node_Expression_Constant(null, $token->getLine()),
+                'default' => new \Twig\Node\Expression\ConstantExpression(null, $token->getLine()),
             ],
         ];
     }
@@ -25,7 +25,7 @@ class RowTokenParser extends BaseTokenParser
     /**
      * {@inheritdoc}
      */
-    public function createNode(array $nodes = [], int $lineNo = 0): \Twig_Node
+    public function createNode(array $nodes = [], int $lineNo = 0): \Twig\Node\Node
     {
         return new RowNode($nodes, $this->getAttributes(), $lineNo, $this->getTag());
     }

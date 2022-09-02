@@ -7,7 +7,7 @@ use Recranet\TwigSpreadsheetBundle\Wrapper\PhpSpreadsheetWrapper;
 /**
  * Class BaseNode.
  */
-abstract class BaseNode extends \Twig_Node
+abstract class BaseNode extends \Twig\Node\Node
 {
     /**
      * @var string
