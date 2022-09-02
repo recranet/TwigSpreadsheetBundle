@@ -1,12 +1,12 @@
 <?php
 
-namespace MewesK\TwigSpreadsheetBundle;
+namespace Recranet\TwigSpreadsheetBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 /**
- * Class MewesKTwigSpreadsheetBundle.
+ * Class RecranetTwigSpreadsheetBundle.
  */
-class MewesKTwigSpreadsheetBundle extends Bundle
+class RecranetTwigSpreadsheetBundle extends Bundle
 {
 }

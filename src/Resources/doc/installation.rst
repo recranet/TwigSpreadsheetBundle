@@ -9,7 +9,7 @@ following command to download the latest stable version of this bundle:
 
 .. code-block:: terminal
 
-    $ composer require mewesk/twig-spreadsheet-bundle
+    $ composer require Recranet/twig-spreadsheet-bundle
 
 This command requires you to have Composer installed globally, as explained
 in the `installation chapter`_ of the Composer documentation.
@@ -30,7 +30,7 @@ Step 2: Enable the Bundle
             $bundles = array(
                 // ...
 
-                new MewesK\TwigSpreadsheetBundle\MewesKTwigSpreadsheetBundle(),
+                new Recranet\TwigSpreadsheetBundle\RecranetTwigSpreadsheetBundle(),
             );
 
             // ...

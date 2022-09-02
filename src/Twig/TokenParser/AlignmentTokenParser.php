@@ -1,9 +1,9 @@
 <?php
 
-namespace MewesK\TwigSpreadsheetBundle\Twig\TokenParser;
+namespace Recranet\TwigSpreadsheetBundle\Twig\TokenParser;
 
-use MewesK\TwigSpreadsheetBundle\Twig\Node\AlignmentNode;
-use MewesK\TwigSpreadsheetBundle\Wrapper\HeaderFooterWrapper;
+use Recranet\TwigSpreadsheetBundle\Twig\Node\AlignmentNode;
+use Recranet\TwigSpreadsheetBundle\Wrapper\HeaderFooterWrapper;
 
 /**
  * Class AlignmentTokenParser.

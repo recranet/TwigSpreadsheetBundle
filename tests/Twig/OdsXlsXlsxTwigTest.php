@@ -1,6 +1,6 @@
 <?php
 
-namespace MewesK\TwigSpreadsheetBundle\Tests\Twig;
+namespace Recranet\TwigSpreadsheetBundle\Tests\Twig;
 
 use PhpOffice\PhpSpreadsheet\Cell\DataType;
 

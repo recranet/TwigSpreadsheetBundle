@@ -1,6 +1,6 @@
 <?php
 
-namespace MewesK\TwigSpreadsheetBundle\Tests\Functional;
+namespace Recranet\TwigSpreadsheetBundle\Tests\Functional;
 
 /**
  * Class OdsXlsXlsxFunctionalTest.

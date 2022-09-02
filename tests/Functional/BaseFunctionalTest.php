@@ -1,9 +1,9 @@
 <?php
 
-namespace MewesK\TwigSpreadsheetBundle\Tests\Functional;
+namespace Recranet\TwigSpreadsheetBundle\Tests\Functional;
 
-use MewesK\TwigSpreadsheetBundle\Helper\Filesystem;
-use MewesK\TwigSpreadsheetBundle\Tests\Functional\Fixtures\TestAppKernel;
+use Recranet\TwigSpreadsheetBundle\Helper\Filesystem;
+use Recranet\TwigSpreadsheetBundle\Tests\Functional\Fixtures\TestAppKernel;
 use PhpOffice\PhpSpreadsheet\IOFactory;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use Symfony\Bundle\FrameworkBundle\Client;

@@ -1,6 +1,6 @@
 <?php
 
-namespace MewesK\TwigSpreadsheetBundle\Wrapper;
+namespace Recranet\TwigSpreadsheetBundle\Wrapper;
 
 /**
  * Class BaseWrapper.

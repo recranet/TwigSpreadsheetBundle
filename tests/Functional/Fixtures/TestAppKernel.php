@@ -1,6 +1,6 @@
 <?php
 
-namespace MewesK\TwigSpreadsheetBundle\Tests\Functional\Fixtures;
+namespace Recranet\TwigSpreadsheetBundle\Tests\Functional\Fixtures;
 
 use Symfony\Component\Config\Loader\LoaderInterface;
 use Symfony\Component\HttpKernel\Kernel;
@@ -29,8 +29,8 @@ class TestAppKernel extends Kernel
             new \Symfony\Bundle\FrameworkBundle\FrameworkBundle(),
             new \Symfony\Bundle\TwigBundle\TwigBundle(),
             new \Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
-            new \MewesK\TwigSpreadsheetBundle\MewesKTwigSpreadsheetBundle(),
-            new \MewesK\TwigSpreadsheetBundle\Tests\Functional\Fixtures\TestBundle\TestBundle(),
+            new \Recranet\TwigSpreadsheetBundle\RecranetTwigSpreadsheetBundle(),
+            new \Recranet\TwigSpreadsheetBundle\Tests\Functional\Fixtures\TestBundle\TestBundle(),
         ];
     }
 

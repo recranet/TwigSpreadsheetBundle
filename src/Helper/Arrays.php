@@ -1,6 +1,6 @@
 <?php
 
-namespace MewesK\TwigSpreadsheetBundle\Helper;
+namespace Recranet\TwigSpreadsheetBundle\Helper;
 
 /**
  * Class Arrays.

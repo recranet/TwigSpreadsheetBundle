@@ -1,9 +1,9 @@
 <?php
 
-namespace MewesK\TwigSpreadsheetBundle\Twig\TokenParser;
+namespace Recranet\TwigSpreadsheetBundle\Twig\TokenParser;
 
-use MewesK\TwigSpreadsheetBundle\Twig\Node\HeaderFooterNode;
-use MewesK\TwigSpreadsheetBundle\Wrapper\HeaderFooterWrapper;
+use Recranet\TwigSpreadsheetBundle\Twig\Node\HeaderFooterNode;
+use Recranet\TwigSpreadsheetBundle\Wrapper\HeaderFooterWrapper;
 
 /**
  * Class HeaderFooterTokenParser.

@@ -1,8 +1,8 @@
 <?php
 
-namespace MewesK\TwigSpreadsheetBundle\Twig\Node;
+namespace Recranet\TwigSpreadsheetBundle\Twig\Node;
 
-use MewesK\TwigSpreadsheetBundle\Wrapper\HeaderFooterWrapper;
+use Recranet\TwigSpreadsheetBundle\Wrapper\HeaderFooterWrapper;
 
 /**
  * Class HeaderFooterNode.

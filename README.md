@@ -1,8 +1,8 @@
 # TwigSpreadsheetBundle
 
-[![Teavis CI: Build Status](https://travis-ci.org/MewesK/TwigSpreadsheetBundle.png?branch=master)](https://travis-ci.org/MewesK/TwigSpreadsheetBundle)
-[![Scrutinizer: Code Quality](https://scrutinizer-ci.com/g/MewesK/TwigSpreadsheetBundle/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/MewesK/TwigSpreadsheetBundle/?branch=master)
-[![Code Coverage](https://scrutinizer-ci.com/g/MewesK/TwigSpreadsheetBundle/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/MewesK/TwigSpreadsheetBundle/?branch=master)
+[![Teavis CI: Build Status](https://travis-ci.org/recranet/TwigSpreadsheetBundle.png?branch=master)](https://travis-ci.org/recranet/TwigSpreadsheetBundle)
+[![Scrutinizer: Code Quality](https://scrutinizer-ci.com/g/recranet/TwigSpreadsheetBundle/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/recranet/TwigSpreadsheetBundle/?branch=master)
+[![Code Coverage](https://scrutinizer-ci.com/g/recranet/TwigSpreadsheetBundle/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/recranet/TwigSpreadsheetBundle/?branch=master)
 [![SensioLabsInsight: Code Quality](https://insight.sensiolabs.com/projects/f5c25ebe-0cbc-4be1-a094-4ef87d48ea1b/mini.png)](https://insight.sensiolabs.com/projects/f5c25ebe-0cbc-4be1-a094-4ef87d48ea1b)
 
 This Symfony bundle integrates PhpSpreadsheet into Symfony using Twig.
@@ -43,7 +43,7 @@ The following software is required to use PhpSpreadsheet/TwigSpreadsheetBundle.
 
 The source of the documentation is stored in the Resources/doc/ folder in this bundle:
     
-[Resources/doc/index.rst](https://github.com/MewesK/TwigSpreadsheetBundle/blob/master/src/Resources/doc/index.rst)
+[Resources/doc/index.rst](https://github.com/Recranet/TwigSpreadsheetBundle/blob/master/src/Resources/doc/index.rst)
 
 You can find a prettier version on [readthedocs.org](httsp://readthedocs.org):
 
@@ -57,4 +57,4 @@ All the installation instructions are located in the documentation.
 
 This bundle is under the MIT license. See the complete license in the bundle:
 
-[Resources/meta/LICENSE](https://github.com/MewesK/TwigSpreadsheetBundle/blob/master/LICENSE)
+[Resources/meta/LICENSE](https://github.com/Recranet/TwigSpreadsheetBundle/blob/master/LICENSE)
