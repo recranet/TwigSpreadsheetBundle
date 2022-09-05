@@ -1,3 +1,11 @@
+## 2.0
+
+ * Drop support for Symfony 4 and lower, support Symfony 5.4 and higher
+ * Drop support for Twig 2, add support for Twig 3
+ * Add support for dompdf as a PDF renderer
+ * Add support for TCPDF as a PDF renderer
+ * Improved internal code style
+
 ## 1.1
 
  * Fixed issue #13 'Incorrect cache directory for images' (technetium)
