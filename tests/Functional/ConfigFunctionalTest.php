@@ -10,15 +10,6 @@ use Recranet\TwigSpreadsheetBundle\Twig\TwigSpreadsheetExtension;
 class ConfigFunctionalTest extends OdsXlsXlsxFunctionalTest
 {
     /**
-     * @var string
-     */
-    protected static $ENVIRONMENT = 'config';
-
-    //
-    // Tests
-    //
-
-    /**
      * @throws \Exception
      */
     public function testPreCalculateFormulas()

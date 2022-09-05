@@ -6,7 +6,7 @@ use Recranet\TwigSpreadsheetBundle\Helper\Filesystem;
 use Recranet\TwigSpreadsheetBundle\Tests\Functional\Fixtures\TestAppKernel;
 use PhpOffice\PhpSpreadsheet\IOFactory;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
-use Symfony\Bundle\FrameworkBundle\Client;
+use Symfony\Bundle\FrameworkBundle\KernelBrowser;
 use Symfony\Bundle\FrameworkBundle\Routing\Router;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\HttpFoundation\Request;
@@ -21,15 +21,7 @@ abstract class BaseFunctionalTest extends WebTestCase
     const CACHE_PATH = './../../var/cache/twig';
     const RESULT_PATH = './../../var/result';
 
-    /**
-     * @var string
-     */
-    protected static $ENVIRONMENT;
-
-    /**
-     * @var Client
-     */
-    protected static $client;
+    protected static KernelBrowser $client;
 
     /**
      * {@inheritdoc}
@@ -91,7 +83,7 @@ abstract class BaseFunctionalTest extends WebTestCase
 
         // create path for temp file
         $format = strtolower($format);
-        $resultPath = sprintf('%s/%s/%s/%s.%s', __DIR__, static::RESULT_PATH, str_replace('\\', DIRECTORY_SEPARATOR, static::class), static::$ENVIRONMENT, $format);
+        $resultPath = sprintf('%s/%s/%s.%s', __DIR__, static::RESULT_PATH, str_replace('\\', DIRECTORY_SEPARATOR, static::class), $format);
 
         // save content
         Filesystem::dumpFile($resultPath, $content);

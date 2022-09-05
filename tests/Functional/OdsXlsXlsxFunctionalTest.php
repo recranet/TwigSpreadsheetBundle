@@ -8,11 +8,6 @@ namespace Recranet\TwigSpreadsheetBundle\Tests\Functional;
 class OdsXlsXlsxFunctionalTest extends BaseFunctionalTest
 {
     /**
-     * @var string
-     */
-    protected static $ENVIRONMENT = 'basic';
-
-    /**
      * @return array
      */
     public function formatProvider(): array
