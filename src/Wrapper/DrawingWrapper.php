@@ -14,23 +14,10 @@ use PhpOffice\PhpSpreadsheet\Worksheet\HeaderFooterDrawing;
  */
 class DrawingWrapper extends BaseWrapper
 {
-    /**
-     * @var SheetWrapper
-     */
-    protected $sheetWrapper;
-    /**
-     * @var HeaderFooterWrapper
-     */
-    protected $headerFooterWrapper;
-
-    /**
-     * @var Drawing|HeaderFooterDrawing|null
-     */
-    protected $object;
-    /**
-     * @var array
-     */
-    protected $attributes;
+    protected SheetWrapper $sheetWrapper;
+    protected HeaderFooterWrapper $headerFooterWrapper;
+    protected ?Drawing $object;
+    protected array $attributes;
 
     /**
      * DrawingWrapper constructor.
@@ -47,7 +34,6 @@ class DrawingWrapper extends BaseWrapper
 
         $this->sheetWrapper = $sheetWrapper;
         $this->headerFooterWrapper = $headerFooterWrapper;
-
         $this->object = null;
         $this->attributes = $attributes;
     }
@@ -62,7 +48,7 @@ class DrawingWrapper extends BaseWrapper
      * @throws \RuntimeException
      * @throws Exception
      */
-    public function start(string $path, array $properties = [])
+    public function start(string $path, array $properties = []): void
     {
         if ($this->sheetWrapper->getObject() === null) {
             throw new \LogicException();
@@ -112,16 +98,13 @@ class DrawingWrapper extends BaseWrapper
         $this->setProperties($properties);
     }
 
-    public function end()
+    public function end(): void
     {
         $this->object = null;
         $this->parameters = [];
     }
 
-    /**
-     * @return Drawing
-     */
-    public function getObject(): Drawing
+    public function getObject(): ?Drawing
     {
         return $this->object;
     }
@@ -129,7 +112,7 @@ class DrawingWrapper extends BaseWrapper
     /**
      * @param Drawing $object
      */
-    public function setObject(Drawing $object)
+    public function setObject(Drawing $object): void
     {
         $this->object = $object;
     }

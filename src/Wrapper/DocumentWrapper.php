@@ -18,14 +18,8 @@ use Symfony\Bridge\Twig\AppVariable;
  */
 class DocumentWrapper extends BaseWrapper
 {
-    /**
-     * @var Spreadsheet|null
-     */
-    protected $object;
-    /**
-     * @var array
-     */
-    protected $attributes;
+    protected ?Spreadsheet $object;
+    protected array $attributes;
 
     /**
      * DocumentWrapper constructor.
@@ -49,7 +43,7 @@ class DocumentWrapper extends BaseWrapper
      * @throws Exception
      * @throws \PhpOffice\PhpSpreadsheet\Exception
      */
-    public function start(array $properties = [])
+    public function start(array $properties = []): void
     {
         // load template
         if (isset($properties['template'])) {
@@ -77,7 +71,7 @@ class DocumentWrapper extends BaseWrapper
      * @throws \PhpOffice\PhpSpreadsheet\Writer\Exception
      * @throws IOException
      */
-    public function end()
+    public function end(): void
     {
         if ($this->object === null) {
             throw new \LogicException();
@@ -143,7 +137,7 @@ class DocumentWrapper extends BaseWrapper
     /**
      * @return Spreadsheet|null
      */
-    public function getObject()
+    public function getObject(): ?Spreadsheet
     {
         return $this->object;
     }
@@ -151,7 +145,7 @@ class DocumentWrapper extends BaseWrapper
     /**
      * @param Spreadsheet|null $object
      */
-    public function setObject(Spreadsheet $object = null)
+    public function setObject(Spreadsheet $object = null): void
     {
         $this->object = $object;
     }

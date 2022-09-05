@@ -14,10 +14,7 @@ use Recranet\TwigSpreadsheetBundle\Wrapper\HeaderFooterWrapper;
  */
 class HeaderFooterTokenParser extends BaseTokenParser
 {
-    /**
-     * @var string
-     */
-    private $baseType;
+    private string $baseType;
 
     /**
      * HeaderFooterTokenParser constructor.
@@ -64,7 +61,7 @@ class HeaderFooterTokenParser extends BaseTokenParser
     /**
      * {@inheritdoc}
      */
-    public function getTag()
+    public function getTag(): string
     {
         return 'xls'.$this->baseType;
     }

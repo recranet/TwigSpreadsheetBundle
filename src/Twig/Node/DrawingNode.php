@@ -11,7 +11,7 @@ class DrawingNode extends BaseNode
     /**
      * @param Compiler $compiler
      */
-    public function compile(Compiler $compiler)
+    public function compile(Compiler $compiler): void
     {
         $compiler->addDebugInfo($this)
             ->write(self::CODE_FIX_CONTEXT)

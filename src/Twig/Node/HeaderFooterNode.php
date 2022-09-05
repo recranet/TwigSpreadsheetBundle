@@ -10,10 +10,7 @@ use Recranet\TwigSpreadsheetBundle\Wrapper\HeaderFooterWrapper;
  */
 class HeaderFooterNode extends BaseNode
 {
-    /**
-     * @var string
-     */
-    private $baseType;
+    private string $baseType;
 
     /**
      * HeaderFooterNode constructor.
@@ -36,7 +33,7 @@ class HeaderFooterNode extends BaseNode
     /**
      * @param Compiler $compiler
      */
-    public function compile(Compiler $compiler)
+    public function compile(Compiler $compiler): void
     {
         $compiler->addDebugInfo($this)
             ->write(self::CODE_FIX_CONTEXT)

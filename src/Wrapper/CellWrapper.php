@@ -12,15 +12,8 @@ use PhpOffice\PhpSpreadsheet\Cell\Coordinate;
  */
 class CellWrapper extends BaseWrapper
 {
-    /**
-     * @var SheetWrapper
-     */
-    protected $sheetWrapper;
-
-    /**
-     * @var Cell|null
-     */
-    protected $object;
+    protected SheetWrapper $sheetWrapper;
+    protected ?Cell $object;
 
     /**
      * CellWrapper constructor.
@@ -34,7 +27,6 @@ class CellWrapper extends BaseWrapper
         parent::__construct($context, $environment);
 
         $this->sheetWrapper = $sheetWrapper;
-
         $this->object = null;
     }
 
@@ -46,7 +38,7 @@ class CellWrapper extends BaseWrapper
      * @throws \LogicException
      * @throws \RuntimeException
      */
-    public function start(int $index = null, array $properties = [])
+    public function start(int $index = null, array $properties = []): void
     {
         if ($this->sheetWrapper->getObject() === null) {
             throw new \LogicException();
@@ -72,7 +64,7 @@ class CellWrapper extends BaseWrapper
      *
      * @throws Exception
      */
-    public function value($value = null)
+    public function value($value = null): void
     {
         if ($value !== null) {
             if (isset($this->parameters['properties']['dataType'])) {
@@ -85,7 +77,7 @@ class CellWrapper extends BaseWrapper
         $this->parameters['value'] = $value;
     }
 
-    public function end()
+    public function end(): void
     {
         $this->object = null;
         $this->parameters = [];
@@ -94,7 +86,7 @@ class CellWrapper extends BaseWrapper
     /**
      * @return Cell|null
      */
-    public function getObject()
+    public function getObject(): ?Cell
     {
         return $this->object;
     }
@@ -102,7 +94,7 @@ class CellWrapper extends BaseWrapper
     /**
      * @param Cell|null $object
      */
-    public function setObject(Cell $object = null)
+    public function setObject(Cell $object = null): void
     {
         $this->object = $object;
     }

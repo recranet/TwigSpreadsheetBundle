@@ -11,10 +11,7 @@ use Recranet\TwigSpreadsheetBundle\Wrapper\HeaderFooterWrapper;
  */
 class AlignmentTokenParser extends BaseTokenParser
 {
-    /**
-     * @var string
-     */
-    private $alignment;
+    private string $alignment;
 
     /**
      * AlignmentTokenParser constructor.
@@ -44,7 +41,7 @@ class AlignmentTokenParser extends BaseTokenParser
     /**
      * {@inheritdoc}
      */
-    public function getTag()
+    public function getTag(): string
     {
         return 'xls'.$this->alignment;
     }

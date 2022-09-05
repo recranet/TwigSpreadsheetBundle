@@ -10,10 +10,7 @@ use Symfony\Component\Filesystem\Filesystem as BaseFilesystem;
  */
 class Filesystem
 {
-    /**
-     * @var BaseFilesystem
-     */
-    private static $delegate;
+    private static ?BaseFilesystem $delegate = null;
 
     /**
      * Creates a directory recursively.
@@ -23,7 +20,7 @@ class Filesystem
      *
      * @throws IOException On any directory creation failure
      */
-    public static function mkdir($dirs, int $mode = 0777)
+    public static function mkdir($dirs, int $mode = 0777): void
     {
         self::getDelegate()->mkdir($dirs, $mode);
     }
@@ -47,7 +44,7 @@ class Filesystem
      *
      * @throws IOException When removal fails
      */
-    public static function remove($files)
+    public static function remove($files): void
     {
         self::getDelegate()->remove($files);
     }
@@ -60,7 +57,7 @@ class Filesystem
      *
      * @throws IOException If the file cannot be written to
      */
-    public static function dumpFile(string $filename, string $content)
+    public static function dumpFile(string $filename, string $content): void
     {
         self::getDelegate()->dumpFile($filename, $content);
     }

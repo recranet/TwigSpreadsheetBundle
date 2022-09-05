@@ -19,7 +19,7 @@ class MacroContextNodeVisitor extends AbstractNodeVisitor
     /**
      * {@inheritdoc}
      */
-    public function getPriority()
+    public function getPriority(): int
     {
         return 0;
     }
@@ -27,7 +27,7 @@ class MacroContextNodeVisitor extends AbstractNodeVisitor
     /**
      * {@inheritdoc}
      */
-    protected function doEnterNode(Node $node, Environment $env)
+    protected function doEnterNode(Node $node, Environment $env): Node
     {
         // add wrapper instance as argument on all method calls
         if ($node instanceof MethodCallExpression) {
@@ -50,7 +50,7 @@ class MacroContextNodeVisitor extends AbstractNodeVisitor
     /**
      * {@inheritdoc}
      */
-    protected function doLeaveNode(Node $node, Environment $env)
+    protected function doLeaveNode(Node $node, Environment $env): Node
     {
         return $node;
     }

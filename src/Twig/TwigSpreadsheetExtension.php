@@ -24,10 +24,7 @@ use Recranet\TwigSpreadsheetBundle\Wrapper\PhpSpreadsheetWrapper;
  */
 class TwigSpreadsheetExtension extends AbstractExtension
 {
-    /**
-     * @var array
-     */
-    private $attributes;
+    private array $attributes;
 
     /**
      * TwigSpreadsheetExtension constructor.
@@ -50,7 +47,7 @@ class TwigSpreadsheetExtension extends AbstractExtension
     /**
      * {@inheritdoc}
      */
-    public function getFunctions()
+    public function getFunctions(): array
     {
         return [
             new TwigFunction('xlsmergestyles', [$this, 'mergeStyles']),
@@ -64,7 +61,7 @@ class TwigSpreadsheetExtension extends AbstractExtension
      *
      * @throws \InvalidArgumentException
      */
-    public function getTokenParsers()
+    public function getTokenParsers(): array
     {
         return [
             new AlignmentTokenParser([], HeaderFooterWrapper::ALIGNMENT_CENTER),
@@ -83,7 +80,7 @@ class TwigSpreadsheetExtension extends AbstractExtension
     /**
      * {@inheritdoc}
      */
-    public function getNodeVisitors()
+    public function getNodeVisitors(): array
     {
         return [
             new MacroContextNodeVisitor(),
@@ -114,7 +111,7 @@ class TwigSpreadsheetExtension extends AbstractExtension
      *
      * @return int|null
      */
-    public function getCurrentColumn(array $context) {
+    public function getCurrentColumn(array $context): ?int {
         if (!isset($context[PhpSpreadsheetWrapper::INSTANCE_KEY])) {
             throw new RuntimeError('The PhpSpreadsheetWrapper instance is missing.');
         }
@@ -128,7 +125,7 @@ class TwigSpreadsheetExtension extends AbstractExtension
      *
      * @return int|null
      */
-    public function getCurrentRow(array $context) {
+    public function getCurrentRow(array $context): ?int {
         if (!isset($context[PhpSpreadsheetWrapper::INSTANCE_KEY])) {
             throw new RuntimeError('The PhpSpreadsheetWrapper instance is missing.');
         }

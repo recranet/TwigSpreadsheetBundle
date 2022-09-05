@@ -8,6 +8,7 @@ use Twig\Node\Node;
 use Twig\Error\SyntaxError;
 use Twig\Node\Expression\AbstractExpression;
 use Twig\Node\Expression\ArrayExpression;
+
 /**
  * Class BaseTokenParser.
  */
@@ -16,17 +17,14 @@ abstract class BaseTokenParser extends AbstractTokenParser
     /**
      * @var int
      */
-    const PARAMETER_TYPE_ARRAY = 0;
+    public const PARAMETER_TYPE_ARRAY = 0;
 
     /**
      * @var int
      */
-    const PARAMETER_TYPE_VALUE = 1;
+    public const PARAMETER_TYPE_VALUE = 1;
 
-    /**
-     * @var array
-     */
-    private $attributes;
+    private array $attributes;
 
     /**
      * BaseTokenParser constructor.
@@ -160,7 +158,7 @@ abstract class BaseTokenParser extends AbstractTokenParser
     private function parseBody(): Node
     {
         // parse till matching end tag is found
-        $body = $this->parser->subparse(function (Token $token) { return $token->test('end'.$this->getTag()); }, true);
+        $body = $this->parser->subparse(fn(Token $token) => $token->test('end'.$this->getTag()), true);
         $this->parser->getStream()->expect(Token::BLOCK_END_TYPE);
         return $body;
     }

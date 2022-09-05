@@ -36,7 +36,7 @@ class RowTokenParser extends BaseTokenParser
     /**
      * {@inheritdoc}
      */
-    public function getTag()
+    public function getTag(): string
     {
         return 'xlsrow';
     }

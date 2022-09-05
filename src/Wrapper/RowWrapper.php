@@ -3,15 +3,13 @@
 namespace Recranet\TwigSpreadsheetBundle\Wrapper;
 
 use Twig\Environment;
+
 /**
  * Class SheetWrapper.
  */
 class RowWrapper extends BaseWrapper
 {
-    /**
-     * @var SheetWrapper
-     */
-    protected $sheetWrapper;
+    protected SheetWrapper $sheetWrapper;
 
     /**
      * RowWrapper constructor.
@@ -32,7 +30,7 @@ class RowWrapper extends BaseWrapper
      *
      * @throws \LogicException
      */
-    public function start(int $index = null)
+    public function start(int $index = null): void
     {
         if ($this->sheetWrapper->getObject() === null) {
             throw new \LogicException();
@@ -48,7 +46,7 @@ class RowWrapper extends BaseWrapper
     /**
      * @throws \LogicException
      */
-    public function end()
+    public function end(): void
     {
         if ($this->sheetWrapper->getObject() === null) {
             throw new \LogicException();

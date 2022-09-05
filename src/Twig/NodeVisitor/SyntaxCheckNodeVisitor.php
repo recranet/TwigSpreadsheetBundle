@@ -2,6 +2,7 @@
 
 namespace Recranet\TwigSpreadsheetBundle\Twig\NodeVisitor;
 
+use Twig\Environment;
 use Twig\NodeVisitor\AbstractNodeVisitor;
 use Twig\Error\SyntaxError;
 use Twig\Node\Node;
@@ -14,15 +15,12 @@ use Recranet\TwigSpreadsheetBundle\Twig\Node\DocumentNode;
  */
 class SyntaxCheckNodeVisitor extends AbstractNodeVisitor
 {
-    /**
-     * @var array
-     */
-    protected $path = [];
+    protected array $path = [];
 
     /**
      * {@inheritdoc}
      */
-    public function getPriority()
+    public function getPriority(): int
     {
         return 0;
     }
@@ -32,7 +30,7 @@ class SyntaxCheckNodeVisitor extends AbstractNodeVisitor
      *
      * @throws SyntaxError
      */
-    protected function doEnterNode(Node $node, \Twig\Environment $env)
+    protected function doEnterNode(Node $node, Environment $env): Node
     {
         try {
             if ($node instanceof BaseNode) {
@@ -54,7 +52,7 @@ class SyntaxCheckNodeVisitor extends AbstractNodeVisitor
     /**
      * {@inheritdoc}
      */
-    protected function doLeaveNode(Node $node, \Twig\Environment $env)
+    protected function doLeaveNode(Node $node, Environment $env): Node
     {
         array_pop($this->path);
 
@@ -66,7 +64,7 @@ class SyntaxCheckNodeVisitor extends AbstractNodeVisitor
      *
      * @throws SyntaxError
      */
-    private function checkAllowedChildren(Node $node)
+    private function checkAllowedChildren(Node $node): void
     {
         $hasDocumentNode = false;
         $hasTextNode = false;
@@ -94,7 +92,7 @@ class SyntaxCheckNodeVisitor extends AbstractNodeVisitor
      *
      * @throws SyntaxError
      */
-    private function checkAllowedParents(BaseNode $node)
+    private function checkAllowedParents(BaseNode $node): void
     {
         $parentName = null;
 

@@ -10,30 +10,20 @@ use PhpOffice\PhpSpreadsheet\Worksheet\HeaderFooter;
  */
 class HeaderFooterWrapper extends BaseWrapper
 {
-    const ALIGNMENT_CENTER = 'center';
-    const ALIGNMENT_LEFT = 'left';
-    const ALIGNMENT_RIGHT = 'right';
+    public const ALIGNMENT_CENTER = 'center';
+    public const ALIGNMENT_LEFT = 'left';
+    public const ALIGNMENT_RIGHT = 'right';
 
-    const BASETYPE_FOOTER = 'footer';
-    const BASETYPE_HEADER = 'header';
+    public const BASETYPE_FOOTER = 'footer';
+    public const BASETYPE_HEADER = 'header';
 
-    const TYPE_EVEN = 'even';
-    const TYPE_FIRST = 'first';
-    const TYPE_ODD = 'odd';
+    public const TYPE_EVEN = 'even';
+    public const TYPE_FIRST = 'first';
+    public const TYPE_ODD = 'odd';
 
-    /**
-     * @var SheetWrapper
-     */
-    protected $sheetWrapper;
-
-    /**
-     * @var HeaderFooter|null
-     */
-    protected $object;
-    /**
-     * @var array
-     */
-    protected $alignmentParameters;
+    protected SheetWrapper $sheetWrapper;
+    protected ?HeaderFooter $object;
+    protected array $alignmentParameters;
 
     /**
      * HeaderFooterWrapper constructor.
@@ -47,7 +37,6 @@ class HeaderFooterWrapper extends BaseWrapper
         parent::__construct($context, $environment);
 
         $this->sheetWrapper = $sheetWrapper;
-
         $this->object = null;
         $this->alignmentParameters = [];
     }
@@ -93,7 +82,7 @@ class HeaderFooterWrapper extends BaseWrapper
      * @throws \LogicException
      * @throws \RuntimeException
      */
-    public function start(string $baseType, string $type = null, array $properties = [])
+    public function start(string $baseType, string $type = null, array $properties = []): void
     {
         if ($this->sheetWrapper->getObject() === null) {
             throw new \LogicException();
@@ -120,7 +109,7 @@ class HeaderFooterWrapper extends BaseWrapper
      * @throws \InvalidArgumentException
      * @throws \LogicException
      */
-    public function end()
+    public function end(): void
     {
         if ($this->object === null) {
             throw new \LogicException();
@@ -177,7 +166,7 @@ class HeaderFooterWrapper extends BaseWrapper
      * @throws \InvalidArgumentException
      * @throws \LogicException
      */
-    public function startAlignment(string $alignment, array $properties = [])
+    public function startAlignment(string $alignment, array $properties = []): void
     {
         if ($this->object === null) {
             throw new \LogicException();
@@ -207,7 +196,7 @@ class HeaderFooterWrapper extends BaseWrapper
      * @throws \InvalidArgumentException
      * @throws \LogicException
      */
-    public function endAlignment($value)
+    public function endAlignment($value): void
     {
         if ($this->object === null || !isset($this->alignmentParameters['type'])) {
             throw new \LogicException();
@@ -223,7 +212,7 @@ class HeaderFooterWrapper extends BaseWrapper
     /**
      * @return null|HeaderFooter
      */
-    public function getObject()
+    public function getObject(): ?HeaderFooter
     {
         return $this->object;
     }
@@ -231,7 +220,7 @@ class HeaderFooterWrapper extends BaseWrapper
     /**
      * @param null|HeaderFooter $object
      */
-    public function setObject(HeaderFooter $object = null)
+    public function setObject(HeaderFooter $object = null): void
     {
         $this->object = $object;
     }
@@ -247,7 +236,7 @@ class HeaderFooterWrapper extends BaseWrapper
     /**
      * @param array $alignmentParameters
      */
-    public function setAlignmentParameters(array $alignmentParameters)
+    public function setAlignmentParameters(array $alignmentParameters): void
     {
         $this->alignmentParameters = $alignmentParameters;
     }

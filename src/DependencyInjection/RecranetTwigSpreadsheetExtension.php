@@ -17,7 +17,7 @@ class RecranetTwigSpreadsheetExtension extends ConfigurableExtension
      *
      * @throws \Exception
      */
-    protected function loadInternal(array $mergedConfig, ContainerBuilder $container)
+    protected function loadInternal(array $mergedConfig, ContainerBuilder $container): void
     {
         $loader = new YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.yml');

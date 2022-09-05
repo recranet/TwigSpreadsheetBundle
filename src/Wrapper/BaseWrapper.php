@@ -8,24 +8,10 @@ use Twig\Environment;
  */
 abstract class BaseWrapper
 {
-    /**
-     * @var array
-     */
-    protected $context;
-
-    /**
-     * @var Environment
-     */
-    protected $environment;
-
-    /**
-     * @var array
-     */
-    protected $parameters;
-    /**
-     * @var array
-     */
-    protected $mappings;
+    protected array $context;
+    protected Environment $environment;
+    protected array $parameters;
+    protected array $mappings;
 
     /**
      * BaseWrapper constructor.
@@ -37,7 +23,6 @@ abstract class BaseWrapper
     {
         $this->context = $context;
         $this->environment = $environment;
-
         $this->parameters = [];
         $this->mappings = $this->configureMappings();
     }

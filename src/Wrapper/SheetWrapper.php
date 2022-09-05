@@ -16,29 +16,17 @@ class SheetWrapper extends BaseWrapper
     /**
      * @var int
      */
-    const COLUMN_DEFAULT = 1;
+    public const COLUMN_DEFAULT = 1;
+
     /**
      * @var int
      */
-    const ROW_DEFAULT = 1;
+    public const ROW_DEFAULT = 1;
 
-    /**
-     * @var DocumentWrapper
-     */
-    protected $documentWrapper;
-
-    /**
-     * @var Worksheet|null
-     */
-    protected $object;
-    /**
-     * @var null|int
-     */
-    protected $row;
-    /**
-     * @var null|int
-     */
-    protected $column;
+    protected DocumentWrapper $documentWrapper;
+    protected ?Worksheet $object;
+    protected ?int $row;
+    protected ?int $column;
 
     /**
      * SheetWrapper constructor.
@@ -66,7 +54,7 @@ class SheetWrapper extends BaseWrapper
      * @throws \RuntimeException
      * @throws \LogicException
      */
-    public function start($index, array $properties = [])
+    public function start($index, array $properties = []): void
     {
         if ($this->documentWrapper->getObject() === null) {
             throw new \LogicException();
@@ -96,7 +84,7 @@ class SheetWrapper extends BaseWrapper
      * @throws \Exception
      * @throws \LogicException
      */
-    public function end()
+    public function end(): void
     {
         if ($this->object === null) {
             throw new \LogicException();
@@ -137,20 +125,17 @@ class SheetWrapper extends BaseWrapper
         $this->column = null;
     }
 
-    public function increaseRow()
+    public function increaseRow(): void
     {
         $this->row = $this->row === null ? self::ROW_DEFAULT : $this->row + 1;
     }
 
-    public function increaseColumn()
+    public function increaseColumn(): void
     {
         $this->column = $this->column === null ? self::COLUMN_DEFAULT : $this->column + 1;
     }
 
-    /**
-     * @return Worksheet
-     */
-    public function getObject(): Worksheet
+    public function getObject(): ?Worksheet
     {
         return $this->object;
     }
@@ -158,7 +143,7 @@ class SheetWrapper extends BaseWrapper
     /**
      * @param Worksheet $object
      */
-    public function setObject(Worksheet $object)
+    public function setObject(Worksheet $object): void
     {
         $this->object = $object;
     }
@@ -166,7 +151,7 @@ class SheetWrapper extends BaseWrapper
     /**
      * @return int|null
      */
-    public function getRow()
+    public function getRow(): ?int
     {
         return $this->row;
     }
@@ -174,7 +159,7 @@ class SheetWrapper extends BaseWrapper
     /**
      * @param int|null $row
      */
-    public function setRow($row)
+    public function setRow($row): void
     {
         $this->row = $row;
     }
@@ -182,7 +167,7 @@ class SheetWrapper extends BaseWrapper
     /**
      * @return int|null
      */
-    public function getColumn()
+    public function getColumn(): ?int
     {
         return $this->column;
     }
@@ -190,7 +175,7 @@ class SheetWrapper extends BaseWrapper
     /**
      * @param int|null $column
      */
-    public function setColumn($column)
+    public function setColumn($column): void
     {
         $this->column = $column;
     }
@@ -205,11 +190,9 @@ class SheetWrapper extends BaseWrapper
         return [
             'autoFilter' => function ($value) { $this->object->setAutoFilter($value); },
             'columnDimension' => [
-                '__multi' => function ($index = 'default'): ColumnDimension {
-                    return $index === 'default' ?
-                        $this->object->getDefaultColumnDimension() :
-                        $this->object->getColumnDimension($index);
-                },
+                '__multi' => fn($index = 'default'): ColumnDimension => $index === 'default' ?
+                    $this->object->getDefaultColumnDimension() :
+                    $this->object->getColumnDimension($index),
                 'autoSize' => function ($value, ColumnDimension $object) { $object->setAutoSize($value); },
                 'collapsed' => function ($value, ColumnDimension $object) { $object->setCollapsed($value); },
                 'columnIndex' => function ($value, ColumnDimension $object) { $object->setColumnIndex($value); },
@@ -259,11 +242,9 @@ class SheetWrapper extends BaseWrapper
             ],
             'rightToLeft' => function ($value) { $this->object->setRightToLeft($value); },
             'rowDimension' => [
-                '__multi' => function ($index = 'default'): RowDimension {
-                    return $index === 'default' ?
-                        $this->object->getDefaultRowDimension() :
-                        $this->object->getRowDimension($index);
-                },
+                '__multi' => fn($index = 'default'): RowDimension => $index === 'default' ?
+                    $this->object->getDefaultRowDimension() :
+                    $this->object->getRowDimension($index),
                 'collapsed' => function ($value, RowDimension $object) { $object->setCollapsed($value); },
                 'outlineLevel' => function ($value, RowDimension $object) { $object->setOutlineLevel($value); },
                 'rowHeight' => function ($value, RowDimension $object) { $object->setRowHeight($value); },

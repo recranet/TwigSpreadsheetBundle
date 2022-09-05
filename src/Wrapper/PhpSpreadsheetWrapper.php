@@ -5,6 +5,7 @@ namespace Recranet\TwigSpreadsheetBundle\Wrapper;
 use Twig\Environment;
 use PhpOffice\PhpSpreadsheet\Exception;
 use Symfony\Component\Filesystem\Exception\IOException;
+
 /**
  * Class PhpSpreadsheetWrapper.
  */
@@ -13,54 +14,14 @@ class PhpSpreadsheetWrapper
     /**
      * @var string
      */
-    const INSTANCE_KEY = '_tsb';
+    public const INSTANCE_KEY = '_tsb';
 
-    /**
-     * Copies the PhpSpreadsheetWrapper instance from 'varargs' to '_tsb'. This is necessary for all Twig code running
-     * in sub-functions (e.g. block, macro, ...) since the root context is lost. To fix the sub-context a reference to
-     * the PhpSpreadsheetWrapper instance is included in all function calls.
-     *
-     * @param array $context
-     *
-     * @return array
-     */
-    public static function fixContext(array $context): array
-    {
-        if (!isset($context[self::INSTANCE_KEY]) && isset($context['varargs']) && \is_array($context['varargs'])) {
-            foreach ($context['varargs'] as $arg) {
-                if ($arg instanceof self) {
-                    $context[self::INSTANCE_KEY] = $arg;
-                    break;
-                }
-            }
-        }
-        return $context;
-    }
-
-    /**
-     * @var DocumentWrapper
-     */
-    private $documentWrapper;
-    /**
-     * @var SheetWrapper
-     */
-    private $sheetWrapper;
-    /**
-     * @var RowWrapper
-     */
-    private $rowWrapper;
-    /**
-     * @var CellWrapper
-     */
-    private $cellWrapper;
-    /**
-     * @var HeaderFooterWrapper
-     */
-    private $headerFooterWrapper;
-    /**
-     * @var DrawingWrapper
-     */
-    private $drawingWrapper;
+    private DocumentWrapper $documentWrapper;
+    private SheetWrapper $sheetWrapper;
+    private RowWrapper $rowWrapper;
+    private CellWrapper $cellWrapper;
+    private HeaderFooterWrapper $headerFooterWrapper;
+    private DrawingWrapper $drawingWrapper;
 
     /**
      * PhpSpreadsheetWrapper constructor.
@@ -82,7 +43,7 @@ class PhpSpreadsheetWrapper
     /**
      * @return int|null
      */
-    public function getCurrentColumn()
+    public function getCurrentColumn(): ?int
     {
         return $this->sheetWrapper->getColumn();
     }
@@ -90,7 +51,7 @@ class PhpSpreadsheetWrapper
     /**
      * @return int|null
      */
-    public function getCurrentRow()
+    public function getCurrentRow(): ?int
     {
         return $this->sheetWrapper->getRow();
     }
@@ -102,7 +63,7 @@ class PhpSpreadsheetWrapper
      * @throws \PhpOffice\PhpSpreadsheet\Reader\Exception
      * @throws \RuntimeException
      */
-    public function startDocument(array $properties = [])
+    public function startDocument(array $properties = []): void
     {
         $this->documentWrapper->start($properties);
     }
@@ -115,7 +76,7 @@ class PhpSpreadsheetWrapper
      * @throws \PhpOffice\PhpSpreadsheet\Writer\Exception
      * @throws IOException
      */
-    public function endDocument()
+    public function endDocument(): void
     {
         $this->documentWrapper->end();
     }
@@ -128,7 +89,7 @@ class PhpSpreadsheetWrapper
      * @throws Exception
      * @throws \RuntimeException
      */
-    public function startSheet($index = null, array $properties = [])
+    public function startSheet($index = null, array $properties = []): void
     {
         $this->sheetWrapper->start($index, $properties);
     }
@@ -137,7 +98,7 @@ class PhpSpreadsheetWrapper
      * @throws \LogicException
      * @throws \Exception
      */
-    public function endSheet()
+    public function endSheet(): void
     {
         $this->sheetWrapper->end();
     }
@@ -147,7 +108,7 @@ class PhpSpreadsheetWrapper
      *
      * @throws \LogicException
      */
-    public function startRow(int $index = null)
+    public function startRow(int $index = null): void
     {
         $this->rowWrapper->start($index);
     }
@@ -155,7 +116,7 @@ class PhpSpreadsheetWrapper
     /**
      * @throws \LogicException
      */
-    public function endRow()
+    public function endRow(): void
     {
         $this->rowWrapper->end();
     }
@@ -168,7 +129,7 @@ class PhpSpreadsheetWrapper
      * @throws \LogicException
      * @throws \RuntimeException
      */
-    public function startCell(int $index = null, array $properties = [])
+    public function startCell(int $index = null, array $properties = []): void
     {
         $this->cellWrapper->start($index, $properties);
     }
@@ -178,12 +139,12 @@ class PhpSpreadsheetWrapper
      *
      * @throws Exception
      */
-    public function setCellValue($value = null)
+    public function setCellValue($value = null): void
     {
         $this->cellWrapper->value($value);
     }
 
-    public function endCell()
+    public function endCell(): void
     {
         $this->cellWrapper->end();
     }
@@ -197,7 +158,7 @@ class PhpSpreadsheetWrapper
      * @throws \RuntimeException
      * @throws \InvalidArgumentException
      */
-    public function startHeaderFooter(string $baseType, string $type = null, array $properties = [])
+    public function startHeaderFooter(string $baseType, string $type = null, array $properties = []): void
     {
         $this->headerFooterWrapper->start($baseType, $type, $properties);
     }
@@ -206,7 +167,7 @@ class PhpSpreadsheetWrapper
      * @throws \LogicException
      * @throws \InvalidArgumentException
      */
-    public function endHeaderFooter()
+    public function endHeaderFooter(): void
     {
         $this->headerFooterWrapper->end();
     }
@@ -218,7 +179,7 @@ class PhpSpreadsheetWrapper
      * @throws \InvalidArgumentException
      * @throws \LogicException
      */
-    public function startAlignment(string $type = null, array $properties = [])
+    public function startAlignment(string $type = null, array $properties = []): void
     {
         $this->headerFooterWrapper->startAlignment($type, $properties);
     }
@@ -229,7 +190,7 @@ class PhpSpreadsheetWrapper
      * @throws \InvalidArgumentException
      * @throws \LogicException
      */
-    public function endAlignment(string $value = null)
+    public function endAlignment(string $value = null): void
     {
         $this->headerFooterWrapper->endAlignment($value);
     }
@@ -244,13 +205,35 @@ class PhpSpreadsheetWrapper
      * @throws \RuntimeException
      * @throws Exception
      */
-    public function startDrawing(string $path, array $properties = [])
+    public function startDrawing(string $path, array $properties = []): void
     {
         $this->drawingWrapper->start($path, $properties);
     }
 
-    public function endDrawing()
+    public function endDrawing(): void
     {
         $this->drawingWrapper->end();
+    }
+
+    /**
+     * Copies the PhpSpreadsheetWrapper instance from 'varargs' to '_tsb'. This is necessary for all Twig code running
+     * in sub-functions (e.g. block, macro, ...) since the root context is lost. To fix the sub-context a reference to
+     * the PhpSpreadsheetWrapper instance is included in all function calls.
+     *
+     * @param array $context
+     *
+     * @return array
+     */
+    public static function fixContext(array $context): array
+    {
+        if (!isset($context[self::INSTANCE_KEY]) && isset($context['varargs']) && \is_array($context['varargs'])) {
+            foreach ($context['varargs'] as $arg) {
+                if ($arg instanceof self) {
+                    $context[self::INSTANCE_KEY] = $arg;
+                    break;
+                }
+            }
+        }
+        return $context;
     }
 }
