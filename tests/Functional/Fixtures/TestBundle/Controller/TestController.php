@@ -46,7 +46,7 @@ class TestController extends Controller
                     ['name' => 'Kena Kea', 'salary' => 4090.0],
                     ['name' => 'Evita Chittum', 'salary' => 4639.0],
                 ],
-                'kernelPath' => $this->get('kernel')->getRootDir(),
+                'kernelPath' => $this->get('kernel')->getProjectDir(),
             ]
         );
     }

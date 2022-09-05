@@ -59,8 +59,8 @@ abstract class BaseFunctionalTest extends WebTestCase
          * @var TestAppKernel $kernel
          */
         $kernel = parent::createKernel($options);
-        $kernel->setCacheDir(sprintf('%s/../../../var/cache/%s', $kernel->getRootDir(), str_replace('\\', DIRECTORY_SEPARATOR, static::class)));
-        $kernel->setLogDir(sprintf('%s/../../../var/logs/%s', $kernel->getRootDir(), str_replace('\\', DIRECTORY_SEPARATOR, static::class)));
+        $kernel->setCacheDir(sprintf('%s/../../../var/cache/%s', $kernel->getProjectDir(), str_replace('\\', DIRECTORY_SEPARATOR, static::class)));
+        $kernel->setLogDir(sprintf('%s/../../../var/logs/%s', $kernel->getProjectDir(), str_replace('\\', DIRECTORY_SEPARATOR, static::class)));
 
         return $kernel;
     }

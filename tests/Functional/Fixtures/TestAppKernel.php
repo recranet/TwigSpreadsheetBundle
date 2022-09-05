@@ -28,7 +28,6 @@ class TestAppKernel extends Kernel
         return [
             new \Symfony\Bundle\FrameworkBundle\FrameworkBundle(),
             new \Symfony\Bundle\TwigBundle\TwigBundle(),
-            new \Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new \Recranet\TwigSpreadsheetBundle\RecranetTwigSpreadsheetBundle(),
             new \Recranet\TwigSpreadsheetBundle\Tests\Functional\Fixtures\TestBundle\TestBundle(),
         ];
@@ -41,7 +40,7 @@ class TestAppKernel extends Kernel
      */
     public function registerContainerConfiguration(LoaderInterface $loader)
     {
-        $loader->load(sprintf('%s/config/config_%s.yml', $this->rootDir, $this->getEnvironment()));
+        $loader->load(sprintf('%s/config/config_%s.yml', $this->getProjectDir(), $this->getEnvironment()));
     }
 
     /**
