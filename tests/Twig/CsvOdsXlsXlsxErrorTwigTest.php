@@ -44,7 +44,7 @@ class CsvOdsXlsXlsxErrorTwigTest extends BaseTwigTest
     public function testDocumentErrorTextAfter($format)
     {
         $this->expectException(\Twig\Error\SyntaxError::class);
-        $this->expectExceptionMessage('Node "Twig_Node_Text" is not allowed after Node "Recranet\TwigSpreadsheetBundle\Twig\Node\DocumentNode"');
+        $this->expectExceptionMessage('Node "Twig\Node\TextNode" is not allowed after Node "Recranet\TwigSpreadsheetBundle\Twig\Node\DocumentNode"');
 
         $this->getDocument('documentErrorTextAfter', $format);
     }
@@ -59,7 +59,7 @@ class CsvOdsXlsXlsxErrorTwigTest extends BaseTwigTest
     public function testDocumentErrorTextBefore($format)
     {
         $this->expectException(\Twig\Error\SyntaxError::class);
-        $this->expectExceptionMessage('Node "Twig_Node_Text" is not allowed before Node "Recranet\TwigSpreadsheetBundle\Twig\Node\DocumentNode"');
+        $this->expectExceptionMessage('Node "Twig\Node\TextNode" is not allowed before Node "Recranet\TwigSpreadsheetBundle\Twig\Node\DocumentNode"');
 
         $this->getDocument('documentErrorTextBefore', $format);
     }
