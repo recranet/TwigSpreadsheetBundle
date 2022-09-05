@@ -2,15 +2,16 @@
 
 namespace Recranet\TwigSpreadsheetBundle\Twig\Node;
 
+use Twig\Compiler;
 /**
  * Class SheetNode.
  */
 class SheetNode extends BaseNode
 {
     /**
-     * @param \Twig\Compiler $compiler
+     * @param Compiler $compiler
      */
-    public function compile(\Twig\Compiler $compiler)
+    public function compile(Compiler $compiler)
     {
         $compiler->addDebugInfo($this)
             ->write(self::CODE_FIX_CONTEXT)

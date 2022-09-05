@@ -2,12 +2,19 @@
 
 namespace Recranet\TwigSpreadsheetBundle\Twig\NodeVisitor;
 
+use Twig\NodeVisitor\AbstractNodeVisitor;
+use Twig\Node\Node;
+use Twig\Environment;
+use Twig\Node\Expression\MethodCallExpression;
+use Twig\Node\Expression\ConstantExpression;
+use Twig\Node\Expression\NameExpression;
+use Twig\Node\Expression\ArrayExpression;
 use Recranet\TwigSpreadsheetBundle\Wrapper\PhpSpreadsheetWrapper;
 
 /**
  * Class MacroContextNodeVisitor.
  */
-class MacroContextNodeVisitor extends \Twig\NodeVisitor\AbstractNodeVisitor
+class MacroContextNodeVisitor extends AbstractNodeVisitor
 {
     /**
      * {@inheritdoc}
@@ -20,18 +27,18 @@ class MacroContextNodeVisitor extends \Twig\NodeVisitor\AbstractNodeVisitor
     /**
      * {@inheritdoc}
      */
-    protected function doEnterNode(\Twig\Node\Node $node, \Twig\Environment $env)
+    protected function doEnterNode(Node $node, Environment $env)
     {
         // add wrapper instance as argument on all method calls
-        if ($node instanceof \Twig\Node\Expression\MethodCallExpression) {
-            $keyNode = new \Twig\Node\Expression\ConstantExpression(PhpSpreadsheetWrapper::INSTANCE_KEY, $node->getTemplateLine());
+        if ($node instanceof MethodCallExpression) {
+            $keyNode = new ConstantExpression(PhpSpreadsheetWrapper::INSTANCE_KEY, $node->getTemplateLine());
 
             // add wrapper even if it not exists, we fix that later
-            $valueNode = new \Twig\Node\Expression\NameExpression(PhpSpreadsheetWrapper::INSTANCE_KEY, $node->getTemplateLine());
+            $valueNode = new NameExpression(PhpSpreadsheetWrapper::INSTANCE_KEY, $node->getTemplateLine());
             $valueNode->setAttribute('ignore_strict_check', true);
 
             /**
-             * @var \Twig\Node\Expression\ArrayExpression $argumentsNode
+             * @var ArrayExpression $argumentsNode
              */
             $argumentsNode = $node->getNode('arguments');
             $argumentsNode->addElement($valueNode, $keyNode);
@@ -43,7 +50,7 @@ class MacroContextNodeVisitor extends \Twig\NodeVisitor\AbstractNodeVisitor
     /**
      * {@inheritdoc}
      */
-    protected function doLeaveNode(\Twig\Node\Node $node, \Twig\Environment $env)
+    protected function doLeaveNode(Node $node, Environment $env)
     {
         return $node;
     }

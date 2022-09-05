@@ -2,6 +2,7 @@
 
 namespace Recranet\TwigSpreadsheetBundle\Wrapper;
 
+use Twig\Environment;
 use PhpOffice\PhpSpreadsheet\Worksheet\HeaderFooter;
 
 /**
@@ -38,10 +39,10 @@ class HeaderFooterWrapper extends BaseWrapper
      * HeaderFooterWrapper constructor.
      *
      * @param array             $context
-     * @param \Twig\Environment $environment
+     * @param Environment $environment
      * @param SheetWrapper      $sheetWrapper
      */
-    public function __construct(array $context, \Twig\Environment $environment, SheetWrapper $sheetWrapper)
+    public function __construct(array $context, Environment $environment, SheetWrapper $sheetWrapper)
     {
         parent::__construct($context, $environment);
 

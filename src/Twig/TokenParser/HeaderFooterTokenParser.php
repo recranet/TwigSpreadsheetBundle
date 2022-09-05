@@ -2,6 +2,10 @@
 
 namespace Recranet\TwigSpreadsheetBundle\Twig\TokenParser;
 
+use Twig\Token;
+use Twig\Node\Expression\ConstantExpression;
+use Twig\Node\Expression\ArrayExpression;
+use Twig\Node\Node;
 use Recranet\TwigSpreadsheetBundle\Twig\Node\HeaderFooterNode;
 use Recranet\TwigSpreadsheetBundle\Wrapper\HeaderFooterWrapper;
 
@@ -33,16 +37,16 @@ class HeaderFooterTokenParser extends BaseTokenParser
     /**
      * {@inheritdoc}
      */
-    public function configureParameters(\Twig\Token $token): array
+    public function configureParameters(Token $token): array
     {
         return [
             'type' => [
                 'type' => self::PARAMETER_TYPE_VALUE,
-                'default' => new \Twig\Node\Expression\ConstantExpression(null, $token->getLine()),
+                'default' => new ConstantExpression(null, $token->getLine()),
             ],
             'properties' => [
                 'type' => self::PARAMETER_TYPE_ARRAY,
-                'default' => new \Twig\Node\Expression\ArrayExpression([], $token->getLine()),
+                'default' => new ArrayExpression([], $token->getLine()),
             ],
         ];
     }
@@ -52,7 +56,7 @@ class HeaderFooterTokenParser extends BaseTokenParser
      *
      * @throws \InvalidArgumentException
      */
-    public function createNode(array $nodes = [], int $lineNo = 0): \Twig\Node\Node
+    public function createNode(array $nodes = [], int $lineNo = 0): Node
     {
         return new HeaderFooterNode($nodes, $this->getAttributes(), $lineNo, $this->getTag(), $this->baseType);
     }

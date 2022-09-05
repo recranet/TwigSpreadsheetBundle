@@ -2,6 +2,9 @@
 
 namespace Recranet\TwigSpreadsheetBundle\Wrapper;
 
+use Twig\Environment;
+use PhpOffice\PhpSpreadsheet\Exception;
+use Symfony\Component\Filesystem\Exception\IOException;
 /**
  * Class PhpSpreadsheetWrapper.
  */
@@ -63,10 +66,10 @@ class PhpSpreadsheetWrapper
      * PhpSpreadsheetWrapper constructor.
      *
      * @param array             $context
-     * @param \Twig\Environment $environment
+     * @param Environment $environment
      * @param array             $attributes
      */
-    public function __construct(array $context, \Twig\Environment $environment, array $attributes = [])
+    public function __construct(array $context, Environment $environment, array $attributes = [])
     {
         $this->documentWrapper = new DocumentWrapper($context, $environment, $attributes);
         $this->sheetWrapper = new SheetWrapper($context, $environment, $this->documentWrapper);
@@ -95,7 +98,7 @@ class PhpSpreadsheetWrapper
     /**
      * @param array $properties
      *
-     * @throws \PhpOffice\PhpSpreadsheet\Exception
+     * @throws Exception
      * @throws \PhpOffice\PhpSpreadsheet\Reader\Exception
      * @throws \RuntimeException
      */
@@ -108,9 +111,9 @@ class PhpSpreadsheetWrapper
      * @throws \RuntimeException
      * @throws \LogicException
      * @throws \InvalidArgumentException
-     * @throws \PhpOffice\PhpSpreadsheet\Exception
+     * @throws Exception
      * @throws \PhpOffice\PhpSpreadsheet\Writer\Exception
-     * @throws \Symfony\Component\Filesystem\Exception\IOException
+     * @throws IOException
      */
     public function endDocument()
     {
@@ -122,7 +125,7 @@ class PhpSpreadsheetWrapper
      * @param array $properties
      *
      * @throws \LogicException
-     * @throws \PhpOffice\PhpSpreadsheet\Exception
+     * @throws Exception
      * @throws \RuntimeException
      */
     public function startSheet($index = null, array $properties = [])
@@ -173,7 +176,7 @@ class PhpSpreadsheetWrapper
     /**
      * @param null|mixed $value
      *
-     * @throws \PhpOffice\PhpSpreadsheet\Exception
+     * @throws Exception
      */
     public function setCellValue($value = null)
     {
@@ -235,11 +238,11 @@ class PhpSpreadsheetWrapper
      * @param string $path
      * @param array $properties
      *
-     * @throws \Symfony\Component\Filesystem\Exception\IOException
+     * @throws IOException
      * @throws \InvalidArgumentException
      * @throws \LogicException
      * @throws \RuntimeException
-     * @throws \PhpOffice\PhpSpreadsheet\Exception
+     * @throws Exception
      */
     public function startDrawing(string $path, array $properties = [])
     {

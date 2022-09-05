@@ -2,6 +2,7 @@
 
 namespace Recranet\TwigSpreadsheetBundle\Wrapper;
 
+use Twig\Environment;
 use PhpOffice\PhpSpreadsheet\Exception;
 use PhpOffice\PhpSpreadsheet\Worksheet\Worksheet;
 use PhpOffice\PhpSpreadsheet\Worksheet\ColumnDimension;
@@ -43,10 +44,10 @@ class SheetWrapper extends BaseWrapper
      * SheetWrapper constructor.
      *
      * @param array             $context
-     * @param \Twig\Environment $environment
+     * @param Environment $environment
      * @param DocumentWrapper   $documentWrapper
      */
-    public function __construct(array $context, \Twig\Environment $environment, DocumentWrapper $documentWrapper)
+    public function __construct(array $context, Environment $environment, DocumentWrapper $documentWrapper)
     {
         parent::__construct($context, $environment);
 
@@ -61,7 +62,7 @@ class SheetWrapper extends BaseWrapper
      * @param int|string|null $index
      * @param array $properties
      *
-     * @throws \PhpOffice\PhpSpreadsheet\Exception
+     * @throws Exception
      * @throws \RuntimeException
      * @throws \LogicException
      */
@@ -197,7 +198,7 @@ class SheetWrapper extends BaseWrapper
     /**
      * {@inheritdoc}
      *
-     * @throws \PhpOffice\PhpSpreadsheet\Exception
+     * @throws Exception
      */
     protected function configureMappings(): array
     {

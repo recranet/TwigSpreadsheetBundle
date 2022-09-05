@@ -2,6 +2,10 @@
 
 namespace Recranet\TwigSpreadsheetBundle\Wrapper;
 
+use Twig\Environment;
+use PhpOffice\PhpSpreadsheet\Reader\Exception;
+use Symfony\Component\Filesystem\Exception\IOException;
+use Twig\Loader\FilesystemLoader;
 use Recranet\TwigSpreadsheetBundle\Helper\Filesystem;
 use PhpOffice\PhpSpreadsheet\IOFactory;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
@@ -27,10 +31,10 @@ class DocumentWrapper extends BaseWrapper
      * DocumentWrapper constructor.
      *
      * @param array             $context
-     * @param \Twig\Environment $environment
+     * @param Environment $environment
      * @param array             $attributes
      */
-    public function __construct(array $context, \Twig\Environment $environment, array $attributes = [])
+    public function __construct(array $context, Environment $environment, array $attributes = [])
     {
         parent::__construct($context, $environment);
 
@@ -42,7 +46,7 @@ class DocumentWrapper extends BaseWrapper
      * @param array $properties
      *
      * @throws \RuntimeException
-     * @throws \PhpOffice\PhpSpreadsheet\Reader\Exception
+     * @throws Exception
      * @throws \PhpOffice\PhpSpreadsheet\Exception
      */
     public function start(array $properties = [])
@@ -71,7 +75,7 @@ class DocumentWrapper extends BaseWrapper
      * @throws \InvalidArgumentException
      * @throws \PhpOffice\PhpSpreadsheet\Exception
      * @throws \PhpOffice\PhpSpreadsheet\Writer\Exception
-     * @throws \Symfony\Component\Filesystem\Exception\IOException
+     * @throws IOException
      */
     public function end()
     {
@@ -197,7 +201,7 @@ class DocumentWrapper extends BaseWrapper
     {
         $loader = $this->environment->getLoader();
 
-        if ($loader instanceof \Twig\Loader\FilesystemLoader && mb_strpos($path, '@') === 0) {
+        if ($loader instanceof FilesystemLoader && mb_strpos($path, '@') === 0) {
             /*
              * @var \Twig_Loader_Filesystem
              */

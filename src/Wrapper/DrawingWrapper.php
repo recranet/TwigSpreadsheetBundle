@@ -2,6 +2,9 @@
 
 namespace Recranet\TwigSpreadsheetBundle\Wrapper;
 
+use Twig\Environment;
+use Symfony\Component\Filesystem\Exception\IOException;
+use PhpOffice\PhpSpreadsheet\Exception;
 use Recranet\TwigSpreadsheetBundle\Helper\Filesystem;
 use PhpOffice\PhpSpreadsheet\Worksheet\Drawing;
 use PhpOffice\PhpSpreadsheet\Worksheet\HeaderFooterDrawing;
@@ -33,12 +36,12 @@ class DrawingWrapper extends BaseWrapper
      * DrawingWrapper constructor.
      *
      * @param array               $context
-     * @param \Twig\Environment $environment
+     * @param Environment $environment
      * @param SheetWrapper        $sheetWrapper
      * @param HeaderFooterWrapper $headerFooterWrapper
      * @param array             $attributes
      */
-    public function __construct(array $context, \Twig\Environment $environment, SheetWrapper $sheetWrapper, HeaderFooterWrapper $headerFooterWrapper, array $attributes = [])
+    public function __construct(array $context, Environment $environment, SheetWrapper $sheetWrapper, HeaderFooterWrapper $headerFooterWrapper, array $attributes = [])
     {
         parent::__construct($context, $environment);
 
@@ -53,11 +56,11 @@ class DrawingWrapper extends BaseWrapper
      * @param string $path
      * @param array $properties
      *
-     * @throws \Symfony\Component\Filesystem\Exception\IOException
+     * @throws IOException
      * @throws \LogicException
      * @throws \InvalidArgumentException
      * @throws \RuntimeException
-     * @throws \PhpOffice\PhpSpreadsheet\Exception
+     * @throws Exception
      */
     public function start(string $path, array $properties = [])
     {
@@ -162,7 +165,7 @@ class DrawingWrapper extends BaseWrapper
      * @param string $path
      *
      * @throws \InvalidArgumentException
-     * @throws \Symfony\Component\Filesystem\Exception\IOException
+     * @throws IOException
      *
      * @return string
      */

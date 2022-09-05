@@ -2,6 +2,7 @@
 
 namespace Recranet\TwigSpreadsheetBundle\Twig\Node;
 
+use Twig\Compiler;
 use Recranet\TwigSpreadsheetBundle\Wrapper\HeaderFooterWrapper;
 
 /**
@@ -33,9 +34,9 @@ class AlignmentNode extends BaseNode
     }
 
     /**
-     * @param \Twig\Compiler $compiler
+     * @param Compiler $compiler
      */
-    public function compile(\Twig\Compiler $compiler)
+    public function compile(Compiler $compiler)
     {
         $compiler->addDebugInfo($this)
             ->write(self::CODE_FIX_CONTEXT)

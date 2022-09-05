@@ -2,6 +2,8 @@
 
 namespace Recranet\TwigSpreadsheetBundle\Wrapper;
 
+use Twig\Environment;
+use PhpOffice\PhpSpreadsheet\Exception;
 use PhpOffice\PhpSpreadsheet\Cell\Cell;
 use PhpOffice\PhpSpreadsheet\Cell\Coordinate;
 
@@ -24,10 +26,10 @@ class CellWrapper extends BaseWrapper
      * CellWrapper constructor.
      *
      * @param array             $context
-     * @param \Twig\Environment $environment
+     * @param Environment $environment
      * @param SheetWrapper      $sheetWrapper
      */
-    public function __construct(array $context, \Twig\Environment $environment, SheetWrapper $sheetWrapper)
+    public function __construct(array $context, Environment $environment, SheetWrapper $sheetWrapper)
     {
         parent::__construct($context, $environment);
 
@@ -68,7 +70,7 @@ class CellWrapper extends BaseWrapper
     /**
      * @param mixed|null $value
      *
-     * @throws \PhpOffice\PhpSpreadsheet\Exception
+     * @throws Exception
      */
     public function value($value = null)
     {
@@ -108,7 +110,7 @@ class CellWrapper extends BaseWrapper
     /**
      * {@inheritdoc}
      *
-     * @throws \PhpOffice\PhpSpreadsheet\Exception
+     * @throws Exception
      */
     protected function configureMappings(): array
     {

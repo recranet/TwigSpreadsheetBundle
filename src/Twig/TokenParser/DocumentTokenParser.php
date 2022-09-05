@@ -2,6 +2,9 @@
 
 namespace Recranet\TwigSpreadsheetBundle\Twig\TokenParser;
 
+use Twig\Token;
+use Twig\Node\Expression\ArrayExpression;
+use Twig\Node\Node;
 use Recranet\TwigSpreadsheetBundle\Twig\Node\DocumentNode;
 
 /**
@@ -12,12 +15,12 @@ class DocumentTokenParser extends BaseTokenParser
     /**
      * {@inheritdoc}
      */
-    public function configureParameters(\Twig\Token $token): array
+    public function configureParameters(Token $token): array
     {
         return [
             'properties' => [
                 'type' => self::PARAMETER_TYPE_ARRAY,
-                'default' => new \Twig\Node\Expression\ArrayExpression([], $token->getLine()),
+                'default' => new ArrayExpression([], $token->getLine()),
             ],
         ];
     }
@@ -25,7 +28,7 @@ class DocumentTokenParser extends BaseTokenParser
     /**
      * {@inheritdoc}
      */
-    public function createNode(array $nodes = [], int $lineNo = 0): \Twig\Node\Node
+    public function createNode(array $nodes = [], int $lineNo = 0): Node
     {
         return new DocumentNode($nodes, $this->getAttributes(), $lineNo, $this->getTag());
     }

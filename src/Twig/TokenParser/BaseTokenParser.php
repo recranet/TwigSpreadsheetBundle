@@ -2,10 +2,16 @@
 
 namespace Recranet\TwigSpreadsheetBundle\Twig\TokenParser;
 
+use Twig\TokenParser\AbstractTokenParser;
+use Twig\Token;
+use Twig\Node\Node;
+use Twig\Error\SyntaxError;
+use Twig\Node\Expression\AbstractExpression;
+use Twig\Node\Expression\ArrayExpression;
 /**
  * Class BaseTokenParser.
  */
-abstract class BaseTokenParser extends \Twig\TokenParser\AbstractTokenParser
+abstract class BaseTokenParser extends AbstractTokenParser
 {
     /**
      * @var int
@@ -33,11 +39,11 @@ abstract class BaseTokenParser extends \Twig\TokenParser\AbstractTokenParser
     }
 
     /**
-     * @param \Twig\Token $token
+     * @param Token $token
      *
      * @return array
      */
-    public function configureParameters(\Twig\Token $token): array
+    public function configureParameters(Token $token): array
     {
         return [];
     }
@@ -56,9 +62,9 @@ abstract class BaseTokenParser extends \Twig\TokenParser\AbstractTokenParser
      * @param array $nodes
      * @param int   $lineNo
      *
-     * @return \Twig\Node\Node
+     * @return Node
      */
-    abstract public function createNode(array $nodes = [], int $lineNo = 0): \Twig\Node\Node;
+    abstract public function createNode(array $nodes = [], int $lineNo = 0): Node;
 
     /**
      * @return bool
@@ -74,7 +80,7 @@ abstract class BaseTokenParser extends \Twig\TokenParser\AbstractTokenParser
      * @throws \Exception
      * @throws \InvalidArgumentException
      */
-    public function parse(\Twig\Token $token)
+    public function parse(Token $token)
     {
         // parse parameters
         $nodes = $this->parseParameters($this->configureParameters($token));
@@ -92,20 +98,20 @@ abstract class BaseTokenParser extends \Twig\TokenParser\AbstractTokenParser
      *
      * @throws \Exception
      * @throws \InvalidArgumentException
-     * @throws \Twig\Error\SyntaxError
+     * @throws SyntaxError
      *
-     * @return \Twig\Node\Expression\AbstractExpression[]
+     * @return AbstractExpression[]
      */
     private function parseParameters(array $parameterConfiguration = []): array
     {
         // parse expressions
         $expressions = [];
-        while (!$this->parser->getStream()->test(\Twig\Token::BLOCK_END_TYPE)) {
+        while (!$this->parser->getStream()->test(Token::BLOCK_END_TYPE)) {
             $expressions[] = $this->parser->getExpressionParser()->parseExpression();
         }
 
         // end of expressions
-        $this->parser->getStream()->expect(\Twig\Token::BLOCK_END_TYPE);
+        $this->parser->getStream()->expect(Token::BLOCK_END_TYPE);
 
         // map expressions to parameters
         $parameters = [];
@@ -116,11 +122,11 @@ abstract class BaseTokenParser extends \Twig\TokenParser\AbstractTokenParser
                 switch ($parameterOptions['type']) {
                     case self::PARAMETER_TYPE_ARRAY:
                         // check if expression is valid array
-                        $valid = $expression instanceof \Twig\Node\Expression\ArrayExpression;
+                        $valid = $expression instanceof ArrayExpression;
                         break;
                     case self::PARAMETER_TYPE_VALUE:
                         // check if expression is valid value
-                        $valid = !($expression instanceof \Twig\Node\Expression\ArrayExpression);
+                        $valid = !($expression instanceof ArrayExpression);
                         break;
                     default:
                         throw new \InvalidArgumentException('Invalid parameter type');
@@ -135,27 +141,27 @@ abstract class BaseTokenParser extends \Twig\TokenParser\AbstractTokenParser
 
             // set default as parameter otherwise or throw exception if default is false
             if ($parameterOptions['default'] === false) {
-                throw new \Twig\Error\SyntaxError('A required parameter is missing');
+                throw new SyntaxError('A required parameter is missing');
             }
             $parameters[$parameterName] = $parameterOptions['default'];
         }
 
         if (\count($expressions) > 0) {
-            throw new \Twig\Error\SyntaxError('Too many parameters');
+            throw new SyntaxError('Too many parameters');
         }
 
         return $parameters;
     }
 
     /**
-     * @return \Twig\Node\Node
-     * @throws \Twig\Error\SyntaxError
+     * @return Node
+     * @throws SyntaxError
      */
-    private function parseBody(): \Twig\Node\Node
+    private function parseBody(): Node
     {
         // parse till matching end tag is found
-        $body = $this->parser->subparse(function (\Twig\Token $token) { return $token->test('end'.$this->getTag()); }, true);
-        $this->parser->getStream()->expect(\Twig\Token::BLOCK_END_TYPE);
+        $body = $this->parser->subparse(function (Token $token) { return $token->test('end'.$this->getTag()); }, true);
+        $this->parser->getStream()->expect(Token::BLOCK_END_TYPE);
         return $body;
     }
 }

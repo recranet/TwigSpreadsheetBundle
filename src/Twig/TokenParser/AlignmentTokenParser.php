@@ -2,6 +2,7 @@
 
 namespace Recranet\TwigSpreadsheetBundle\Twig\TokenParser;
 
+use Twig\Node\Node;
 use Recranet\TwigSpreadsheetBundle\Twig\Node\AlignmentNode;
 use Recranet\TwigSpreadsheetBundle\Wrapper\HeaderFooterWrapper;
 
@@ -35,7 +36,7 @@ class AlignmentTokenParser extends BaseTokenParser
      *
      * @throws \InvalidArgumentException
      */
-    public function createNode(array $nodes = [], int $lineNo = 0): \Twig\Node\Node
+    public function createNode(array $nodes = [], int $lineNo = 0): Node
     {
         return new AlignmentNode($nodes, $this->getAttributes(), $lineNo, $this->getTag(), $this->alignment);
     }

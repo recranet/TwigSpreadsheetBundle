@@ -2,6 +2,7 @@
 
 namespace Recranet\TwigSpreadsheetBundle\Twig\Node;
 
+use Twig\Compiler;
 use Recranet\TwigSpreadsheetBundle\Wrapper\PhpSpreadsheetWrapper;
 
 /**
@@ -10,9 +11,9 @@ use Recranet\TwigSpreadsheetBundle\Wrapper\PhpSpreadsheetWrapper;
 class DocumentNode extends BaseNode
 {
     /**
-     * @param \Twig\Compiler $compiler
+     * @param Compiler $compiler
      */
-    public function compile(\Twig\Compiler $compiler)
+    public function compile(Compiler $compiler)
     {
         $compiler->addDebugInfo($this)
             ->write("ob_start();\n")

@@ -2,12 +2,13 @@
 
 namespace Recranet\TwigSpreadsheetBundle\Twig\Node;
 
+use Twig\Node\Node;
 use Recranet\TwigSpreadsheetBundle\Wrapper\PhpSpreadsheetWrapper;
 
 /**
  * Class BaseNode.
  */
-abstract class BaseNode extends \Twig\Node\Node
+abstract class BaseNode extends Node
 {
     /**
      * @var string
