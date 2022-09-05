@@ -106,7 +106,7 @@ abstract class BaseFunctionalTest extends WebTestCase
      *
      * @return Response
      */
-    protected function getResponse(string $routeName, array $routeParameters = []): Response
+    protected static function getResponse(string $routeName, array $routeParameters = []): Response
     {
         /**
          * @var Router $router
