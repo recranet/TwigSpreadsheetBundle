@@ -78,7 +78,7 @@ abstract class BaseTokenParser extends AbstractTokenParser
      * @throws \Exception
      * @throws \InvalidArgumentException
      */
-    public function parse(Token $token)
+    public function parse(Token $token): Node
     {
         // parse parameters
         $nodes = $this->parseParameters($this->configureParameters($token));
