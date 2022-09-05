@@ -247,8 +247,12 @@ class HeaderFooterWrapper extends BaseWrapper
     protected function configureMappings(): array
     {
         return [
-            'scaleWithDocument' => function ($value) { $this->object->setScaleWithDocument($value); },
-            'alignWithMargins' => function ($value) { $this->object->setAlignWithMargins($value); },
+            'scaleWithDocument' => function ($value) {
+                $this->object->setScaleWithDocument($value);
+            },
+            'alignWithMargins' => function ($value) {
+                $this->object->setAlignWithMargins($value);
+            },
         ];
     }
 }

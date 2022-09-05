@@ -123,24 +123,56 @@ class DrawingWrapper extends BaseWrapper
     protected function configureMappings(): array
     {
         return [
-            'coordinates' => function ($value) { $this->object->setCoordinates($value); },
-            'description' => function ($value) { $this->object->setDescription($value); },
-            'height' => function ($value) { $this->object->setHeight($value); },
-            'name' => function ($value) { $this->object->setName($value); },
-            'offsetX' => function ($value) { $this->object->setOffsetX($value); },
-            'offsetY' => function ($value) { $this->object->setOffsetY($value); },
-            'resizeProportional' => function ($value) { $this->object->setResizeProportional($value); },
-            'rotation' => function ($value) { $this->object->setRotation($value); },
+            'coordinates' => function ($value) {
+                $this->object->setCoordinates($value);
+            },
+            'description' => function ($value) {
+                $this->object->setDescription($value);
+            },
+            'height' => function ($value) {
+                $this->object->setHeight($value);
+            },
+            'name' => function ($value) {
+                $this->object->setName($value);
+            },
+            'offsetX' => function ($value) {
+                $this->object->setOffsetX($value);
+            },
+            'offsetY' => function ($value) {
+                $this->object->setOffsetY($value);
+            },
+            'resizeProportional' => function ($value) {
+                $this->object->setResizeProportional($value);
+            },
+            'rotation' => function ($value) {
+                $this->object->setRotation($value);
+            },
             'shadow' => [
-                'alignment' => function ($value) { $this->object->getShadow()->setAlignment($value); },
-                'alpha' => function ($value) { $this->object->getShadow()->setAlpha($value); },
-                'blurRadius' => function ($value) { $this->object->getShadow()->setBlurRadius($value); },
-                'color' => function ($value) { $this->object->getShadow()->getColor()->setRGB($value); },
-                'direction' => function ($value) { $this->object->getShadow()->setDirection($value); },
-                'distance' => function ($value) { $this->object->getShadow()->setDistance($value); },
-                'visible' => function ($value) { $this->object->getShadow()->setVisible($value); },
+                'alignment' => function ($value) {
+                    $this->object->getShadow()->setAlignment($value);
+                },
+                'alpha' => function ($value) {
+                    $this->object->getShadow()->setAlpha($value);
+                },
+                'blurRadius' => function ($value) {
+                    $this->object->getShadow()->setBlurRadius($value);
+                },
+                'color' => function ($value) {
+                    $this->object->getShadow()->getColor()->setRGB($value);
+                },
+                'direction' => function ($value) {
+                    $this->object->getShadow()->setDirection($value);
+                },
+                'distance' => function ($value) {
+                    $this->object->getShadow()->setDistance($value);
+                },
+                'visible' => function ($value) {
+                    $this->object->getShadow()->setVisible($value);
+                },
             ],
-            'width' => function ($value) { $this->object->setWidth($value); },
+            'width' => function ($value) {
+                $this->object->setWidth($value);
+            },
         ];
     }
 

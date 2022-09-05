@@ -188,75 +188,181 @@ class SheetWrapper extends BaseWrapper
     protected function configureMappings(): array
     {
         return [
-            'autoFilter' => function ($value) { $this->object->setAutoFilter($value); },
+            'autoFilter' => function ($value) {
+                $this->object->setAutoFilter($value);
+            },
             'columnDimension' => [
-                '__multi' => fn($index = 'default'): ColumnDimension => $index === 'default' ?
+                '__multi' => fn ($index = 'default'): ColumnDimension => $index === 'default' ?
                     $this->object->getDefaultColumnDimension() :
                     $this->object->getColumnDimension($index),
-                'autoSize' => function ($value, ColumnDimension $object) { $object->setAutoSize($value); },
-                'collapsed' => function ($value, ColumnDimension $object) { $object->setCollapsed($value); },
-                'columnIndex' => function ($value, ColumnDimension $object) { $object->setColumnIndex($value); },
-                'outlineLevel' => function ($value, ColumnDimension $object) { $object->setOutlineLevel($value); },
-                'visible' => function ($value, ColumnDimension $object) { $object->setVisible($value); },
-                'width' => function ($value, ColumnDimension $object) { $object->setWidth($value); },
-                'xfIndex' => function ($value, ColumnDimension $object) { $object->setXfIndex($value); },
+                'autoSize' => function ($value, ColumnDimension $object) {
+                    $object->setAutoSize($value);
+                },
+                'collapsed' => function ($value, ColumnDimension $object) {
+                    $object->setCollapsed($value);
+                },
+                'columnIndex' => function ($value, ColumnDimension $object) {
+                    $object->setColumnIndex($value);
+                },
+                'outlineLevel' => function ($value, ColumnDimension $object) {
+                    $object->setOutlineLevel($value);
+                },
+                'visible' => function ($value, ColumnDimension $object) {
+                    $object->setVisible($value);
+                },
+                'width' => function ($value, ColumnDimension $object) {
+                    $object->setWidth($value);
+                },
+                'xfIndex' => function ($value, ColumnDimension $object) {
+                    $object->setXfIndex($value);
+                },
             ],
             'pageMargins' => [
-                'top' => function ($value) { $this->object->getPageMargins()->setTop($value); },
-                'bottom' => function ($value) { $this->object->getPageMargins()->setBottom($value); },
-                'left' => function ($value) { $this->object->getPageMargins()->setLeft($value); },
-                'right' => function ($value) { $this->object->getPageMargins()->setRight($value); },
-                'header' => function ($value) { $this->object->getPageMargins()->setHeader($value); },
-                'footer' => function ($value) { $this->object->getPageMargins()->setFooter($value); },
+                'top' => function ($value) {
+                    $this->object->getPageMargins()->setTop($value);
+                },
+                'bottom' => function ($value) {
+                    $this->object->getPageMargins()->setBottom($value);
+                },
+                'left' => function ($value) {
+                    $this->object->getPageMargins()->setLeft($value);
+                },
+                'right' => function ($value) {
+                    $this->object->getPageMargins()->setRight($value);
+                },
+                'header' => function ($value) {
+                    $this->object->getPageMargins()->setHeader($value);
+                },
+                'footer' => function ($value) {
+                    $this->object->getPageMargins()->setFooter($value);
+                },
             ],
             'pageSetup' => [
-                'fitToHeight' => function ($value) { $this->object->getPageSetup()->setFitToHeight($value); },
-                'fitToPage' => function ($value) { $this->object->getPageSetup()->setFitToPage($value); },
-                'fitToWidth' => function ($value) { $this->object->getPageSetup()->setFitToWidth($value); },
-                'horizontalCentered' => function ($value) { $this->object->getPageSetup()->setHorizontalCentered($value); },
-                'orientation' => function ($value) { $this->object->getPageSetup()->setOrientation($value); },
-                'paperSize' => function ($value) { $this->object->getPageSetup()->setPaperSize($value); },
-                'printArea' => function ($value) { $this->object->getPageSetup()->setPrintArea($value); },
-                'scale' => function ($value) { $this->object->getPageSetup()->setScale($value); },
-                'verticalCentered' => function ($value) { $this->object->getPageSetup()->setVerticalCentered($value); },
+                'fitToHeight' => function ($value) {
+                    $this->object->getPageSetup()->setFitToHeight($value);
+                },
+                'fitToPage' => function ($value) {
+                    $this->object->getPageSetup()->setFitToPage($value);
+                },
+                'fitToWidth' => function ($value) {
+                    $this->object->getPageSetup()->setFitToWidth($value);
+                },
+                'horizontalCentered' => function ($value) {
+                    $this->object->getPageSetup()->setHorizontalCentered($value);
+                },
+                'orientation' => function ($value) {
+                    $this->object->getPageSetup()->setOrientation($value);
+                },
+                'paperSize' => function ($value) {
+                    $this->object->getPageSetup()->setPaperSize($value);
+                },
+                'printArea' => function ($value) {
+                    $this->object->getPageSetup()->setPrintArea($value);
+                },
+                'scale' => function ($value) {
+                    $this->object->getPageSetup()->setScale($value);
+                },
+                'verticalCentered' => function ($value) {
+                    $this->object->getPageSetup()->setVerticalCentered($value);
+                },
             ],
-            'printGridlines' => function ($value) { $this->object->setPrintGridlines($value); },
+            'printGridlines' => function ($value) {
+                $this->object->setPrintGridlines($value);
+            },
             'protection' => [
-                'autoFilter' => function ($value) { $this->object->getProtection()->setAutoFilter($value); },
-                'deleteColumns' => function ($value) { $this->object->getProtection()->setDeleteColumns($value); },
-                'deleteRows' => function ($value) { $this->object->getProtection()->setDeleteRows($value); },
-                'formatCells' => function ($value) { $this->object->getProtection()->setFormatCells($value); },
-                'formatColumns' => function ($value) { $this->object->getProtection()->setFormatColumns($value); },
-                'formatRows' => function ($value) { $this->object->getProtection()->setFormatRows($value); },
-                'insertColumns' => function ($value) { $this->object->getProtection()->setInsertColumns($value); },
-                'insertHyperlinks' => function ($value) { $this->object->getProtection()->setInsertHyperlinks($value); },
-                'insertRows' => function ($value) { $this->object->getProtection()->setInsertRows($value); },
-                'objects' => function ($value) { $this->object->getProtection()->setObjects($value); },
-                'password' => function ($value) { $this->object->getProtection()->setPassword($value); },
-                'pivotTables' => function ($value) { $this->object->getProtection()->setPivotTables($value); },
-                'scenarios' => function ($value) { $this->object->getProtection()->setScenarios($value); },
-                'selectLockedCells' => function ($value) { $this->object->getProtection()->setSelectLockedCells($value); },
-                'selectUnlockedCells' => function ($value) { $this->object->getProtection()->setSelectUnlockedCells($value); },
-                'sheet' => function ($value) { $this->object->getProtection()->setSheet($value); },
-                'sort' => function ($value) { $this->object->getProtection()->setSort($value); },
+                'autoFilter' => function ($value) {
+                    $this->object->getProtection()->setAutoFilter($value);
+                },
+                'deleteColumns' => function ($value) {
+                    $this->object->getProtection()->setDeleteColumns($value);
+                },
+                'deleteRows' => function ($value) {
+                    $this->object->getProtection()->setDeleteRows($value);
+                },
+                'formatCells' => function ($value) {
+                    $this->object->getProtection()->setFormatCells($value);
+                },
+                'formatColumns' => function ($value) {
+                    $this->object->getProtection()->setFormatColumns($value);
+                },
+                'formatRows' => function ($value) {
+                    $this->object->getProtection()->setFormatRows($value);
+                },
+                'insertColumns' => function ($value) {
+                    $this->object->getProtection()->setInsertColumns($value);
+                },
+                'insertHyperlinks' => function ($value) {
+                    $this->object->getProtection()->setInsertHyperlinks($value);
+                },
+                'insertRows' => function ($value) {
+                    $this->object->getProtection()->setInsertRows($value);
+                },
+                'objects' => function ($value) {
+                    $this->object->getProtection()->setObjects($value);
+                },
+                'password' => function ($value) {
+                    $this->object->getProtection()->setPassword($value);
+                },
+                'pivotTables' => function ($value) {
+                    $this->object->getProtection()->setPivotTables($value);
+                },
+                'scenarios' => function ($value) {
+                    $this->object->getProtection()->setScenarios($value);
+                },
+                'selectLockedCells' => function ($value) {
+                    $this->object->getProtection()->setSelectLockedCells($value);
+                },
+                'selectUnlockedCells' => function ($value) {
+                    $this->object->getProtection()->setSelectUnlockedCells($value);
+                },
+                'sheet' => function ($value) {
+                    $this->object->getProtection()->setSheet($value);
+                },
+                'sort' => function ($value) {
+                    $this->object->getProtection()->setSort($value);
+                },
             ],
-            'rightToLeft' => function ($value) { $this->object->setRightToLeft($value); },
+            'rightToLeft' => function ($value) {
+                $this->object->setRightToLeft($value);
+            },
             'rowDimension' => [
-                '__multi' => fn($index = 'default'): RowDimension => $index === 'default' ?
+                '__multi' => fn ($index = 'default'): RowDimension => $index === 'default' ?
                     $this->object->getDefaultRowDimension() :
                     $this->object->getRowDimension($index),
-                'collapsed' => function ($value, RowDimension $object) { $object->setCollapsed($value); },
-                'outlineLevel' => function ($value, RowDimension $object) { $object->setOutlineLevel($value); },
-                'rowHeight' => function ($value, RowDimension $object) { $object->setRowHeight($value); },
-                'rowIndex' => function ($value, RowDimension $object) { $object->setRowIndex($value); },
-                'visible' => function ($value, RowDimension $object) { $object->setVisible($value); },
-                'xfIndex' => function ($value, RowDimension $object) { $object->setXfIndex($value); },
-                'zeroHeight' => function ($value, RowDimension $object) { $object->setZeroHeight($value); },
+                'collapsed' => function ($value, RowDimension $object) {
+                    $object->setCollapsed($value);
+                },
+                'outlineLevel' => function ($value, RowDimension $object) {
+                    $object->setOutlineLevel($value);
+                },
+                'rowHeight' => function ($value, RowDimension $object) {
+                    $object->setRowHeight($value);
+                },
+                'rowIndex' => function ($value, RowDimension $object) {
+                    $object->setRowIndex($value);
+                },
+                'visible' => function ($value, RowDimension $object) {
+                    $object->setVisible($value);
+                },
+                'xfIndex' => function ($value, RowDimension $object) {
+                    $object->setXfIndex($value);
+                },
+                'zeroHeight' => function ($value, RowDimension $object) {
+                    $object->setZeroHeight($value);
+                },
             ],
-            'sheetState' => function ($value) { $this->object->setSheetState($value); },
-            'showGridlines' => function ($value) { $this->object->setShowGridlines($value); },
-            'tabColor' => function ($value) { $this->object->getTabColor()->setRGB($value); },
-            'zoomScale' => function ($value) { $this->object->getSheetView()->setZoomScale($value); },
+            'sheetState' => function ($value) {
+                $this->object->setSheetState($value);
+            },
+            'showGridlines' => function ($value) {
+                $this->object->setShowGridlines($value);
+            },
+            'tabColor' => function ($value) {
+                $this->object->getTabColor()->setRGB($value);
+            },
+            'zoomScale' => function ($value) {
+                $this->object->getSheetView()->setZoomScale($value);
+            },
         ];
     }
 }

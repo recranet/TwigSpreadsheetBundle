@@ -158,7 +158,7 @@ abstract class BaseTokenParser extends AbstractTokenParser
     private function parseBody(): Node
     {
         // parse till matching end tag is found
-        $body = $this->parser->subparse(fn(Token $token) => $token->test('end'.$this->getTag()), true);
+        $body = $this->parser->subparse(fn (Token $token) => $token->test('end'.$this->getTag()), true);
         $this->parser->getStream()->expect(Token::BLOCK_END_TYPE);
         return $body;
     }

@@ -52,7 +52,8 @@ class CellWrapper extends BaseWrapper
 
         $this->object = $this->sheetWrapper->getObject()->getCellByColumnAndRow(
             $this->sheetWrapper->getColumn(),
-            $this->sheetWrapper->getRow());
+            $this->sheetWrapper->getRow()
+        );
 
         $this->parameters['value'] = null;
         $this->parameters['properties'] = $properties;
@@ -107,22 +108,52 @@ class CellWrapper extends BaseWrapper
     protected function configureMappings(): array
     {
         return [
-            'break' => function ($value) { $this->sheetWrapper->getObject()->setBreak($this->object->getCoordinate(), $value); },
-            'dataType' => function ($value) { $this->object->setDataType($value); },
+            'break' => function ($value) {
+                $this->sheetWrapper->getObject()->setBreak($this->object->getCoordinate(), $value);
+            },
+            'dataType' => function ($value) {
+                $this->object->setDataType($value);
+            },
             'dataValidation' => [
-                'allowBlank' => function ($value) { $this->object->getDataValidation()->setAllowBlank($value); },
-                'error' => function ($value) { $this->object->getDataValidation()->setError($value); },
-                'errorStyle' => function ($value) { $this->object->getDataValidation()->setErrorStyle($value); },
-                'errorTitle' => function ($value) { $this->object->getDataValidation()->setErrorTitle($value); },
-                'formula1' => function ($value) { $this->object->getDataValidation()->setFormula1($value); },
-                'formula2' => function ($value) { $this->object->getDataValidation()->setFormula2($value); },
-                'operator' => function ($value) { $this->object->getDataValidation()->setOperator($value); },
-                'prompt' => function ($value) { $this->object->getDataValidation()->setPrompt($value); },
-                'promptTitle' => function ($value) { $this->object->getDataValidation()->setPromptTitle($value); },
-                'showDropDown' => function ($value) { $this->object->getDataValidation()->setShowDropDown($value); },
-                'showErrorMessage' => function ($value) { $this->object->getDataValidation()->setShowErrorMessage($value); },
-                'showInputMessage' => function ($value) { $this->object->getDataValidation()->setShowInputMessage($value); },
-                'type' => function ($value) { $this->object->getDataValidation()->setType($value); },
+                'allowBlank' => function ($value) {
+                    $this->object->getDataValidation()->setAllowBlank($value);
+                },
+                'error' => function ($value) {
+                    $this->object->getDataValidation()->setError($value);
+                },
+                'errorStyle' => function ($value) {
+                    $this->object->getDataValidation()->setErrorStyle($value);
+                },
+                'errorTitle' => function ($value) {
+                    $this->object->getDataValidation()->setErrorTitle($value);
+                },
+                'formula1' => function ($value) {
+                    $this->object->getDataValidation()->setFormula1($value);
+                },
+                'formula2' => function ($value) {
+                    $this->object->getDataValidation()->setFormula2($value);
+                },
+                'operator' => function ($value) {
+                    $this->object->getDataValidation()->setOperator($value);
+                },
+                'prompt' => function ($value) {
+                    $this->object->getDataValidation()->setPrompt($value);
+                },
+                'promptTitle' => function ($value) {
+                    $this->object->getDataValidation()->setPromptTitle($value);
+                },
+                'showDropDown' => function ($value) {
+                    $this->object->getDataValidation()->setShowDropDown($value);
+                },
+                'showErrorMessage' => function ($value) {
+                    $this->object->getDataValidation()->setShowErrorMessage($value);
+                },
+                'showInputMessage' => function ($value) {
+                    $this->object->getDataValidation()->setShowInputMessage($value);
+                },
+                'type' => function ($value) {
+                    $this->object->getDataValidation()->setType($value);
+                },
             ],
             'merge' => function ($value) {
                 if (\is_int($value)) {
@@ -130,8 +161,12 @@ class CellWrapper extends BaseWrapper
                 }
                 $this->sheetWrapper->getObject()->mergeCells(sprintf('%s:%s', $this->object->getCoordinate(), $value));
             },
-            'style' => function ($value) { $this->sheetWrapper->getObject()->getStyle($this->object->getCoordinate())->applyFromArray($value); },
-            'url' => function ($value) { $this->object->getHyperlink()->setUrl($value); },
+            'style' => function ($value) {
+                $this->sheetWrapper->getObject()->getStyle($this->object->getCoordinate())->applyFromArray($value);
+            },
+            'url' => function ($value) {
+                $this->object->getHyperlink()->setUrl($value);
+            },
         ];
     }
 }
