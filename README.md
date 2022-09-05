@@ -1,6 +1,6 @@
 # TwigSpreadsheetBundle
 
-[![Teavis CI: Build Status](https://travis-ci.org/recranet/TwigSpreadsheetBundle.png?branch=master)](https://travis-ci.org/recranet/TwigSpreadsheetBundle)
+[![Teavis CI: Build Status](https://api.travis-ci.com/recranet/TwigSpreadsheetBundle.png?branch=master)](https://app.travis-ci.com/recranet/TwigSpreadsheetBundle)
 [![Scrutinizer: Code Quality](https://scrutinizer-ci.com/g/recranet/TwigSpreadsheetBundle/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/recranet/TwigSpreadsheetBundle/?branch=master)
 [![Code Coverage](https://scrutinizer-ci.com/g/recranet/TwigSpreadsheetBundle/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/recranet/TwigSpreadsheetBundle/?branch=master)
 [![SensioLabsInsight: Code Quality](https://insight.sensiolabs.com/projects/f5c25ebe-0cbc-4be1-a094-4ef87d48ea1b/mini.png)](https://insight.sensiolabs.com/projects/f5c25ebe-0cbc-4be1-a094-4ef87d48ea1b)
