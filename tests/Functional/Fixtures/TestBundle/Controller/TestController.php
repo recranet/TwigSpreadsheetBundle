@@ -2,7 +2,8 @@
 
 namespace Recranet\TwigSpreadsheetBundle\Tests\Functional\Fixtures\TestBundle\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\ResponseHeaderBag;
 use Symfony\Component\Routing\Annotation\Route;
@@ -10,8 +11,15 @@ use Symfony\Component\Routing\Annotation\Route;
 /**
  * Class TestController.
  */
-class TestController extends Controller
+class TestController extends AbstractController
 {
+    private ParameterBagInterface $parameterBag;
+
+    public function __construct(ParameterBagInterface $parameterBag)
+    {
+        $this->parameterBag = $parameterBag;
+    }
+
     /**
      * @param $templateName
      *
@@ -46,7 +54,7 @@ class TestController extends Controller
                     ['name' => 'Kena Kea', 'salary' => 4090.0],
                     ['name' => 'Evita Chittum', 'salary' => 4639.0],
                 ],
-                'kernelPath' => $this->get('kernel')->getProjectDir(),
+                'kernelPath' => $this->parameterBag->get('kernel.project_dir'),
             ]
         );
     }

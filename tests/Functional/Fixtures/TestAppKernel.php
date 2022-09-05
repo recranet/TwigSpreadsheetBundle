@@ -23,7 +23,7 @@ class TestAppKernel extends Kernel
     /**
      * {@inheritdoc}
      */
-    public function registerBundles()
+    public function registerBundles(): iterable
     {
         return [
             new \Symfony\Bundle\FrameworkBundle\FrameworkBundle(),
@@ -40,13 +40,21 @@ class TestAppKernel extends Kernel
      */
     public function registerContainerConfiguration(LoaderInterface $loader)
     {
-        $loader->load(sprintf('%s/config/config_%s.yml', __DIR__, $this->getEnvironment()));
+        $loader->load($this->getProjectDir() . '/config/config.yml');
     }
 
     /**
      * {@inheritdoc}
      */
-    public function getCacheDir()
+    public function getProjectDir(): string
+    {
+        return __DIR__;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getCacheDir(): string
     {
         return $this->cacheDir;
     }
@@ -62,7 +70,7 @@ class TestAppKernel extends Kernel
     /**
      * {@inheritdoc}
      */
-    public function getLogDir()
+    public function getLogDir(): string
     {
         return $this->logDir;
     }

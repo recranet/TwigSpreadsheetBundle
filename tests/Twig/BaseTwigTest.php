@@ -31,7 +31,7 @@ abstract class BaseTwigTest extends TestCase
      *
      * @throws \Twig\Error\LoaderError
      */
-    public static function setUpBeforeClass()
+    public static function setUpBeforeClass(): void
     {
         $cachePath = sprintf('%s/%s/%s', __DIR__, static::CACHE_PATH, str_replace('\\', DIRECTORY_SEPARATOR, static::class));
 

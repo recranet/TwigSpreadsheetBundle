@@ -11,6 +11,7 @@ use Symfony\Bundle\FrameworkBundle\Routing\Router;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpKernel\KernelInterface;
 
 /**
  * Class BaseFunctionalTest.
@@ -35,7 +36,7 @@ abstract class BaseFunctionalTest extends WebTestCase
      *
      * @throws \Symfony\Component\Filesystem\Exception\IOException
      */
-    public static function setUpBeforeClass()
+    public static function setUpBeforeClass(): void
     {
         // remove temp files
         Filesystem::remove(sprintf('%s/%s', static::CACHE_PATH, str_replace('\\', DIRECTORY_SEPARATOR, static::class)));
@@ -45,7 +46,7 @@ abstract class BaseFunctionalTest extends WebTestCase
     /**
      * {@inheritdoc}
      */
-    protected static function getKernelClass()
+    protected static function getKernelClass(): string
     {
         return TestAppKernel::class;
     }
@@ -53,7 +54,7 @@ abstract class BaseFunctionalTest extends WebTestCase
     /**
      * {@inheritdoc}
      */
-    protected static function createKernel(array $options = [])
+    protected static function createKernel(array $options = []): KernelInterface
     {
         /**
          * @var TestAppKernel $kernel
@@ -68,10 +69,9 @@ abstract class BaseFunctionalTest extends WebTestCase
     /**
      * @throws \Symfony\Component\Filesystem\Exception\IOException
      */
-    public function setUp()
+    public function setUp(): void
     {
-        // create client
-        static::$client = static::createClient(['environment' => static::$ENVIRONMENT, 'debug' => false]);
+        static::$client = static::createClient();
     }
 
     /**

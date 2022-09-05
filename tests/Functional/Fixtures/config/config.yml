@@ -1,18 +1,25 @@
 framework:
     secret: test
-    test: ~
+    test: true
     session:
-        storage_id: session.storage.filesystem
-    form:            true
-    csrf_protection: true
-    validation:
-        enabled: true
-        enable_annotations: true
+        storage_factory_id: session.storage.factory.mock_file
+    annotations: true
     router:
-        resource: "%kernel.root_dir%/config/routing.yml"
-    templating:
-        engines: ['twig']
+        utf8: true
+        resource: "%kernel.project_dir%/config/routing.yml"
 
 twig:
-    debug:            "%kernel.debug%"
-    strict_variables: "%kernel.debug%"
+    strict_variables: true
+
+recranet_twig_spreadsheet:
+    pre_calculate_formulas:     false
+    cache:
+        xml:                    "%kernel.cache_dir%/spreadsheet/xml"
+    csv_writer:
+        delimiter:              ";"
+        enclosure:              "'"
+        excel_compatibility:    false
+        include_separator_line: false
+        line_ending:            "\r\n"
+        sheet_index:            0
+        use_bom:                true
