@@ -22,7 +22,9 @@
         "phpunit/phpunit": "^6.5",
     },
     "suggest": {
-        "mpdf/mpdf": "Add support for PDF rendering, requires ~7.0"
+        "dompdf/dompdf": "Add support for PDF rendering using dompdf",
+        "mpdf/mpdf": "Add support for PDF rendering using mPDF",
+        "tecnickcom/tcpdf": "Add support for PDF rendering using TCPDF"
     },
     "autoload": {
         "psr-4": { "Recranet\\TwigSpreadsheetBundle\\": "src/" }

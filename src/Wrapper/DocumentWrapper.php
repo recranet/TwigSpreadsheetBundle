@@ -11,6 +11,9 @@ use PhpOffice\PhpSpreadsheet\IOFactory;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\BaseWriter;
 use PhpOffice\PhpSpreadsheet\Writer\Csv;
+use PhpOffice\PhpSpreadsheet\Writer\Pdf\Dompdf;
+use PhpOffice\PhpSpreadsheet\Writer\Pdf\Mpdf;
+use PhpOffice\PhpSpreadsheet\Writer\Pdf\Tcpdf;
 use Symfony\Bridge\Twig\AppVariable;
 
 /**
@@ -100,6 +103,19 @@ class DocumentWrapper extends BaseWrapper
             $format = 'xlsx';
         } else {
             $format = strtolower($format);
+        }
+
+        // set up PDF
+        if ($format === 'pdf') {
+            if (class_exists('\Dompdf\Dompdf')) {
+                IOFactory::registerWriter('Pdf', Dompdf::class);
+            } elseif (class_exists('\Mpdf\Mpdf')) {
+                IOFactory::registerWriter('Pdf', Mpdf::class);
+            } elseif (class_exists('\TCPDF')) {
+                IOFactory::registerWriter('Pdf', Tcpdf::class);
+            } else {
+                throw new \RuntimeException('PDF rendering requires dompdf, mPDF or TCPDF');
+            }
         }
 
         /**
