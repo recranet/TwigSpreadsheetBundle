@@ -22,14 +22,14 @@ abstract class BaseTwigTest extends TestCase
     const TEMPLATE_PATH = './Fixtures/templates';
 
     /**
-     * @var \Twig_Environment
+     * @var \Twig\Environment
      */
     protected static $environment;
 
     /**
      * {@inheritdoc}
      *
-     * @throws \Twig_Error_Loader
+     * @throws \Twig\Error\LoaderError
      */
     public static function setUpBeforeClass()
     {
@@ -40,10 +40,10 @@ abstract class BaseTwigTest extends TestCase
         Filesystem::remove(sprintf('%s/%s/%s', __DIR__, static::RESULT_PATH, str_replace('\\', DIRECTORY_SEPARATOR, static::class)));
 
         // set up Twig environment
-        $twigFileSystem = new \Twig_Loader_Filesystem([sprintf('%s/%s', __DIR__, static::RESOURCE_PATH)]);
+        $twigFileSystem = new \Twig\Loader\FilesystemLoader([sprintf('%s/%s', __DIR__, static::RESOURCE_PATH)]);
         $twigFileSystem->addPath(sprintf('%s/%s', __DIR__, static::TEMPLATE_PATH), 'templates');
 
-        static::$environment = new \Twig_Environment($twigFileSystem, ['debug' => true, 'strict_variables' => true]);
+        static::$environment = new \Twig\Environment($twigFileSystem, ['debug' => true, 'strict_variables' => true]);
         static::$environment->addExtension(new TwigSpreadsheetExtension([
             'pre_calculate_formulas' => true,
             'cache' => [
@@ -67,12 +67,12 @@ abstract class BaseTwigTest extends TestCase
      * @param string $templateName
      * @param string $format
      *
-     * @throws \Twig_Error_Syntax
-     * @throws \Twig_Error_Loader
+     * @throws \Twig\Error\SyntaxError
+     * @throws \Twig\Error\LoaderError
      * @throws \Symfony\Component\Filesystem\Exception\IOException
      *
      * @return Spreadsheet|string
-     * @throws \Twig_Error_Runtime
+     * @throws \Twig\Error\RuntimeError
      * @throws \PhpOffice\PhpSpreadsheet\Reader\Exception
      */
     protected function getDocument($templateName, $format)
