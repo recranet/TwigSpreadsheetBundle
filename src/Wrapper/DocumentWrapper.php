@@ -90,7 +90,7 @@ class DocumentWrapper extends BaseWrapper
         // try Symfony request
         elseif (isset($this->context['app'])) {
             /**
-             * @var AppVariable
+             * @var AppVariable $appVariable
              */
             $appVariable = $this->context['app'];
             if ($appVariable instanceof AppVariable && $appVariable->getRequest() !== null) {
@@ -99,7 +99,7 @@ class DocumentWrapper extends BaseWrapper
         }
 
         // set default
-        if ($format === null || !\is_string($format)) {
+        if ($format === null) {
             $format = 'xlsx';
         } else {
             $format = strtolower($format);
@@ -239,7 +239,7 @@ class DocumentWrapper extends BaseWrapper
     /**
      * Resolves paths using Twig namespaces.
      * The path must start with the namespace.
-     * Namespaces are case sensitive.
+     * Namespaces are case-sensitive.
      *
      * @param string $path
      *
@@ -250,9 +250,6 @@ class DocumentWrapper extends BaseWrapper
         $loader = $this->environment->getLoader();
 
         if ($loader instanceof FilesystemLoader && mb_strpos($path, '@') === 0) {
-            /*
-             * @var \Twig_Loader_Filesystem
-             */
             foreach ($loader->getNamespaces() as $namespace) {
                 if (mb_strpos($path, $namespace) === 1) {
                     foreach ($loader->getPaths($namespace) as $namespacePath) {
