@@ -1,9 +1,6 @@
 # TwigSpreadsheetBundle
 
-[![Teavis CI: Build Status](https://api.travis-ci.com/recranet/TwigSpreadsheetBundle.png?branch=master)](https://app.travis-ci.com/recranet/TwigSpreadsheetBundle)
-[![Scrutinizer: Code Quality](https://scrutinizer-ci.com/g/recranet/TwigSpreadsheetBundle/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/recranet/TwigSpreadsheetBundle/?branch=master)
-[![Code Coverage](https://scrutinizer-ci.com/g/recranet/TwigSpreadsheetBundle/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/recranet/TwigSpreadsheetBundle/?branch=master)
-[![SensioLabsInsight: Code Quality](https://insight.sensiolabs.com/projects/f5c25ebe-0cbc-4be1-a094-4ef87d48ea1b/mini.png)](https://insight.sensiolabs.com/projects/f5c25ebe-0cbc-4be1-a094-4ef87d48ea1b)
+[![Build Status](https://github.com/recranet/TwigSpreadsheetBundle/actions/workflows/php/badge.svg?branch=master)](https://github.com/recranet/TwigSpreadsheetBundle/actions)
 
 This Symfony bundle integrates PhpSpreadsheet into Symfony using Twig.
 
@@ -42,7 +39,7 @@ The following software is required to use PhpSpreadsheet/TwigSpreadsheetBundle.
 ## Documentation
 
 The source of the documentation is stored in the Resources/doc/ folder in this bundle:
-    
+
 [Resources/doc/index.rst](https://github.com/Recranet/TwigSpreadsheetBundle/blob/master/src/Resources/doc/index.rst)
 
 You can find a prettier version on [readthedocs.org](httsp://readthedocs.org):
