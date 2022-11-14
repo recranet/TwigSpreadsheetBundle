@@ -21,7 +21,7 @@
     },
     "require-dev": {
         "doctrine/annotations": "^1.13",
-        "mpdf/mpdf": "^8.1",
+        "dompdf/dompdf": "^2.0",
         "rector/rector": "^0.14.0",
         "symfony/browser-kit": "^5.4|^6.0",
         "symfony/phpunit-bridge": "^5.4|^6.0",
@@ -31,6 +31,13 @@
         "dompdf/dompdf": "Add support for PDF rendering using dompdf",
         "mpdf/mpdf": "Add support for PDF rendering using mPDF",
         "tecnickcom/tcpdf": "Add support for PDF rendering using TCPDF"
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": {
+            "*": "dist"
+        },
+        "sort-packages": true
     },
     "autoload": {
         "psr-4": { "Recranet\\TwigSpreadsheetBundle\\": "src/" }
