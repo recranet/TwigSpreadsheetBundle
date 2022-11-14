@@ -1,6 +1,6 @@
 # TwigSpreadsheetBundle
 
-[![Build Status](https://github.com/recranet/TwigSpreadsheetBundle/actions/workflows/php/badge.svg?branch=master)](https://github.com/recranet/TwigSpreadsheetBundle/actions)
+[![Build Status](https://github.com/recranet/TwigSpreadsheetBundle/actions/workflows/php.yml/badge.svg?branch=master)](https://github.com/recranet/TwigSpreadsheetBundle/actions)
 
 This Symfony bundle integrates PhpSpreadsheet into Symfony using Twig.
 
