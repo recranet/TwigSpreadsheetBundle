@@ -1,8 +1,12 @@
 name: PHPUnit
 
 on:
+  schedule:
+    - cron: '15 3 * * *'
   push:
     branches: [ "develop" ]
+    # Publish semver tags as releases.
+    tags: [ 'v*.*.*' ]
   pull_request:
     branches: [ "master", "develop" ]
 
