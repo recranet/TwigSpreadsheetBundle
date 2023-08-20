@@ -91,15 +91,10 @@ class TwigSpreadsheetExtension extends AbstractExtension
      * @param array $style1
      * @param array $style2
      *
-     * @throws RuntimeError
-     *
      * @return array
      */
     public function mergeStyles(array $style1, array $style2): array
     {
-        if (!\is_array($style1) || !\is_array($style2)) {
-            throw new RuntimeError('The xlsmergestyles function only works with arrays.');
-        }
         return Arrays::mergeRecursive($style1, $style2);
     }
 
