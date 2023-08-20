@@ -2,7 +2,7 @@ name: PHPUnit
 
 on:
   push:
-    branches: [ "master" ]
+    branches: [ "develop" ]
   pull_request:
     branches: [ "master", "develop" ]
 
@@ -22,6 +22,7 @@ jobs:
           - "8.0"
           - "8.1"
           - "8.2"
+          - "8.3"
         dependency-versions:
           - "lowest"
           - "highest"
