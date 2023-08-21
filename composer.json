@@ -13,6 +13,7 @@
     ],
     "require": {
         "php": "^7.4|^8.0",
+        "ext-mbstring": "*",
         "phpoffice/phpspreadsheet": "^1.22.0",
         "symfony/framework-bundle": "^5.4|^6.0",
         "symfony/twig-bridge": "^5.4|^6.0",
