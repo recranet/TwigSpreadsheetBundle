@@ -44,7 +44,7 @@ class SyntaxCheckNodeVisitor extends AbstractNodeVisitor
             throw $e;
         }
 
-        $this->path[] = $node !== null ? $node::class : null;
+        $this->path[] = $node !== null ? \get_class($node) : null;
 
         return $node;
     }
@@ -116,6 +116,6 @@ class SyntaxCheckNodeVisitor extends AbstractNodeVisitor
             }
         }
 
-        throw new SyntaxError(sprintf('Node "%s" is not allowed inside of Node "%s".', $node::class, $parentName));
+        throw new SyntaxError(sprintf('Node "%s" is not allowed inside of Node "%s".', \get_class($node), $parentName));
     }
 }

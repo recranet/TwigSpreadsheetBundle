@@ -92,8 +92,8 @@ class SheetWrapper extends BaseWrapper
 
         // auto-size columns
         if (
-            isset($this->parameters['properties']['columnDimension'])
-            && \is_array($this->parameters['properties']['columnDimension'])
+            isset($this->parameters['properties']['columnDimension']) &&
+            \is_array($this->parameters['properties']['columnDimension'])
         ) {
             /**
              * @var array $columnDimension
