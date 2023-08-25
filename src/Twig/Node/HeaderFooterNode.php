@@ -2,8 +2,8 @@
 
 namespace Recranet\TwigSpreadsheetBundle\Twig\Node;
 
-use Twig\Compiler;
 use Recranet\TwigSpreadsheetBundle\Wrapper\HeaderFooterWrapper;
+use Twig\Compiler;
 
 /**
  * Class HeaderFooterNode.
@@ -41,10 +41,10 @@ class HeaderFooterNode extends BaseNode
                 ->repr($this->baseType)->raw(', ')
                 ->subcompile($this->getNode('type'))->raw(', ')
                 ->subcompile($this->getNode('properties'))
-            ->raw(');'.PHP_EOL)
+            ->raw(');'.\PHP_EOL)
             ->subcompile($this->getNode('body'))
             ->addDebugInfo($this)
-            ->write(self::CODE_INSTANCE.'->endHeaderFooter();'.PHP_EOL);
+            ->write(self::CODE_INSTANCE.'->endHeaderFooter();'.\PHP_EOL);
     }
 
     /**

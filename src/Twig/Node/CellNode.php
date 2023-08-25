@@ -20,11 +20,11 @@ class CellNode extends BaseNode
                 ->subcompile($this->getNode('index'))
                 ->raw(', ')
                 ->subcompile($this->getNode('properties'))
-            ->raw(');'.PHP_EOL)
+            ->raw(');'.\PHP_EOL)
             ->write("ob_start();\n")
             ->subcompile($this->getNode('body'))
-            ->write(self::CODE_INSTANCE.'->setCellValue(trim(ob_get_clean()));'.PHP_EOL)
-            ->write(self::CODE_INSTANCE.'->endCell();'.PHP_EOL);
+            ->write(self::CODE_INSTANCE.'->setCellValue(trim(ob_get_clean()));'.\PHP_EOL)
+            ->write(self::CODE_INSTANCE.'->endCell();'.\PHP_EOL);
     }
 
     /**

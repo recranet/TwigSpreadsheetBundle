@@ -2,10 +2,10 @@
 
 namespace Recranet\TwigSpreadsheetBundle\Wrapper;
 
-use Twig\Environment;
-use PhpOffice\PhpSpreadsheet\Exception;
 use PhpOffice\PhpSpreadsheet\Cell\Cell;
 use PhpOffice\PhpSpreadsheet\Cell\Coordinate;
+use PhpOffice\PhpSpreadsheet\Exception;
+use Twig\Environment;
 
 /**
  * Class CellWrapper.
@@ -18,9 +18,9 @@ class CellWrapper extends BaseWrapper
     /**
      * CellWrapper constructor.
      *
-     * @param array             $context
-     * @param Environment $environment
-     * @param SheetWrapper      $sheetWrapper
+     * @param array        $context
+     * @param Environment  $environment
+     * @param SheetWrapper $sheetWrapper
      */
     public function __construct(array $context, Environment $environment, SheetWrapper $sheetWrapper)
     {
@@ -32,7 +32,7 @@ class CellWrapper extends BaseWrapper
 
     /**
      * @param int|null $index
-     * @param array $properties
+     * @param array    $properties
      *
      * @throws \InvalidArgumentException
      * @throws \LogicException

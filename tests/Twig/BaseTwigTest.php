@@ -2,11 +2,11 @@
 
 namespace Recranet\TwigSpreadsheetBundle\Tests\Twig;
 
-use Recranet\TwigSpreadsheetBundle\Helper\Filesystem;
-use Recranet\TwigSpreadsheetBundle\Twig\TwigSpreadsheetExtension;
 use PhpOffice\PhpSpreadsheet\IOFactory;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PHPUnit\Framework\TestCase;
+use Recranet\TwigSpreadsheetBundle\Helper\Filesystem;
+use Recranet\TwigSpreadsheetBundle\Twig\TwigSpreadsheetExtension;
 use Symfony\Bridge\Twig\AppVariable;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
@@ -16,10 +16,10 @@ use Symfony\Component\HttpFoundation\RequestStack;
  */
 abstract class BaseTwigTest extends TestCase
 {
-    const CACHE_PATH = './../../var/cache';
-    const RESULT_PATH = './../../var/result';
-    const RESOURCE_PATH = './Fixtures/views';
-    const TEMPLATE_PATH = './Fixtures/templates';
+    public const CACHE_PATH = './../../var/cache';
+    public const RESULT_PATH = './../../var/result';
+    public const RESOURCE_PATH = './Fixtures/views';
+    public const TEMPLATE_PATH = './Fixtures/templates';
 
     /**
      * @var \Twig\Environment
@@ -33,11 +33,11 @@ abstract class BaseTwigTest extends TestCase
      */
     public static function setUpBeforeClass(): void
     {
-        $cachePath = sprintf('%s/%s/%s', __DIR__, static::CACHE_PATH, str_replace('\\', DIRECTORY_SEPARATOR, static::class));
+        $cachePath = sprintf('%s/%s/%s', __DIR__, static::CACHE_PATH, str_replace('\\', \DIRECTORY_SEPARATOR, static::class));
 
         // remove temp files
         Filesystem::remove($cachePath);
-        Filesystem::remove(sprintf('%s/%s/%s', __DIR__, static::RESULT_PATH, str_replace('\\', DIRECTORY_SEPARATOR, static::class)));
+        Filesystem::remove(sprintf('%s/%s/%s', __DIR__, static::RESULT_PATH, str_replace('\\', \DIRECTORY_SEPARATOR, static::class)));
 
         // set up Twig environment
         $twigFileSystem = new \Twig\Loader\FilesystemLoader([sprintf('%s/%s', __DIR__, static::RESOURCE_PATH)]);
@@ -48,17 +48,17 @@ abstract class BaseTwigTest extends TestCase
             'pre_calculate_formulas' => true,
             'cache' => [
                 'bitmap' => $cachePath.'/spreadsheet/bitmap',
-                'xml' => false
+                'xml' => false,
             ],
             'csv_writer' => [
                 'delimiter' => ',',
                 'enclosure' => '"',
                 'excel_compatibility' => false,
                 'include_separator_line' => false,
-                'line_ending' => PHP_EOL,
+                'line_ending' => \PHP_EOL,
                 'sheet_index' => 0,
-                'use_bom' => true
-            ]
+                'use_bom' => true,
+            ],
         ]));
         static::$environment->setCache($cachePath.'/twig');
     }
@@ -70,10 +70,10 @@ abstract class BaseTwigTest extends TestCase
      * @throws \Twig\Error\SyntaxError
      * @throws \Twig\Error\LoaderError
      * @throws \Symfony\Component\Filesystem\Exception\IOException
-     *
-     * @return Spreadsheet|string
      * @throws \Twig\Error\RuntimeError
      * @throws \PhpOffice\PhpSpreadsheet\Reader\Exception
+     *
+     * @return Spreadsheet|string
      */
     protected function getDocument($templateName, $format)
     {
@@ -93,7 +93,7 @@ abstract class BaseTwigTest extends TestCase
         $source = static::$environment->load($templateName.'.twig')->render(['app' => $appVariable]);
 
         // create path
-        $resultPath = sprintf('%s/%s/%s/%s.%s', __DIR__, static::RESULT_PATH, str_replace('\\', DIRECTORY_SEPARATOR, static::class), $templateName, $format);
+        $resultPath = sprintf('%s/%s/%s/%s.%s', __DIR__, static::RESULT_PATH, str_replace('\\', \DIRECTORY_SEPARATOR, static::class), $templateName, $format);
 
         // save source
         Filesystem::dumpFile($resultPath, $source);

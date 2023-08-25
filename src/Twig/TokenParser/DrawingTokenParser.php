@@ -2,10 +2,10 @@
 
 namespace Recranet\TwigSpreadsheetBundle\Twig\TokenParser;
 
-use Twig\Token;
+use Recranet\TwigSpreadsheetBundle\Twig\Node\DrawingNode;
 use Twig\Node\Expression\ArrayExpression;
 use Twig\Node\Node;
-use Recranet\TwigSpreadsheetBundle\Twig\Node\DrawingNode;
+use Twig\Token;
 
 /**
  * Class DrawingTokenParser.

@@ -2,8 +2,8 @@
 
 namespace Recranet\TwigSpreadsheetBundle\Twig\Node;
 
-use Twig\Compiler;
 use Recranet\TwigSpreadsheetBundle\Wrapper\HeaderFooterWrapper;
+use Twig\Compiler;
 
 /**
  * Class AlignmentNode.
@@ -39,12 +39,12 @@ class AlignmentNode extends BaseNode
             ->write(self::CODE_FIX_CONTEXT)
             ->write(self::CODE_INSTANCE.'->startAlignment(')
                 ->repr($this->alignment)
-            ->raw(');'.PHP_EOL)
+            ->raw(');'.\PHP_EOL)
             ->write("ob_start();\n")
             ->subcompile($this->getNode('body'))
-            ->write('$alignmentValue = trim(ob_get_clean());'.PHP_EOL)
-            ->write(self::CODE_INSTANCE.'->endAlignment($alignmentValue);'.PHP_EOL)
-            ->write('unset($alignmentValue);'.PHP_EOL);
+            ->write('$alignmentValue = trim(ob_get_clean());'.\PHP_EOL)
+            ->write(self::CODE_INSTANCE.'->endAlignment($alignmentValue);'.\PHP_EOL)
+            ->write('unset($alignmentValue);'.\PHP_EOL);
     }
 
     /**

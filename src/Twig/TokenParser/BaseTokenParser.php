@@ -2,12 +2,12 @@
 
 namespace Recranet\TwigSpreadsheetBundle\Twig\TokenParser;
 
-use Twig\TokenParser\AbstractTokenParser;
-use Twig\Token;
-use Twig\Node\Node;
 use Twig\Error\SyntaxError;
 use Twig\Node\Expression\AbstractExpression;
 use Twig\Node\Expression\ArrayExpression;
+use Twig\Node\Node;
+use Twig\Token;
+use Twig\TokenParser\AbstractTokenParser;
 
 /**
  * Class BaseTokenParser.
@@ -152,14 +152,16 @@ abstract class BaseTokenParser extends AbstractTokenParser
     }
 
     /**
-     * @return Node
      * @throws SyntaxError
+     *
+     * @return Node
      */
     private function parseBody(): Node
     {
         // parse till matching end tag is found
         $body = $this->parser->subparse(fn (Token $token) => $token->test('end'.$this->getTag()), true);
         $this->parser->getStream()->expect(Token::BLOCK_END_TYPE);
+
         return $body;
     }
 }

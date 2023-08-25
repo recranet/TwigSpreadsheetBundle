@@ -2,19 +2,19 @@
 
 namespace Recranet\TwigSpreadsheetBundle\Wrapper;
 
-use Twig\Environment;
-use PhpOffice\PhpSpreadsheet\Reader\Exception;
-use Symfony\Component\Filesystem\Exception\IOException;
-use Twig\Loader\FilesystemLoader;
-use Recranet\TwigSpreadsheetBundle\Helper\Filesystem;
 use PhpOffice\PhpSpreadsheet\IOFactory;
+use PhpOffice\PhpSpreadsheet\Reader\Exception;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\BaseWriter;
 use PhpOffice\PhpSpreadsheet\Writer\Csv;
 use PhpOffice\PhpSpreadsheet\Writer\Pdf\Dompdf;
 use PhpOffice\PhpSpreadsheet\Writer\Pdf\Mpdf;
 use PhpOffice\PhpSpreadsheet\Writer\Pdf\Tcpdf;
+use Recranet\TwigSpreadsheetBundle\Helper\Filesystem;
 use Symfony\Bridge\Twig\AppVariable;
+use Symfony\Component\Filesystem\Exception\IOException;
+use Twig\Environment;
+use Twig\Loader\FilesystemLoader;
 
 /**
  * Class DocumentWrapper.
@@ -27,9 +27,9 @@ class DocumentWrapper extends BaseWrapper
     /**
      * DocumentWrapper constructor.
      *
-     * @param array             $context
+     * @param array       $context
      * @param Environment $environment
-     * @param array             $attributes
+     * @param array       $attributes
      */
     public function __construct(array $context, Environment $environment, array $attributes = [])
     {
@@ -132,7 +132,7 @@ class DocumentWrapper extends BaseWrapper
 
         // set special CSV writer attributes
         if ($writer instanceof Csv) {
-            /**
+            /*
              * @var Csv $writer
              */
             $writer->setDelimiter($this->attributes['csv_writer']['delimiter']);

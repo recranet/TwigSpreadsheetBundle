@@ -2,9 +2,9 @@
 
 namespace Recranet\TwigSpreadsheetBundle\Wrapper;
 
-use Twig\Environment;
 use PhpOffice\PhpSpreadsheet\Exception;
 use Symfony\Component\Filesystem\Exception\IOException;
+use Twig\Environment;
 
 /**
  * Class PhpSpreadsheetWrapper.
@@ -26,9 +26,9 @@ class PhpSpreadsheetWrapper
     /**
      * PhpSpreadsheetWrapper constructor.
      *
-     * @param array             $context
+     * @param array       $context
      * @param Environment $environment
-     * @param array             $attributes
+     * @param array       $attributes
      */
     public function __construct(array $context, Environment $environment, array $attributes = [])
     {
@@ -83,7 +83,7 @@ class PhpSpreadsheetWrapper
 
     /**
      * @param int|string|null $index
-     * @param array $properties
+     * @param array           $properties
      *
      * @throws \LogicException
      * @throws Exception
@@ -122,8 +122,8 @@ class PhpSpreadsheetWrapper
     }
 
     /**
-     * @param int|null   $index
-     * @param array      $properties
+     * @param int|null $index
+     * @param array    $properties
      *
      * @throws \InvalidArgumentException
      * @throws \LogicException
@@ -135,7 +135,7 @@ class PhpSpreadsheetWrapper
     }
 
     /**
-     * @param null|mixed $value
+     * @param mixed|null $value
      *
      * @throws Exception
      */
@@ -173,7 +173,7 @@ class PhpSpreadsheetWrapper
     }
 
     /**
-     * @param null|string $type
+     * @param string|null $type
      * @param array       $properties
      *
      * @throws \InvalidArgumentException
@@ -185,7 +185,7 @@ class PhpSpreadsheetWrapper
     }
 
     /**
-     * @param null|string $value
+     * @param string|null $value
      *
      * @throws \InvalidArgumentException
      * @throws \LogicException
@@ -197,7 +197,7 @@ class PhpSpreadsheetWrapper
 
     /**
      * @param string $path
-     * @param array $properties
+     * @param array  $properties
      *
      * @throws IOException
      * @throws \InvalidArgumentException
@@ -234,6 +234,7 @@ class PhpSpreadsheetWrapper
                 }
             }
         }
+
         return $context;
     }
 }

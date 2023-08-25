@@ -17,7 +17,7 @@ abstract class BaseWrapper
     /**
      * BaseWrapper constructor.
      *
-     * @param array             $context
+     * @param array       $context
      * @param Environment $environment
      */
     public function __construct(array $context, Environment $environment)

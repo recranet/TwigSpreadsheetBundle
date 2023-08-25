@@ -58,7 +58,7 @@ class Configuration implements ConfigurationInterface
                             ->defaultFalse()
                         ->end()
                         ->scalarNode('line_ending')
-                            ->defaultValue(PHP_EOL)
+                            ->defaultValue(\PHP_EOL)
                         ->end()
                         ->integerNode('sheet_index')
                             ->defaultValue(0)

@@ -23,6 +23,7 @@ class Arrays
                 self::mergeRecursive($array1[$key], $value) :
                 $value;
         }
+
         return $array1;
     }
 }

@@ -19,8 +19,8 @@ class DrawingNode extends BaseNode
             ->write(self::CODE_INSTANCE.'->startDrawing(')
                 ->subcompile($this->getNode('path'))->raw(', ')
                 ->subcompile($this->getNode('properties'))
-            ->raw(');'.PHP_EOL)
-            ->write(self::CODE_INSTANCE.'->endDrawing();'.PHP_EOL);
+            ->raw(');'.\PHP_EOL)
+            ->write(self::CODE_INSTANCE.'->endDrawing();'.\PHP_EOL);
     }
 
     /**

@@ -2,8 +2,8 @@
 
 namespace Recranet\TwigSpreadsheetBundle\Twig\Node;
 
-use Twig\Node\Node;
 use Recranet\TwigSpreadsheetBundle\Wrapper\PhpSpreadsheetWrapper;
+use Twig\Node\Node;
 
 /**
  * Class BaseNode.
@@ -13,7 +13,7 @@ abstract class BaseNode extends Node
     /**
      * @var string
      */
-    public const CODE_FIX_CONTEXT = '$context = '.PhpSpreadsheetWrapper::class.'::fixContext($context);'.PHP_EOL;
+    public const CODE_FIX_CONTEXT = '$context = '.PhpSpreadsheetWrapper::class.'::fixContext($context);'.\PHP_EOL;
 
     /**
      * @var string

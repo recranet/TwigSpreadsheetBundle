@@ -2,13 +2,13 @@
 
 namespace Recranet\TwigSpreadsheetBundle\Twig\NodeVisitor;
 
+use Recranet\TwigSpreadsheetBundle\Twig\Node\BaseNode;
+use Recranet\TwigSpreadsheetBundle\Twig\Node\DocumentNode;
 use Twig\Environment;
-use Twig\NodeVisitor\AbstractNodeVisitor;
 use Twig\Error\SyntaxError;
 use Twig\Node\Node;
 use Twig\Node\TextNode;
-use Recranet\TwigSpreadsheetBundle\Twig\Node\BaseNode;
-use Recranet\TwigSpreadsheetBundle\Twig\Node\DocumentNode;
+use Twig\NodeVisitor\AbstractNodeVisitor;
 
 /**
  * Class SyntaxCheckNodeVisitor.
@@ -44,7 +44,7 @@ class SyntaxCheckNodeVisitor extends AbstractNodeVisitor
             throw $e;
         }
 
-        $this->path[] = $node !== null ? \get_class($node) : null;
+        $this->path[] = $node !== null ? $node::class : null;
 
         return $node;
     }
@@ -98,7 +98,7 @@ class SyntaxCheckNodeVisitor extends AbstractNodeVisitor
 
         // find first parent from this bundle
         foreach (array_reverse($this->path) as $className) {
-            if (strpos($className, 'Recranet\\TwigSpreadsheetBundle\\Twig\\Node\\') === 0) {
+            if (str_starts_with($className, 'Recranet\\TwigSpreadsheetBundle\\Twig\\Node\\')) {
                 $parentName = $className;
                 break;
             }
@@ -116,6 +116,6 @@ class SyntaxCheckNodeVisitor extends AbstractNodeVisitor
             }
         }
 
-        throw new SyntaxError(sprintf('Node "%s" is not allowed inside of Node "%s".', \get_class($node), $parentName));
+        throw new SyntaxError(sprintf('Node "%s" is not allowed inside of Node "%s".', $node::class, $parentName));
     }
 }

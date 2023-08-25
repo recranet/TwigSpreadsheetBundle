@@ -2,9 +2,6 @@
 
 namespace Recranet\TwigSpreadsheetBundle\Twig;
 
-use Twig\Extension\AbstractExtension;
-use Twig\TwigFunction;
-use Twig\Error\RuntimeError;
 use Recranet\TwigSpreadsheetBundle\Helper\Arrays;
 use Recranet\TwigSpreadsheetBundle\Twig\NodeVisitor\MacroContextNodeVisitor;
 use Recranet\TwigSpreadsheetBundle\Twig\NodeVisitor\SyntaxCheckNodeVisitor;
@@ -17,6 +14,9 @@ use Recranet\TwigSpreadsheetBundle\Twig\TokenParser\RowTokenParser;
 use Recranet\TwigSpreadsheetBundle\Twig\TokenParser\SheetTokenParser;
 use Recranet\TwigSpreadsheetBundle\Wrapper\HeaderFooterWrapper;
 use Recranet\TwigSpreadsheetBundle\Wrapper\PhpSpreadsheetWrapper;
+use Twig\Error\RuntimeError;
+use Twig\Extension\AbstractExtension;
+use Twig\TwigFunction;
 
 /**
  * Class TwigSpreadsheetExtension.
@@ -110,6 +110,7 @@ class TwigSpreadsheetExtension extends AbstractExtension
         if (!isset($context[PhpSpreadsheetWrapper::INSTANCE_KEY])) {
             throw new RuntimeError('The PhpSpreadsheetWrapper instance is missing.');
         }
+
         return $context[PhpSpreadsheetWrapper::INSTANCE_KEY]->getCurrentColumn();
     }
 
@@ -125,6 +126,7 @@ class TwigSpreadsheetExtension extends AbstractExtension
         if (!isset($context[PhpSpreadsheetWrapper::INSTANCE_KEY])) {
             throw new RuntimeError('The PhpSpreadsheetWrapper instance is missing.');
         }
+
         return $context[PhpSpreadsheetWrapper::INSTANCE_KEY]->getCurrentRow();
     }
 }

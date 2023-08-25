@@ -40,7 +40,7 @@ class TestAppKernel extends Kernel
      */
     public function registerContainerConfiguration(LoaderInterface $loader): void
     {
-        $loader->load($this->getProjectDir() . '/config/config.yml');
+        $loader->load($this->getProjectDir().'/config/config.yml');
     }
 
     /**

@@ -2,12 +2,12 @@
 
 namespace Recranet\TwigSpreadsheetBundle\Wrapper;
 
-use Twig\Environment;
-use Symfony\Component\Filesystem\Exception\IOException;
 use PhpOffice\PhpSpreadsheet\Exception;
-use Recranet\TwigSpreadsheetBundle\Helper\Filesystem;
 use PhpOffice\PhpSpreadsheet\Worksheet\Drawing;
 use PhpOffice\PhpSpreadsheet\Worksheet\HeaderFooterDrawing;
+use Recranet\TwigSpreadsheetBundle\Helper\Filesystem;
+use Symfony\Component\Filesystem\Exception\IOException;
+use Twig\Environment;
 
 /**
  * Class DrawingWrapper.
@@ -23,10 +23,10 @@ class DrawingWrapper extends BaseWrapper
      * DrawingWrapper constructor.
      *
      * @param array               $context
-     * @param Environment $environment
+     * @param Environment         $environment
      * @param SheetWrapper        $sheetWrapper
      * @param HeaderFooterWrapper $headerFooterWrapper
-     * @param array             $attributes
+     * @param array               $attributes
      */
     public function __construct(array $context, Environment $environment, SheetWrapper $sheetWrapper, HeaderFooterWrapper $headerFooterWrapper, array $attributes = [])
     {
@@ -40,7 +40,7 @@ class DrawingWrapper extends BaseWrapper
 
     /**
      * @param string $path
-     * @param array $properties
+     * @param array  $properties
      *
      * @throws IOException
      * @throws \LogicException
@@ -187,7 +187,7 @@ class DrawingWrapper extends BaseWrapper
     private function createTempCopy(string $path): string
     {
         // create temp path
-        $extension = pathinfo($path, PATHINFO_EXTENSION);
+        $extension = pathinfo($path, \PATHINFO_EXTENSION);
         $tempPath = sprintf('%s/tsb_%s%s', $this->attributes['cache']['bitmap'], md5($path), $extension ? '.'.$extension : '');
 
         // create local copy

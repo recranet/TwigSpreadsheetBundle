@@ -2,11 +2,11 @@
 
 namespace Recranet\TwigSpreadsheetBundle\Wrapper;
 
-use Twig\Environment;
 use PhpOffice\PhpSpreadsheet\Exception;
-use PhpOffice\PhpSpreadsheet\Worksheet\Worksheet;
 use PhpOffice\PhpSpreadsheet\Worksheet\ColumnDimension;
 use PhpOffice\PhpSpreadsheet\Worksheet\RowDimension;
+use PhpOffice\PhpSpreadsheet\Worksheet\Worksheet;
+use Twig\Environment;
 
 /**
  * Class SheetWrapper.
@@ -31,9 +31,9 @@ class SheetWrapper extends BaseWrapper
     /**
      * SheetWrapper constructor.
      *
-     * @param array             $context
-     * @param Environment $environment
-     * @param DocumentWrapper   $documentWrapper
+     * @param array           $context
+     * @param Environment     $environment
+     * @param DocumentWrapper $documentWrapper
      */
     public function __construct(array $context, Environment $environment, DocumentWrapper $documentWrapper)
     {
@@ -48,7 +48,7 @@ class SheetWrapper extends BaseWrapper
 
     /**
      * @param int|string|null $index
-     * @param array $properties
+     * @param array           $properties
      *
      * @throws Exception
      * @throws \RuntimeException
@@ -92,8 +92,8 @@ class SheetWrapper extends BaseWrapper
 
         // auto-size columns
         if (
-            isset($this->parameters['properties']['columnDimension']) &&
-            \is_array($this->parameters['properties']['columnDimension'])
+            isset($this->parameters['properties']['columnDimension'])
+            && \is_array($this->parameters['properties']['columnDimension'])
         ) {
             /**
              * @var array $columnDimension

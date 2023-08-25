@@ -19,10 +19,10 @@ class SheetNode extends BaseNode
             ->write(self::CODE_INSTANCE.'->startSheet(')
                 ->subcompile($this->getNode('index'))->raw(', ')
                 ->subcompile($this->getNode('properties'))
-            ->raw(');'.PHP_EOL)
+            ->raw(');'.\PHP_EOL)
             ->subcompile($this->getNode('body'))
             ->addDebugInfo($this)
-            ->write(self::CODE_INSTANCE.'->endSheet();'.PHP_EOL);
+            ->write(self::CODE_INSTANCE.'->endSheet();'.\PHP_EOL);
     }
 
     /**

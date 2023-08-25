@@ -2,9 +2,9 @@
 
 namespace Recranet\TwigSpreadsheetBundle\Twig\TokenParser;
 
-use Twig\Node\Node;
 use Recranet\TwigSpreadsheetBundle\Twig\Node\AlignmentNode;
 use Recranet\TwigSpreadsheetBundle\Wrapper\HeaderFooterWrapper;
+use Twig\Node\Node;
 
 /**
  * Class AlignmentTokenParser.

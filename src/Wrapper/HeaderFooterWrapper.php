@@ -2,8 +2,8 @@
 
 namespace Recranet\TwigSpreadsheetBundle\Wrapper;
 
-use Twig\Environment;
 use PhpOffice\PhpSpreadsheet\Worksheet\HeaderFooter;
+use Twig\Environment;
 
 /**
  * Class HeaderFooterWrapper.
@@ -28,9 +28,9 @@ class HeaderFooterWrapper extends BaseWrapper
     /**
      * HeaderFooterWrapper constructor.
      *
-     * @param array             $context
-     * @param Environment $environment
-     * @param SheetWrapper      $sheetWrapper
+     * @param array        $context
+     * @param Environment  $environment
+     * @param SheetWrapper $sheetWrapper
      */
     public function __construct(array $context, Environment $environment, SheetWrapper $sheetWrapper)
     {
@@ -202,7 +202,7 @@ class HeaderFooterWrapper extends BaseWrapper
             throw new \LogicException();
         }
 
-        if (strpos($this->parameters['value'][$this->alignmentParameters['type']], '&G') === false) {
+        if (!str_contains($this->parameters['value'][$this->alignmentParameters['type']], '&G')) {
             $this->parameters['value'][$this->alignmentParameters['type']] .= $value;
         }
 
@@ -210,7 +210,7 @@ class HeaderFooterWrapper extends BaseWrapper
     }
 
     /**
-     * @return null|HeaderFooter
+     * @return HeaderFooter|null
      */
     public function getObject(): ?HeaderFooter
     {
@@ -218,7 +218,7 @@ class HeaderFooterWrapper extends BaseWrapper
     }
 
     /**
-     * @param null|HeaderFooter $object
+     * @param HeaderFooter|null $object
      */
     public function setObject(HeaderFooter $object = null): void
     {
