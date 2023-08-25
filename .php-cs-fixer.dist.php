@@ -24,6 +24,10 @@ return (new PhpCsFixer\Config())
         'no_unreachable_default_argument_value' => true,
         'no_useless_else' => true,
         'no_useless_return' => true,
+        'operator_linebreak' => [
+            'only_booleans' => true,
+            'position' => 'end',
+        ],
         'ordered_class_elements' => true,
         'ordered_imports' => true,
         'phpdoc_add_missing_param_annotation' => [
