@@ -17,7 +17,7 @@ class ConfigFunctionalTest extends OdsXlsXlsxFunctionalTest
         /**
          * @var TwigSpreadsheetExtension $extension
          */
-        $extension = static::$kernel->getContainer()->get('recranet_twig_spreadsheet.twig_spreadsheet_extension');
+        $extension = static::getContainer()->get('recranet_twig_spreadsheet.twig_spreadsheet_extension');
 
         static::assertFalse($extension->getAttributes()['pre_calculate_formulas'], 'Unexpected attribute');
 
@@ -55,7 +55,7 @@ class ConfigFunctionalTest extends OdsXlsXlsxFunctionalTest
         /**
          * @var TwigSpreadsheetExtension $extension
          */
-        $extension = static::$kernel->getContainer()->get('recranet_twig_spreadsheet.twig_spreadsheet_extension');
+        $extension = static::getContainer()->get('recranet_twig_spreadsheet.twig_spreadsheet_extension');
 
         static::assertEquals(';', $extension->getAttributes()['csv_writer']['delimiter'], 'Unexpected attribute');
         static::assertEquals('\'', $extension->getAttributes()['csv_writer']['enclosure'], 'Unexpected attribute');
