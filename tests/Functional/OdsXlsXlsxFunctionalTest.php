@@ -33,7 +33,9 @@ class OdsXlsXlsxFunctionalTest extends BaseFunctionalTest
         $url = $this->generateUrl('test_default', ['templateName' => 'simple', '_format' => $format]);
         $client->request('GET', $url);
 
-        $document = $this->getDocument($format);
+        $response = $client->getResponse();
+
+        $document = $this->getDocument($response, $format);
         static::assertNotNull($document, 'Document does not exist');
 
         $sheet = $document->getSheetByName('Test');
@@ -81,7 +83,9 @@ class OdsXlsXlsxFunctionalTest extends BaseFunctionalTest
         $url = $this->generateUrl('test_default', ['templateName' => 'documentTemplatePath1', '_format' => $format], $format);
         $client->request('GET', $url);
 
-        $document = $this->getDocument($format);
+        $response = $client->getResponse();
+
+        $document = $this->getDocument($response, $format);
         static::assertNotNull($document, 'Document does not exist');
 
         $sheet = $document->getSheet(0);
@@ -107,7 +111,9 @@ class OdsXlsXlsxFunctionalTest extends BaseFunctionalTest
         $url = $this->generateUrl('test_default', ['templateName' => 'documentTemplatePath2', '_format' => $format], $format);
         $client->request('GET', $url);
 
-        $document = $this->getDocument($format);
+        $response = $client->getResponse();
+
+        $document = $this->getDocument($response, $format);
         static::assertNotNull($document, 'Document does not exist');
 
         $sheet = $document->getSheet(0);

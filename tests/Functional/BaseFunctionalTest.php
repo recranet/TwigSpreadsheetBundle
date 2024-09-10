@@ -7,6 +7,7 @@ use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use Recranet\TwigSpreadsheetBundle\Helper\Filesystem;
 use Recranet\TwigSpreadsheetBundle\Tests\Functional\Fixtures\app\TestAppKernel;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\RouterInterface;
 
 /**
@@ -45,6 +46,7 @@ abstract class BaseFunctionalTest extends WebTestCase
     }
 
     /**
+     * @param Response $response
      * @param string $format
      *
      * @throws \Symfony\Component\Filesystem\Exception\IOException
@@ -52,18 +54,8 @@ abstract class BaseFunctionalTest extends WebTestCase
      *
      * @return Spreadsheet
      */
-    protected function getDocument(string $format = 'xlsx'): Spreadsheet
+    protected function getDocument(Response $response, string $format = 'xlsx'): Spreadsheet
     {
-        if (is_callable([$this, 'getClient'])) {
-            $response = self::getClient()->getResponse();
-        } else {
-            $response = self::getResponse();
-        }
-
-        if (!$response) {
-            static::fail('A client must have an HTTP Response to make assertions. Did you forget to make an HTTP request?');
-        }
-
         Filesystem::mkdir(static::getResultDir(), 0755);
 
         // create path for temp file
