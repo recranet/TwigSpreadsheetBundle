@@ -61,7 +61,8 @@ abstract class BaseFunctionalTest extends WebTestCase
         Filesystem::mkdir(static::getResultDir(), 0755);
 
         // create path for temp file
-        $file = tempnam(static::getResultDir(), strtolower($format));
+        $extension = strtolower($format);
+        $file = tempnam(static::getResultDir(), __CLASS__.'_').'.'.$extension;
 
         // save content
         Filesystem::dumpFile($file, $response->getContent());
