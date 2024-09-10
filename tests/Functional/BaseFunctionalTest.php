@@ -54,7 +54,13 @@ abstract class BaseFunctionalTest extends WebTestCase
      */
     protected function getDocument(string $format = 'xlsx'): Spreadsheet
     {
-        if (!$response = self::getClient()->getResponse()) {
+        if (method_exists($this, 'getClient')) {
+            $response = self::getClient()->getResponse();
+        } else {
+            $response = self::getResponse();
+        }
+
+        if (!$response) {
             static::fail('A client must have an HTTP Response to make assertions. Did you forget to make an HTTP request?');
         }
 
