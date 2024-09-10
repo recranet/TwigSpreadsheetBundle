@@ -17,6 +17,7 @@
         "phpoffice/phpspreadsheet": "^1.22.0",
         "symfony/framework-bundle": "^5.4|^6.0",
         "symfony/polyfill-php80": "^1.16",
+        "symfony/routing": "^5.4|^6.0",
         "symfony/twig-bridge": "^5.4|^6.0",
         "symfony/twig-bundle": "^5.4|^6.0",
         "twig/twig": "^3.0"
