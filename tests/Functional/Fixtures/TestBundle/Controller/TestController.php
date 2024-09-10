@@ -42,7 +42,7 @@ class TestController extends AbstractController
                     ['name' => 'Kena Kea', 'salary' => 4090.0],
                     ['name' => 'Evita Chittum', 'salary' => 4639.0],
                 ],
-                'kernelPath' => $this->getParameter('kernel.project_dir'),
+                'bundlePath' => dirname(__DIR__),
             ]
         );
     }
