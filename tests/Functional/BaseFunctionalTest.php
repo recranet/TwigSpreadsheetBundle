@@ -5,23 +5,24 @@ namespace Recranet\TwigSpreadsheetBundle\Tests\Functional;
 use PhpOffice\PhpSpreadsheet\IOFactory;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use Recranet\TwigSpreadsheetBundle\Helper\Filesystem;
-use Recranet\TwigSpreadsheetBundle\Tests\Functional\Fixtures\TestAppKernel;
-use Symfony\Bundle\FrameworkBundle\KernelBrowser;
-use Symfony\Bundle\FrameworkBundle\Routing\Router;
+use Recranet\TwigSpreadsheetBundle\Tests\Functional\Fixtures\app\TestAppKernel;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpKernel\KernelInterface;
+use Symfony\Component\Routing\RouterInterface;
 
 /**
  * Class BaseFunctionalTest.
  */
 abstract class BaseFunctionalTest extends WebTestCase
 {
-    public const CACHE_PATH = './../../var/cache/twig';
-    public const RESULT_PATH = './../../var/result';
+    private static function getCacheDir(): string
+    {
+        return sprintf('%s/../var/cache/%s', dirname(__DIR__), str_replace('\\', \DIRECTORY_SEPARATOR, static::class));
+    }
 
-    protected static KernelBrowser $client;
+    private static function getResultDir(): string
+    {
+        return sprintf('%s/../var/result/%s', dirname(__DIR__), str_replace('\\', \DIRECTORY_SEPARATOR, static::class));
+    }
 
     /**
      * {@inheritdoc}
@@ -31,16 +32,8 @@ abstract class BaseFunctionalTest extends WebTestCase
     public static function setUpBeforeClass(): void
     {
         // remove temp files
-        Filesystem::remove(sprintf('%s/%s', static::CACHE_PATH, str_replace('\\', \DIRECTORY_SEPARATOR, static::class)));
-        Filesystem::remove(sprintf('%s/%s', static::RESULT_PATH, str_replace('\\', \DIRECTORY_SEPARATOR, static::class)));
-    }
-
-    /**
-     * @throws \Symfony\Component\Filesystem\Exception\IOException
-     */
-    protected function setUp(): void
-    {
-        static::$client = static::createClient();
+        Filesystem::remove(static::getCacheDir());
+        Filesystem::remove(static::getResultDir());
     }
 
     /**
@@ -52,23 +45,6 @@ abstract class BaseFunctionalTest extends WebTestCase
     }
 
     /**
-     * {@inheritdoc}
-     */
-    protected static function createKernel(array $options = []): KernelInterface
-    {
-        /**
-         * @var TestAppKernel $kernel
-         */
-        $kernel = parent::createKernel($options);
-        $kernel->setCacheDir(sprintf('%s/../../../var/cache/%s', $kernel->getProjectDir(), str_replace('\\', \DIRECTORY_SEPARATOR, static::class)));
-        $kernel->setLogDir(sprintf('%s/../../../var/logs/%s', $kernel->getProjectDir(), str_replace('\\', \DIRECTORY_SEPARATOR, static::class)));
-
-        return $kernel;
-    }
-
-    /**
-     * @param string $routeName
-     * @param array  $routeParameters
      * @param string $format
      *
      * @throws \Symfony\Component\Filesystem\Exception\IOException
@@ -76,36 +52,35 @@ abstract class BaseFunctionalTest extends WebTestCase
      *
      * @return Spreadsheet
      */
-    protected function getDocument(string $routeName, array $routeParameters = [], string $format = 'xlsx'): Spreadsheet
+    protected function getDocument(string $format = 'xlsx'): Spreadsheet
     {
-        // create document content
-        $content = $this->getResponse($routeName, $routeParameters)->getContent();
+        if (!$response = self::getClient()->getResponse()) {
+            static::fail('A client must have an HTTP Response to make assertions. Did you forget to make an HTTP request?');
+        }
+
+        Filesystem::mkdir(static::getResultDir(), 0755);
 
         // create path for temp file
-        $format = strtolower($format);
-        $resultPath = sprintf('%s/%s/%s.%s', __DIR__, static::RESULT_PATH, str_replace('\\', \DIRECTORY_SEPARATOR, static::class), $format);
+        $file = tempnam(static::getResultDir(), strtolower($format));
 
         // save content
-        Filesystem::dumpFile($resultPath, $content);
+        Filesystem::dumpFile($file, $response->getContent());
 
         // load document
-        return IOFactory::createReader(ucfirst($format))->load($resultPath);
+        return IOFactory::createReader(ucfirst($format))->load($file);
     }
 
     /**
-     * @param string $routeName
-     * @param array  $routeParameters
+     * @param string $name
+     * @param array $parameters
      *
-     * @return Response
+     * @return string
      */
-    protected static function getResponse(string $routeName, array $routeParameters = []): Response
+    protected function generateUrl(string $name, array $parameters = []): string
     {
-        /**
-         * @var Router $router
-         */
-        $router = static::$kernel->getContainer()->get('router');
-        static::$client->request(Request::METHOD_GET, $router->generate($routeName, $routeParameters));
+        /** @var RouterInterface $router */
+        $router = self::$kernel->getContainer()->get('router');
 
-        return static::$client->getResponse();
+        return $router->generate($name, $parameters);
     }
 }

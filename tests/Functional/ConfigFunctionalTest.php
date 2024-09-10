@@ -29,8 +29,14 @@ class ConfigFunctionalTest extends OdsXlsXlsxFunctionalTest
      */
     public function testXmlCacheDirectory()
     {
+        $client = static::createClient();
+
         // make request to fill the disk cache
-        $response = $this->getResponse('test_default', ['templateName' => 'simple']);
+        $url = $this->generateUrl('test_default', ['templateName' => 'simple']);
+        $client->request('GET', $url);
+
+        $response = $client->getResponse();
+
         static::assertNotNull($response, 'Response does not exist');
 
         /**

@@ -7,7 +7,7 @@ framework:
     annotations: true
     router:
         utf8: true
-        resource: "%kernel.project_dir%/config/routing.yml"
+        resource: "%kernel.project_dir%/config/routes.yaml"
 
 twig:
     strict_variables: true
