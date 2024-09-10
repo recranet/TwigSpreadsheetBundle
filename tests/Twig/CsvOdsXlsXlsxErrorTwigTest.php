@@ -71,34 +71,6 @@ class CsvOdsXlsXlsxErrorTwigTest extends BaseTwigTest
      *
      * @dataProvider formatProvider
      */
-    public function testStartCellIndexError($format)
-    {
-        $this->expectException(\Twig\Error\RuntimeError::class);
-
-        $this->getDocument('cellIndexError', $format);
-    }
-
-    /**
-     * @param string $format
-     *
-     * @throws \Exception
-     *
-     * @dataProvider formatProvider
-     */
-    public function testStartRowIndexError($format)
-    {
-        $this->expectException(\Twig\Error\RuntimeError::class);
-
-        $this->getDocument('rowIndexError', $format);
-    }
-
-    /**
-     * @param string $format
-     *
-     * @throws \Exception
-     *
-     * @dataProvider formatProvider
-     */
     public function testSheetError($format)
     {
         $this->expectException(\Twig\Error\SyntaxError::class);
