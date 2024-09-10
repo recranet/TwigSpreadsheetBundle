@@ -54,7 +54,7 @@ abstract class BaseFunctionalTest extends WebTestCase
      */
     protected function getDocument(string $format = 'xlsx'): Spreadsheet
     {
-        if (method_exists($this, 'getClient')) {
+        if (is_callable([$this, 'getClient'])) {
             $response = self::getClient()->getResponse();
         } else {
             $response = self::getResponse();
