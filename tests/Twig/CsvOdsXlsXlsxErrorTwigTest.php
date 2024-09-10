@@ -73,7 +73,7 @@ class CsvOdsXlsXlsxErrorTwigTest extends BaseTwigTest
      */
     public function testStartCellIndexError($format)
     {
-        $this->expectException(\TypeError::class);
+        $this->expectException(\Twig\Error\RuntimeError::class);
 
         $this->getDocument('cellIndexError', $format);
     }
@@ -87,7 +87,7 @@ class CsvOdsXlsXlsxErrorTwigTest extends BaseTwigTest
      */
     public function testStartRowIndexError($format)
     {
-        $this->expectException(\TypeError::class);
+        $this->expectException(\Twig\Error\RuntimeError::class);
 
         $this->getDocument('rowIndexError', $format);
     }
