@@ -15,6 +15,7 @@ twig:
 recranet_twig_spreadsheet:
     pre_calculate_formulas:     false
     cache:
+        bitmap:                 "%kernel.cache_dir%/spreadsheet/bitmap"
         xml:                    "%kernel.cache_dir%/spreadsheet/xml"
     csv_writer:
         delimiter:              ";"
