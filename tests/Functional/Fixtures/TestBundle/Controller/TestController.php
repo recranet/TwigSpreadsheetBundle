@@ -5,16 +5,12 @@ namespace Recranet\TwigSpreadsheetBundle\Tests\Functional\Fixtures\TestBundle\Co
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\ResponseHeaderBag;
-use Symfony\Component\Routing\Annotation\Route;
 
 /**
  * Class TestController.
  */
 class TestController extends AbstractController
 {
-    /**
-     * @Route("/default/{templateName}.{_format}", name="test_default", defaults={"templateName" = "simple", "_format" = "xlsx"})
-     */
     public function defaultAction(string $templateName): Response
     {
         return $this->render(
@@ -47,9 +43,6 @@ class TestController extends AbstractController
         );
     }
 
-    /**
-     * @Route("/custom-response/{templateName}.{_format}", name="test_custom_response", defaults={"templateName" = "simple", "_format" = "xlsx"})
-     */
     public function customResponseAction(string $templateName): Response
     {
         $response = new Response(

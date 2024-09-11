@@ -1,0 +1,8 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+
+    test_bundle.test_controller:
+        class: Recranet\TwigSpreadsheetBundle\Tests\Functional\Fixtures\TestBundle\Controller\TestController
+        public: true

@@ -23,7 +23,6 @@
         "twig/twig": "^3.0"
     },
     "require-dev": {
-        "doctrine/annotations": "^1.13",
         "dompdf/dompdf": "^2.0",
         "rector/rector": "^0.14.0",
         "symfony/browser-kit": "^5.4|^6.0",
