@@ -1,3 +1,13 @@
-test:
-    resource: "@TestBundle/Controller/"
-    type:     annotation
+test_default:
+    path: '/default/{templateName}.{_format}'
+    defaults:
+        _controller: 'test_bundle.test_controller::defaultAction'
+        _format: 'xlsx'
+        templateName: 'simple'
+
+test_custom_response:
+    path: '/custom-response/{templateName}.{_format}'
+    defaults:
+        _controller: 'test_bundle.test_controller::customResponseAction'
+        _format: 'xlsx'
+        templateName: 'simple'

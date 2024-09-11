@@ -1,7 +1,0 @@
-services:
-    _defaults:
-        autowire: true
-        autoconfigure: true
-
-    Recranet\TwigSpreadsheetBundle\Tests\Functional\Fixtures\TestBundle\Controller\:
-        resource: '../../Controller/'
