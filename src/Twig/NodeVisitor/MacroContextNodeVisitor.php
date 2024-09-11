@@ -9,12 +9,12 @@ use Twig\Node\Expression\ConstantExpression;
 use Twig\Node\Expression\MethodCallExpression;
 use Twig\Node\Expression\NameExpression;
 use Twig\Node\Node;
-use Twig\NodeVisitor\AbstractNodeVisitor;
+use Twig\NodeVisitor\NodeVisitorInterface;
 
 /**
  * Class MacroContextNodeVisitor.
  */
-class MacroContextNodeVisitor extends AbstractNodeVisitor
+class MacroContextNodeVisitor implements NodeVisitorInterface
 {
     /**
      * {@inheritdoc}
@@ -27,7 +27,7 @@ class MacroContextNodeVisitor extends AbstractNodeVisitor
     /**
      * {@inheritdoc}
      */
-    protected function doEnterNode(Node $node, Environment $env): Node
+    public function enterNode(Node $node, Environment $env): Node
     {
         // add wrapper instance as argument on all method calls
         if ($node instanceof MethodCallExpression) {
@@ -50,7 +50,7 @@ class MacroContextNodeVisitor extends AbstractNodeVisitor
     /**
      * {@inheritdoc}
      */
-    protected function doLeaveNode(Node $node, Environment $env): Node
+    public function leaveNode(Node $node, Environment $env): Node
     {
         return $node;
     }
