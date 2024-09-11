@@ -12,7 +12,7 @@
         }
     ],
     "require": {
-        "php": "^8.0",
+        "php": "^8.1",
         "ext-mbstring": "*",
         "phpoffice/phpspreadsheet": "^1.22.0",
         "symfony/framework-bundle": "^6.4|^7.0",
