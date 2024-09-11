@@ -363,6 +363,9 @@ class SheetWrapper extends BaseWrapper
             'zoomScale' => function ($value) {
                 $this->object->getSheetView()->setZoomScale($value);
             },
+            'freezePane' => function ($value) {
+                $this->object->freezePane($value);
+            },
         ];
     }
 }
