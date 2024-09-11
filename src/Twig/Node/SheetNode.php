@@ -2,11 +2,13 @@
 
 namespace Recranet\TwigSpreadsheetBundle\Twig\Node;
 
+use Twig\Attribute\YieldReady;
 use Twig\Compiler;
 
 /**
  * Class SheetNode.
  */
+#[YieldReady]
 class SheetNode extends BaseNode
 {
     /**

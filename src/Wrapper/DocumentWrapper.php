@@ -74,7 +74,7 @@ class DocumentWrapper extends BaseWrapper
      * @throws \PhpOffice\PhpSpreadsheet\Writer\Exception
      * @throws IOException
      */
-    public function end(): void
+    public function write(): string
     {
         if ($this->object === null) {
             throw new \LogicException();
@@ -144,7 +144,18 @@ class DocumentWrapper extends BaseWrapper
             $writer->setUseBOM($this->attributes['csv_writer']['use_bom']);
         }
 
+        ob_start();
+
         $writer->save('php://output');
+
+        return ob_get_clean();
+    }
+
+    public function end(): void
+    {
+        if ($this->object === null) {
+            throw new \LogicException();
+        }
 
         $this->object = null;
         $this->parameters = [];

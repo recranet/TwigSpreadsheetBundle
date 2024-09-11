@@ -3,11 +3,13 @@
 namespace Recranet\TwigSpreadsheetBundle\Twig\Node;
 
 use Recranet\TwigSpreadsheetBundle\Wrapper\PhpSpreadsheetWrapper;
+use Twig\Attribute\YieldReady;
 use Twig\Compiler;
 
 /**
  * Class DocumentNode.
  */
+#[YieldReady]
 class DocumentNode extends BaseNode
 {
     /**
@@ -26,6 +28,7 @@ class DocumentNode extends BaseNode
             ->subcompile($this->getNode('body'))
             ->addDebugInfo($this)
             ->write("ob_end_clean();\n")
+            ->write('yield from '.self::CODE_INSTANCE.'->yieldDocument();'.\PHP_EOL)
             ->write(self::CODE_INSTANCE.'->endDocument();'.\PHP_EOL)
             ->write('unset('.self::CODE_INSTANCE.');'.\PHP_EOL);
     }

@@ -69,12 +69,22 @@ class PhpSpreadsheetWrapper
     }
 
     /**
+     * @return \Generator<string>
+     *
      * @throws \RuntimeException
      * @throws \LogicException
      * @throws \InvalidArgumentException
      * @throws Exception
      * @throws \PhpOffice\PhpSpreadsheet\Writer\Exception
      * @throws IOException
+     */
+    public function yieldDocument(): \Generator
+    {
+        yield $this->documentWrapper->write();
+    }
+
+    /**
+     * @throws \LogicException
      */
     public function endDocument(): void
     {

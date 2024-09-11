@@ -3,11 +3,13 @@
 namespace Recranet\TwigSpreadsheetBundle\Twig\Node;
 
 use Recranet\TwigSpreadsheetBundle\Wrapper\HeaderFooterWrapper;
+use Twig\Attribute\YieldReady;
 use Twig\Compiler;
 
 /**
  * Class HeaderFooterNode.
  */
+#[YieldReady]
 class HeaderFooterNode extends BaseNode
 {
     private string $baseType;

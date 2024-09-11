@@ -3,11 +3,13 @@
 namespace Recranet\TwigSpreadsheetBundle\Twig\Node;
 
 use Recranet\TwigSpreadsheetBundle\Wrapper\HeaderFooterWrapper;
+use Twig\Attribute\YieldReady;
 use Twig\Compiler;
 
 /**
  * Class AlignmentNode.
  */
+#[YieldReady]
 class AlignmentNode extends BaseNode
 {
     private string $alignment;
