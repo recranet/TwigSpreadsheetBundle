@@ -42,9 +42,7 @@ class AlignmentNode extends BaseNode
             ->raw(');'.\PHP_EOL)
             ->write("ob_start();\n")
             ->subcompile($this->getNode('body'))
-            ->write('$alignmentValue = trim(ob_get_clean());'.\PHP_EOL)
-            ->write(self::CODE_INSTANCE.'->endAlignment($alignmentValue);'.\PHP_EOL)
-            ->write('unset($alignmentValue);'.\PHP_EOL);
+            ->write(self::CODE_INSTANCE.'->endAlignment(trim(ob_get_clean()));'.\PHP_EOL);
     }
 
     /**
