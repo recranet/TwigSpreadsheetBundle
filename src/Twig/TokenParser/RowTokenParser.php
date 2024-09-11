@@ -30,7 +30,7 @@ class RowTokenParser extends BaseTokenParser
      */
     public function createNode(array $nodes = [], int $lineNo = 0): Node
     {
-        return new RowNode($nodes, $this->getAttributes(), $lineNo, $this->getTag());
+        return new RowNode($nodes, $this->getAttributes(), $lineNo);
     }
 
     /**

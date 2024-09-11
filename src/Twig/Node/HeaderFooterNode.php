@@ -18,14 +18,13 @@ class HeaderFooterNode extends BaseNode
      * @param array       $nodes
      * @param array       $attributes
      * @param int         $lineNo
-     * @param string|null $tag
      * @param string      $baseType
      *
      * @throws \InvalidArgumentException
      */
-    public function __construct(array $nodes = [], array $attributes = [], int $lineNo = 0, string $tag = null, string $baseType = HeaderFooterWrapper::BASETYPE_HEADER)
+    public function __construct(array $nodes = [], array $attributes = [], int $lineNo = 0, string $baseType = HeaderFooterWrapper::BASETYPE_HEADER)
     {
-        parent::__construct($nodes, $attributes, $lineNo, $tag);
+        parent::__construct($nodes, $attributes, $lineNo);
 
         $this->baseType = HeaderFooterWrapper::validateBaseType(strtolower($baseType));
     }

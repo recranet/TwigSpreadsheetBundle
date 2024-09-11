@@ -18,14 +18,13 @@ class AlignmentNode extends BaseNode
      * @param array       $nodes
      * @param array       $attributes
      * @param int         $lineNo
-     * @param string|null $tag
      * @param string      $alignment
      *
      * @throws \InvalidArgumentException
      */
-    public function __construct(array $nodes = [], array $attributes = [], int $lineNo = 0, string $tag = null, string $alignment = HeaderFooterWrapper::ALIGNMENT_CENTER)
+    public function __construct(array $nodes = [], array $attributes = [], int $lineNo = 0, string $alignment = HeaderFooterWrapper::ALIGNMENT_CENTER)
     {
-        parent::__construct($nodes, $attributes, $lineNo, $tag);
+        parent::__construct($nodes, $attributes, $lineNo);
 
         $this->alignment = HeaderFooterWrapper::validateAlignment(strtolower($alignment));
     }

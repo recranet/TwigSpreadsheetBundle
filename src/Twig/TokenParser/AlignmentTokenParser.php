@@ -35,7 +35,7 @@ class AlignmentTokenParser extends BaseTokenParser
      */
     public function createNode(array $nodes = [], int $lineNo = 0): Node
     {
-        return new AlignmentNode($nodes, $this->getAttributes(), $lineNo, $this->getTag(), $this->alignment);
+        return new AlignmentNode($nodes, $this->getAttributes(), $lineNo, $this->alignment);
     }
 
     /**

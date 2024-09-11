@@ -30,7 +30,7 @@ class DocumentTokenParser extends BaseTokenParser
      */
     public function createNode(array $nodes = [], int $lineNo = 0): Node
     {
-        return new DocumentNode($nodes, $this->getAttributes(), $lineNo, $this->getTag());
+        return new DocumentNode($nodes, $this->getAttributes(), $lineNo);
     }
 
     /**
