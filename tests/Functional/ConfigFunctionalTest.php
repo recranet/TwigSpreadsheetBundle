@@ -7,7 +7,7 @@ use Recranet\TwigSpreadsheetBundle\Twig\TwigSpreadsheetExtension;
 /**
  * Class ConfigFunctionalTest.
  */
-class ConfigFunctionalTest extends OdsXlsXlsxFunctionalTest
+class ConfigFunctionalTest extends BaseFunctionalTest
 {
     /**
      * @throws \Exception
