@@ -3,7 +3,6 @@
 namespace Recranet\TwigSpreadsheetBundle\Tests\Functional\Fixtures\TestBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\ResponseHeaderBag;
 use Symfony\Component\Routing\Annotation\Route;
@@ -13,21 +12,10 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class TestController extends AbstractController
 {
-    private ParameterBagInterface $parameterBag;
-
-    public function __construct(ParameterBagInterface $parameterBag)
-    {
-        $this->parameterBag = $parameterBag;
-    }
-
     /**
-     * @param $templateName
-     *
-     * @return \Symfony\Component\HttpFoundation\Response
-     *
      * @Route("/default/{templateName}.{_format}", name="test_default", defaults={"templateName" = "simple", "_format" = "xlsx"})
      */
-    public function defaultAction($templateName): Response
+    public function defaultAction(string $templateName): Response
     {
         return $this->render(
             '@Test/Default/'.$templateName.'.twig',
@@ -54,21 +42,15 @@ class TestController extends AbstractController
                     ['name' => 'Kena Kea', 'salary' => 4090.0],
                     ['name' => 'Evita Chittum', 'salary' => 4639.0],
                 ],
-                'kernelPath' => $this->parameterBag->get('kernel.project_dir'),
+                'bundlePath' => dirname(__DIR__),
             ]
         );
     }
 
     /**
-     * @param $templateName
-     *
-     * @throws \InvalidArgumentException
-     *
-     * @return \Symfony\Component\HttpFoundation\Response
-     *
      * @Route("/custom-response/{templateName}.{_format}", name="test_custom_response", defaults={"templateName" = "simple", "_format" = "xlsx"})
      */
-    public function customResponseAction($templateName): Response
+    public function customResponseAction(string $templateName): Response
     {
         $response = new Response(
             $this->render(

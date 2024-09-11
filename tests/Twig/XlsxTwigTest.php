@@ -28,7 +28,7 @@ class XlsxTwigTest extends BaseTwigTest
      */
     public function testCellProperties($format)
     {
-        $document = $this->getDocument('cellProperties', $format);
+        $document = $this->renderSpreadsheet('cellProperties', $format);
         $sheet = $document->getSheetByName('Test');
         $cell = $sheet->getCell('A1');
         $dataValidation = $cell->getDataValidation();
@@ -62,7 +62,7 @@ class XlsxTwigTest extends BaseTwigTest
      */
     public function testDocumentProperties($format)
     {
-        $document = $this->getDocument('documentProperties', $format);
+        $document = $this->renderSpreadsheet('documentProperties', $format);
         $properties = $document->getProperties();
 
         static::assertEquals('Test company', $properties->getCompany(), 'Unexpected value in company');
@@ -78,7 +78,7 @@ class XlsxTwigTest extends BaseTwigTest
      */
     public function testDocumentTemplate($format)
     {
-        $document = $this->getDocument('documentTemplateAdvanced', $format);
+        $document = $this->renderSpreadsheet('documentTemplateAdvanced', $format);
         static::assertNotNull($document, 'Document does not exist');
 
         $sheet = $document->getSheet(0);
@@ -120,7 +120,7 @@ class XlsxTwigTest extends BaseTwigTest
      */
     public function testDrawingProperties($format)
     {
-        $document = $this->getDocument('drawingProperties', $format);
+        $document = $this->renderSpreadsheet('drawingProperties', $format);
         static::assertNotNull($document, 'Document does not exist');
 
         $sheet = $document->getSheetByName('Test');
@@ -155,7 +155,7 @@ class XlsxTwigTest extends BaseTwigTest
      */
     public function testHeaderFooterComplex($format)
     {
-        $document = $this->getDocument('headerFooterComplex', $format);
+        $document = $this->renderSpreadsheet('headerFooterComplex', $format);
         static::assertNotNull($document, 'Document does not exist');
 
         $sheet = $document->getSheetByName('Test');
@@ -186,7 +186,7 @@ class XlsxTwigTest extends BaseTwigTest
      */
     public function testHeaderFooterDrawing($format)
     {
-        $document = $this->getDocument('headerFooterDrawing', $format);
+        $document = $this->renderSpreadsheet('headerFooterDrawing', $format);
         static::assertNotNull($document, 'Document does not exist');
 
         $sheet = $document->getSheetByName('Test');
@@ -226,7 +226,7 @@ class XlsxTwigTest extends BaseTwigTest
      */
     public function testHeaderFooterProperties($format)
     {
-        $document = $this->getDocument('headerFooterProperties', $format);
+        $document = $this->renderSpreadsheet('headerFooterProperties', $format);
         static::assertNotNull($document, 'Document does not exist');
 
         $sheet = $document->getSheetByName('Test');
@@ -255,7 +255,7 @@ class XlsxTwigTest extends BaseTwigTest
      */
     public function testSheetProperties($format)
     {
-        $document = $this->getDocument('sheetProperties', $format);
+        $document = $this->renderSpreadsheet('sheetProperties', $format);
         static::assertNotNull($document, 'Document does not exist');
 
         $sheet = $document->getSheetByName('Test');

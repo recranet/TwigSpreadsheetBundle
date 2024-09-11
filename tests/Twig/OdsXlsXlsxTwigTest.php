@@ -30,7 +30,7 @@ class OdsXlsXlsxTwigTest extends BaseTwigTest
      */
     public function testBlock($format)
     {
-        $document = $this->getDocument('block', $format);
+        $document = $this->renderSpreadsheet('block', $format);
         static::assertNotNull($document, 'Document does not exist');
 
         $sheet = $document->getSheetByName('Test');
@@ -51,7 +51,7 @@ class OdsXlsXlsxTwigTest extends BaseTwigTest
      */
     public function testBlockOverrideCell($format)
     {
-        $document = $this->getDocument('blockOverrideCell', $format);
+        $document = $this->renderSpreadsheet('blockOverrideCell', $format);
         static::assertNotNull($document, 'Document does not exist');
 
         $sheet = $document->getSheetByName('Test');
@@ -72,7 +72,7 @@ class OdsXlsXlsxTwigTest extends BaseTwigTest
      */
     public function testBlockOverrideContent($format)
     {
-        $document = $this->getDocument('blockOverrideContent', $format);
+        $document = $this->renderSpreadsheet('blockOverrideContent', $format);
         static::assertNotNull($document, 'Document does not exist');
 
         $sheet = $document->getSheetByName('Test');
@@ -93,7 +93,7 @@ class OdsXlsXlsxTwigTest extends BaseTwigTest
      */
     public function testBlockOverrideRow($format)
     {
-        $document = $this->getDocument('blockOverrideRow', $format);
+        $document = $this->renderSpreadsheet('blockOverrideRow', $format);
         static::assertNotNull($document, 'Document does not exist');
 
         $sheet = $document->getSheetByName('Test');
@@ -114,7 +114,7 @@ class OdsXlsXlsxTwigTest extends BaseTwigTest
      */
     public function testBlockOverrideSheet($format)
     {
-        $document = $this->getDocument('blockOverrideSheet', $format);
+        $document = $this->renderSpreadsheet('blockOverrideSheet', $format);
         static::assertNotNull($document, 'Document does not exist');
 
         $sheet = $document->getSheetByName('Test2');
@@ -135,7 +135,7 @@ class OdsXlsXlsxTwigTest extends BaseTwigTest
      */
     public function testCellFormula($format)
     {
-        $document = $this->getDocument('cellFormula', $format);
+        $document = $this->renderSpreadsheet('cellFormula', $format);
         static::assertNotNull($document, 'Document does not exist');
 
         $sheet = $document->getSheetByName('Test');
@@ -159,7 +159,7 @@ class OdsXlsXlsxTwigTest extends BaseTwigTest
      */
     public function testCellIndex($format)
     {
-        $document = $this->getDocument('cellIndex', $format);
+        $document = $this->renderSpreadsheet('cellIndex', $format);
         static::assertNotNull($document, 'Document does not exist');
 
         $sheet = $document->getSheetByName('Test');
@@ -189,7 +189,7 @@ class OdsXlsXlsxTwigTest extends BaseTwigTest
      */
     public function testCellProperties($format)
     {
-        $document = $this->getDocument('cellProperties', $format);
+        $document = $this->renderSpreadsheet('cellProperties', $format);
         static::assertNotNull($document, 'Document does not exist');
 
         $sheet = $document->getSheetByName('Test');
@@ -241,7 +241,7 @@ class OdsXlsXlsxTwigTest extends BaseTwigTest
      */
     public function testCellValue($format)
     {
-        $document = $this->getDocument('cellValue', $format);
+        $document = $this->renderSpreadsheet('cellValue', $format);
         static::assertNotNull($document, 'Document does not exist');
 
         $sheet = $document->getSheetByName('Test');
@@ -288,7 +288,7 @@ class OdsXlsXlsxTwigTest extends BaseTwigTest
      */
     public function testDocumentProperties($format)
     {
-        $document = $this->getDocument('documentProperties', $format);
+        $document = $this->renderSpreadsheet('documentProperties', $format);
         static::assertNotNull($document, 'Document does not exist');
 
         $properties = $document->getProperties();
@@ -323,7 +323,7 @@ class OdsXlsXlsxTwigTest extends BaseTwigTest
      */
     public function testDocumentWhitespace($format)
     {
-        $document = $this->getDocument('documentWhitespace', $format);
+        $document = $this->renderSpreadsheet('documentWhitespace', $format);
         static::assertNotNull($document, 'Document does not exist');
 
         $sheet = $document->getSheetByName('Test');
@@ -344,7 +344,7 @@ class OdsXlsXlsxTwigTest extends BaseTwigTest
      */
     public function testInclude($format)
     {
-        $document = $this->getDocument('include', $format);
+        $document = $this->renderSpreadsheet('include', $format);
         static::assertNotNull($document, 'Document does not exist');
 
         $sheet = $document->getSheetByName('Test');
@@ -371,7 +371,7 @@ class OdsXlsXlsxTwigTest extends BaseTwigTest
      */
     public function testMacro($format)
     {
-        $document = $this->getDocument('macro', $format);
+        $document = $this->renderSpreadsheet('macro', $format);
         static::assertNotNull($document, 'Document does not exist');
 
         $sheet = $document->getSheetByName('Test');
@@ -404,7 +404,7 @@ class OdsXlsXlsxTwigTest extends BaseTwigTest
      */
     public function testRowIndex($format)
     {
-        $document = $this->getDocument('rowIndex', $format);
+        $document = $this->renderSpreadsheet('rowIndex', $format);
         static::assertNotNull($document, 'Document does not exist');
 
         $sheet = $document->getSheetByName('Test');
@@ -433,7 +433,7 @@ class OdsXlsXlsxTwigTest extends BaseTwigTest
      */
     public function testSheet($format)
     {
-        $document = $this->getDocument('documentSimple', $format);
+        $document = $this->renderSpreadsheet('documentSimple', $format);
         static::assertNotNull($document, 'Document does not exist');
 
         $sheet = $document->getSheetByName('Test');
@@ -451,7 +451,7 @@ class OdsXlsXlsxTwigTest extends BaseTwigTest
      */
     public function testSheetComplex($format)
     {
-        $document = $this->getDocument('sheetComplex', $format);
+        $document = $this->renderSpreadsheet('sheetComplex', $format);
         static::assertNotNull($document, 'Document does not exist');
 
         $sheet = $document->getSheetByName('Test 1');
@@ -492,7 +492,7 @@ class OdsXlsXlsxTwigTest extends BaseTwigTest
      */
     public function testSheetProperties($format)
     {
-        $document = $this->getDocument('sheetProperties', $format);
+        $document = $this->renderSpreadsheet('sheetProperties', $format);
         static::assertNotNull($document, 'Document does not exist');
 
         $sheet = $document->getSheetByName('Test');

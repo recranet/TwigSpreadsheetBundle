@@ -16,15 +16,20 @@ use Symfony\Component\HttpFoundation\RequestStack;
  */
 abstract class BaseTwigTest extends TestCase
 {
-    public const CACHE_PATH = './../../var/cache';
-    public const RESULT_PATH = './../../var/result';
-    public const RESOURCE_PATH = './Fixtures/views';
-    public const TEMPLATE_PATH = './Fixtures/templates';
-
     /**
      * @var \Twig\Environment
      */
     protected static $environment;
+
+    private static function getCacheDir(): string
+    {
+        return sprintf('%s/var/cache/%s', dirname(dirname(__DIR__)) , str_replace('\\', \DIRECTORY_SEPARATOR, static::class));
+    }
+
+    private static function getResultDir(): string
+    {
+        return sprintf('%s/var/result/%s', dirname(dirname(__DIR__)) , str_replace('\\', \DIRECTORY_SEPARATOR, static::class));
+    }
 
     /**
      * {@inheritdoc}
@@ -33,22 +38,23 @@ abstract class BaseTwigTest extends TestCase
      */
     public static function setUpBeforeClass(): void
     {
-        $cachePath = sprintf('%s/%s/%s', __DIR__, static::CACHE_PATH, str_replace('\\', \DIRECTORY_SEPARATOR, static::class));
-
         // remove temp files
-        Filesystem::remove($cachePath);
-        Filesystem::remove(sprintf('%s/%s/%s', __DIR__, static::RESULT_PATH, str_replace('\\', \DIRECTORY_SEPARATOR, static::class)));
+        Filesystem::remove(static::getCacheDir());
+        Filesystem::remove(static::getResultDir());
 
         // set up Twig environment
-        $twigFileSystem = new \Twig\Loader\FilesystemLoader([sprintf('%s/%s', __DIR__, static::RESOURCE_PATH)]);
-        $twigFileSystem->addPath(sprintf('%s/%s', __DIR__, static::TEMPLATE_PATH), 'templates');
+        $twigFileSystem = new \Twig\Loader\FilesystemLoader([
+            __DIR__.'/Fixtures/views',
+        ]);
+
+        $twigFileSystem->addPath(__DIR__.'/Fixtures/templates', 'templates');
 
         static::$environment = new \Twig\Environment($twigFileSystem, ['debug' => true, 'strict_variables' => true]);
         static::$environment->addExtension(new TwigSpreadsheetExtension([
             'pre_calculate_formulas' => true,
             'cache' => [
-                'bitmap' => $cachePath.'/spreadsheet/bitmap',
-                'xml' => false,
+                'bitmap' => self::getCacheDir().'/spreadsheet/bitmap',
+                'xml' => self::getCacheDir().'/spreadsheet/xml',
             ],
             'csv_writer' => [
                 'delimiter' => ',',
@@ -60,22 +66,19 @@ abstract class BaseTwigTest extends TestCase
                 'use_bom' => true,
             ],
         ]));
-        static::$environment->setCache($cachePath.'/twig');
     }
 
     /**
      * @param string $templateName
      * @param string $format
      *
-     * @throws \Twig\Error\SyntaxError
-     * @throws \Twig\Error\LoaderError
-     * @throws \Symfony\Component\Filesystem\Exception\IOException
-     * @throws \Twig\Error\RuntimeError
-     * @throws \PhpOffice\PhpSpreadsheet\Reader\Exception
+     * @return string
      *
-     * @return Spreadsheet|string
+     * @throws \PhpOffice\PhpSpreadsheet\Reader\Exception
+     * @throws \Symfony\Component\Filesystem\Exception\IOException
+     * @throws \Twig\Error\Error
      */
-    protected function getDocument($templateName, $format)
+    protected function render(string $templateName, string $format = 'xlsx'): string
     {
         $format = strtolower($format);
 
@@ -89,16 +92,35 @@ abstract class BaseTwigTest extends TestCase
         $appVariable = new AppVariable();
         $appVariable->setRequestStack($requestStack);
 
-        // generate source from template
-        $source = static::$environment->load($templateName.'.twig')->render(['app' => $appVariable]);
+        $output = static::$environment->load($templateName.'.twig')->render(['app' => $appVariable]);
 
-        // create path
-        $resultPath = sprintf('%s/%s/%s/%s.%s', __DIR__, static::RESULT_PATH, str_replace('\\', \DIRECTORY_SEPARATOR, static::class), $templateName, $format);
+        Filesystem::mkdir(static::getResultDir(), 0755);
 
-        // save source
-        Filesystem::dumpFile($resultPath, $source);
+        // create path for temp file
+        $extension = strtolower($format);
+        $file = tempnam(static::getResultDir(), $extension.'_');
 
-        // load source or return path for PDFs
-        return $format === 'pdf' ? $resultPath : IOFactory::createReader(ucfirst($format))->load($resultPath);
+        // save content
+        Filesystem::dumpFile($file, $output);
+
+        return $file;
+    }
+
+    /**
+     * @param string $templateName
+     * @param string $format
+     *
+     * @return Spreadsheet
+     *
+     * @throws \PhpOffice\PhpSpreadsheet\Reader\Exception
+     * @throws \Symfony\Component\Filesystem\Exception\IOException
+     * @throws \Twig\Error\Error
+     */
+    protected function renderSpreadsheet(string $templateName, string $format = 'xlsx'): Spreadsheet
+    {
+        $file = $this->render($templateName, $format);
+
+        // load document
+        return IOFactory::createReader(ucfirst($format))->load($file);
     }
 }

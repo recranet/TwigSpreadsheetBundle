@@ -30,7 +30,7 @@ class XlsXlsxTwigTest extends BaseTwigTest
      */
     public function testCellIndexMerge($format)
     {
-        $document = $this->getDocument('cellIndexMerge', $format);
+        $document = $this->renderSpreadsheet('cellIndexMerge', $format);
         static::assertNotNull($document, 'Document does not exist');
 
         $sheet = $document->getSheetByName('Test');
@@ -50,7 +50,7 @@ class XlsXlsxTwigTest extends BaseTwigTest
      */
     public function testCellProperties($format)
     {
-        $document = $this->getDocument('cellProperties', $format);
+        $document = $this->renderSpreadsheet('cellProperties', $format);
         static::assertNotNull($document, 'Document does not exist');
 
         $sheet = $document->getSheetByName('Test');
@@ -88,7 +88,7 @@ class XlsXlsxTwigTest extends BaseTwigTest
      */
     public function testDocumentProperties($format)
     {
-        $document = $this->getDocument('documentProperties', $format);
+        $document = $this->renderSpreadsheet('documentProperties', $format);
         static::assertNotNull($document, 'Document does not exist');
 
         $properties = $document->getProperties();
@@ -112,7 +112,7 @@ class XlsXlsxTwigTest extends BaseTwigTest
      */
     public function testDrawingProperties($format)
     {
-        $document = $this->getDocument('drawingProperties', $format);
+        $document = $this->renderSpreadsheet('drawingProperties', $format);
         static::assertNotNull($document, 'Document does not exist');
 
         $sheet = $document->getSheetByName('Test');
@@ -143,7 +143,7 @@ class XlsXlsxTwigTest extends BaseTwigTest
      */
     public function testDrawingSimple($format)
     {
-        $document = $this->getDocument('drawingSimple', $format);
+        $document = $this->renderSpreadsheet('drawingSimple', $format);
         static::assertNotNull($document, 'Document does not exist');
 
         $sheet = $document->getSheetByName('Test');
@@ -168,7 +168,7 @@ class XlsXlsxTwigTest extends BaseTwigTest
      */
     public function testFunctionMergeStyles($format)
     {
-        $document = $this->getDocument('functionMergeStyles', $format);
+        $document = $this->renderSpreadsheet('functionMergeStyles', $format);
         static::assertNotNull($document, 'Document does not exist');
 
         $sheet = $document->getSheet(0);
@@ -190,7 +190,7 @@ class XlsXlsxTwigTest extends BaseTwigTest
      */
     public function testHeaderFooterComplex($format)
     {
-        $document = $this->getDocument('headerFooterComplex', $format);
+        $document = $this->renderSpreadsheet('headerFooterComplex', $format);
         static::assertNotNull($document, 'Document does not exist');
 
         $sheet = $document->getSheetByName('Test');
@@ -231,7 +231,7 @@ class XlsXlsxTwigTest extends BaseTwigTest
      */
     public function testSheetProperties($format)
     {
-        $document = $this->getDocument('sheetProperties', $format);
+        $document = $this->renderSpreadsheet('sheetProperties', $format);
         static::assertNotNull($document, 'Document does not exist');
 
         $sheet = $document->getSheetByName('Test');

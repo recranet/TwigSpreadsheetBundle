@@ -7,7 +7,7 @@ framework:
     annotations: true
     router:
         utf8: true
-        resource: "%kernel.project_dir%/config/routing.yml"
+        resource: "%kernel.project_dir%/config/routes.yaml"
 
 twig:
     strict_variables: true
@@ -15,6 +15,7 @@ twig:
 recranet_twig_spreadsheet:
     pre_calculate_formulas:     false
     cache:
+        bitmap:                 "%kernel.cache_dir%/spreadsheet/bitmap"
         xml:                    "%kernel.cache_dir%/spreadsheet/xml"
     csv_writer:
         delimiter:              ";"

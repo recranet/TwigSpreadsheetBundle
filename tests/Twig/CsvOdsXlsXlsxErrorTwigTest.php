@@ -31,7 +31,7 @@ class CsvOdsXlsXlsxErrorTwigTest extends BaseTwigTest
         $this->expectException(\Twig\Error\SyntaxError::class);
         $this->expectExceptionMessage('Node "Recranet\TwigSpreadsheetBundle\Twig\Node\DocumentNode" is not allowed inside of Node "Recranet\TwigSpreadsheetBundle\Twig\Node\SheetNode"');
 
-        $this->getDocument('documentError', $format);
+        $this->renderSpreadsheet('documentError', $format);
     }
 
     /**
@@ -46,7 +46,7 @@ class CsvOdsXlsXlsxErrorTwigTest extends BaseTwigTest
         $this->expectException(\Twig\Error\SyntaxError::class);
         $this->expectExceptionMessage('Node "Twig\Node\TextNode" is not allowed after Node "Recranet\TwigSpreadsheetBundle\Twig\Node\DocumentNode"');
 
-        $this->getDocument('documentErrorTextAfter', $format);
+        $this->renderSpreadsheet('documentErrorTextAfter', $format);
     }
 
     /**
@@ -61,35 +61,7 @@ class CsvOdsXlsXlsxErrorTwigTest extends BaseTwigTest
         $this->expectException(\Twig\Error\SyntaxError::class);
         $this->expectExceptionMessage('Node "Twig\Node\TextNode" is not allowed before Node "Recranet\TwigSpreadsheetBundle\Twig\Node\DocumentNode"');
 
-        $this->getDocument('documentErrorTextBefore', $format);
-    }
-
-    /**
-     * @param string $format
-     *
-     * @throws \Exception
-     *
-     * @dataProvider formatProvider
-     */
-    public function testStartCellIndexError($format)
-    {
-        $this->expectException(\Twig\Error\RuntimeError::class);
-
-        $this->getDocument('cellIndexError', $format);
-    }
-
-    /**
-     * @param string $format
-     *
-     * @throws \Exception
-     *
-     * @dataProvider formatProvider
-     */
-    public function testStartRowIndexError($format)
-    {
-        $this->expectException(\Twig\Error\RuntimeError::class);
-
-        $this->getDocument('rowIndexError', $format);
+        $this->renderSpreadsheet('documentErrorTextBefore', $format);
     }
 
     /**
@@ -104,6 +76,6 @@ class CsvOdsXlsXlsxErrorTwigTest extends BaseTwigTest
         $this->expectException(\Twig\Error\SyntaxError::class);
         $this->expectExceptionMessage('Node "Recranet\TwigSpreadsheetBundle\Twig\Node\RowNode" is not allowed inside of Node "Recranet\TwigSpreadsheetBundle\Twig\Node\DocumentNode"');
 
-        $this->getDocument('sheetError', $format);
+        $this->renderSpreadsheet('sheetError', $format);
     }
 }

@@ -26,9 +26,16 @@ class OdsXlsXlsxFunctionalTest extends BaseFunctionalTest
      *
      * @dataProvider formatProvider
      */
-    public function testSimple($format)
+    public function testSimple(string $format)
     {
-        $document = $this->getDocument('test_default', ['templateName' => 'simple', '_format' => $format], $format);
+        $client = static::createClient();
+
+        $url = $this->generateUrl('test_default', ['templateName' => 'simple', '_format' => $format]);
+        $client->request('GET', $url);
+
+        $response = $client->getResponse();
+
+        $document = $this->getDocument($response, $format);
         static::assertNotNull($document, 'Document does not exist');
 
         $sheet = $document->getSheetByName('Test');
@@ -48,12 +55,17 @@ class OdsXlsXlsxFunctionalTest extends BaseFunctionalTest
      *
      * @dataProvider formatProvider
      */
-    public function testCustomResponse($format)
+    public function testCustomResponse(string $format)
     {
-        $response = $this->getResponse('test_custom_response', ['templateName' => 'simple', '_format' => $format]);
+        $client = static::createClient();
+
+        $url = $this->generateUrl('test_custom_response', ['templateName' => 'simple', '_format' => $format]);
+        $client->request('GET', $url);
+
+        $response = $client->getResponse();
 
         static::assertNotNull($response, 'Response does not exist');
-        static::assertStringContainsString('foobar.bin', $response->headers->get('Content-Disposition'), 'Unexpected or missing header "Content-Disposition"');
+        static::assertResponseHeaderSame('Content-Disposition', 'attachment; filename=foobar.bin');
         static::assertEquals(600, $response->getMaxAge(), 'Unexpected value in maxAge');
     }
 
@@ -64,9 +76,16 @@ class OdsXlsXlsxFunctionalTest extends BaseFunctionalTest
      *
      * @dataProvider formatProvider
      */
-    public function testDocumentTemplatePath1($format)
+    public function testDocumentTemplatePath1(string $format)
     {
-        $document = $this->getDocument('test_default', ['templateName' => 'documentTemplatePath1', '_format' => $format], $format);
+        $client = static::createClient();
+
+        $url = $this->generateUrl('test_default', ['templateName' => 'documentTemplatePath1', '_format' => $format], $format);
+        $client->request('GET', $url);
+
+        $response = $client->getResponse();
+
+        $document = $this->getDocument($response, $format);
         static::assertNotNull($document, 'Document does not exist');
 
         $sheet = $document->getSheet(0);
@@ -85,9 +104,16 @@ class OdsXlsXlsxFunctionalTest extends BaseFunctionalTest
      *
      * @dataProvider formatProvider
      */
-    public function testDocumentTemplatePath2($format)
+    public function testDocumentTemplatePath2(string $format)
     {
-        $document = $this->getDocument('test_default', ['templateName' => 'documentTemplatePath2', '_format' => $format], $format);
+        $client = static::createClient();
+
+        $url = $this->generateUrl('test_default', ['templateName' => 'documentTemplatePath2', '_format' => $format], $format);
+        $client->request('GET', $url);
+
+        $response = $client->getResponse();
+
+        $document = $this->getDocument($response, $format);
         static::assertNotNull($document, 'Document does not exist');
 
         $sheet = $document->getSheet(0);

@@ -28,7 +28,7 @@ class PdfTwigTest extends BaseTwigTest
      */
     public function testBasic($format)
     {
-        $path = $this->getDocument('cellProperties', $format);
+        $path = $this->render('cellProperties', $format);
 
         static::assertFileExists($path, 'File does not exist');
         static::assertGreaterThan(0, filesize($path), 'File is empty');
