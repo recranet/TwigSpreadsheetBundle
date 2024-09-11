@@ -23,12 +23,12 @@ abstract class BaseTwigTest extends TestCase
 
     private static function getCacheDir(): string
     {
-        return sprintf('%s/../var/cache/%s', dirname(__DIR__), str_replace('\\', \DIRECTORY_SEPARATOR, static::class));
+        return sprintf('%s/var/cache/%s', dirname(dirname(__DIR__)) , str_replace('\\', \DIRECTORY_SEPARATOR, static::class));
     }
 
     private static function getResultDir(): string
     {
-        return sprintf('%s/../var/result/%s', dirname(__DIR__), str_replace('\\', \DIRECTORY_SEPARATOR, static::class));
+        return sprintf('%s/var/result/%s', dirname(dirname(__DIR__)) , str_replace('\\', \DIRECTORY_SEPARATOR, static::class));
     }
 
     /**
@@ -98,7 +98,7 @@ abstract class BaseTwigTest extends TestCase
 
         // create path for temp file
         $extension = strtolower($format);
-        $file = tempnam(static::getResultDir(), __CLASS__.'_').'.'.$extension;
+        $file = tempnam(static::getResultDir(), $extension.'_');
 
         // save content
         Filesystem::dumpFile($file, $output);
