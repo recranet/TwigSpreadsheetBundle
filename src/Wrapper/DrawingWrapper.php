@@ -5,8 +5,6 @@ namespace Recranet\TwigSpreadsheetBundle\Wrapper;
 use PhpOffice\PhpSpreadsheet\Exception;
 use PhpOffice\PhpSpreadsheet\Worksheet\Drawing;
 use PhpOffice\PhpSpreadsheet\Worksheet\HeaderFooterDrawing;
-use Recranet\TwigSpreadsheetBundle\Helper\Filesystem;
-use Symfony\Component\Filesystem\Exception\IOException;
 use Twig\Environment;
 
 /**
@@ -42,7 +40,6 @@ class DrawingWrapper extends BaseWrapper
      * @param string $path
      * @param array  $properties
      *
-     * @throws IOException
      * @throws \LogicException
      * @throws \InvalidArgumentException
      * @throws \RuntimeException
@@ -53,9 +50,6 @@ class DrawingWrapper extends BaseWrapper
         if ($this->sheetWrapper->getObject() === null) {
             throw new \LogicException();
         }
-
-        // create local copy of the asset
-        $tempPath = $this->createTempCopy($path);
 
         // add to header/footer
         if ($this->headerFooterWrapper->getObject()) {
@@ -83,7 +77,7 @@ class DrawingWrapper extends BaseWrapper
             $location .= $headerFooterParameters['baseType'] === HeaderFooterWrapper::BASETYPE_HEADER ? 'H' : 'F';
 
             $this->object = new HeaderFooterDrawing();
-            $this->object->setPath($tempPath);
+            $this->object->setPath($path);
             $this->headerFooterWrapper->getObject()->addImage($this->object, $location);
             $this->headerFooterWrapper->setParameters($headerFooterParameters);
         }
@@ -92,7 +86,7 @@ class DrawingWrapper extends BaseWrapper
         else {
             $this->object = new Drawing();
             $this->object->setWorksheet($this->sheetWrapper->getObject());
-            $this->object->setPath($tempPath);
+            $this->object->setPath($path);
         }
 
         $this->setProperties($properties);
@@ -174,32 +168,5 @@ class DrawingWrapper extends BaseWrapper
                 $this->object->setWidth($value);
             },
         ];
-    }
-
-    /**
-     * @param string $path
-     *
-     * @throws \InvalidArgumentException
-     * @throws IOException
-     *
-     * @return string
-     */
-    private function createTempCopy(string $path): string
-    {
-        // create temp path
-        $extension = pathinfo($path, \PATHINFO_EXTENSION);
-        $tempPath = sprintf('%s/tsb_%s%s', $this->attributes['cache']['bitmap'], md5($path), $extension ? '.'.$extension : '');
-
-        // create local copy
-        if (!Filesystem::exists($tempPath)) {
-            $data = file_get_contents($path);
-            if ($data === false) {
-                throw new \InvalidArgumentException($path.' does not exist.');
-            }
-            Filesystem::dumpFile($tempPath, $data);
-            unset($data);
-        }
-
-        return $tempPath;
     }
 }
