@@ -82,7 +82,7 @@ class HeaderFooterWrapper extends BaseWrapper
      * @throws \LogicException
      * @throws \RuntimeException
      */
-    public function start(string $baseType, string $type = null, array $properties = []): void
+    public function start(string $baseType, ?string $type = null, array $properties = []): void
     {
         if ($this->sheetWrapper->getObject() === null) {
             throw new \LogicException();
@@ -220,7 +220,7 @@ class HeaderFooterWrapper extends BaseWrapper
     /**
      * @param HeaderFooter|null $object
      */
-    public function setObject(HeaderFooter $object = null): void
+    public function setObject(?HeaderFooter $object = null): void
     {
         $this->object = $object;
     }

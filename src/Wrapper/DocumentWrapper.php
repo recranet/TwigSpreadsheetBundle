@@ -172,7 +172,7 @@ class DocumentWrapper extends BaseWrapper
     /**
      * @param Spreadsheet|null $object
      */
-    public function setObject(Spreadsheet $object = null): void
+    public function setObject(?Spreadsheet $object = null): void
     {
         $this->object = $object;
     }
