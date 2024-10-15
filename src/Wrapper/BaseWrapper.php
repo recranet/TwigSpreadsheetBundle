@@ -77,7 +77,7 @@ abstract class BaseWrapper
      *
      * @throws \RuntimeException
      */
-    protected function setProperties(array $properties, array $mappings = null, string $column = null)
+    protected function setProperties(array $properties, ?array $mappings = null, ?string $column = null)
     {
         if ($mappings === null) {
             $mappings = $this->mappings;

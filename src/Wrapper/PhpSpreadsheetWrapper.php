@@ -118,7 +118,7 @@ class PhpSpreadsheetWrapper
      *
      * @throws \LogicException
      */
-    public function startRow(int $index = null): void
+    public function startRow(?int $index = null): void
     {
         $this->rowWrapper->start($index);
     }
@@ -139,7 +139,7 @@ class PhpSpreadsheetWrapper
      * @throws \LogicException
      * @throws \RuntimeException
      */
-    public function startCell(int $index = null, array $properties = []): void
+    public function startCell(?int $index = null, array $properties = []): void
     {
         $this->cellWrapper->start($index, $properties);
     }
@@ -168,7 +168,7 @@ class PhpSpreadsheetWrapper
      * @throws \RuntimeException
      * @throws \InvalidArgumentException
      */
-    public function startHeaderFooter(string $baseType, string $type = null, array $properties = []): void
+    public function startHeaderFooter(string $baseType, ?string $type = null, array $properties = []): void
     {
         $this->headerFooterWrapper->start($baseType, $type, $properties);
     }
@@ -189,7 +189,7 @@ class PhpSpreadsheetWrapper
      * @throws \InvalidArgumentException
      * @throws \LogicException
      */
-    public function startAlignment(string $type = null, array $properties = []): void
+    public function startAlignment(?string $type = null, array $properties = []): void
     {
         $this->headerFooterWrapper->startAlignment($type, $properties);
     }
@@ -200,7 +200,7 @@ class PhpSpreadsheetWrapper
      * @throws \InvalidArgumentException
      * @throws \LogicException
      */
-    public function endAlignment(string $value = null): void
+    public function endAlignment(?string $value = null): void
     {
         $this->headerFooterWrapper->endAlignment($value);
     }

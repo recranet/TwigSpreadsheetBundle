@@ -30,7 +30,7 @@ class RowWrapper extends BaseWrapper
      *
      * @throws \LogicException
      */
-    public function start(int $index = null): void
+    public function start(?int $index = null): void
     {
         if ($this->sheetWrapper->getObject() === null) {
             throw new \LogicException();

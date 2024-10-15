@@ -38,7 +38,7 @@ class CellWrapper extends BaseWrapper
      * @throws \LogicException
      * @throws \RuntimeException
      */
-    public function start(int $index = null, array $properties = []): void
+    public function start(?int $index = null, array $properties = []): void
     {
         if ($this->sheetWrapper->getObject() === null) {
             throw new \LogicException();
@@ -95,7 +95,7 @@ class CellWrapper extends BaseWrapper
     /**
      * @param Cell|null $object
      */
-    public function setObject(Cell $object = null): void
+    public function setObject(?Cell $object = null): void
     {
         $this->object = $object;
     }
