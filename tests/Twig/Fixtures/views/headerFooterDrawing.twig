@@ -2,14 +2,14 @@
     {% xlssheet 'Test' %}
         {% xlsheader %}
             {% xlsleft %}
-                {% xlsdrawing 'https://picsum.photos/id/237/200/300' %}
+                {% xlsdrawing assetsDir ~ '/206-40x40.jpg' %}
             {% endxlsleft %}
             {% xlscenter %}Header{% endxlscenter %}
         {% endxlsheader %}
         {% xlsfooter %}
             {% xlsleft %}Footer{% endxlsleft %}
             {% xlsright %}
-                {% xlsdrawing 'https://picsum.photos/id/237/200/300' %}
+                {% xlsdrawing assetsDir ~ '/206-20x20.jpg' %}
             {% endxlsright %}
         {% endxlsfooter %}
     {% endxlssheet %}

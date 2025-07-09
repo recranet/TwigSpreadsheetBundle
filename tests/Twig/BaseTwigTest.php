@@ -66,6 +66,7 @@ abstract class BaseTwigTest extends TestCase
                 'use_bom' => true,
             ],
         ]));
+        static::$environment->addGlobal('assetsDir', __DIR__.'/Fixtures/assets');
     }
 
     /**
