@@ -46,10 +46,10 @@ class CellWrapper extends BaseWrapper
             throw new \LogicException('Column index or row number has not been set');
         }
 
-        $this->object = $this->sheetWrapper->getObject()->getCellByColumnAndRow(
+        $this->object = $this->sheetWrapper->getObject()->getCell([
             $this->sheetWrapper->getColumn(),
-            $this->sheetWrapper->getRow()
-        );
+            $this->sheetWrapper->getRow(),
+        ]);
 
         $this->parameters['value'] = null;
         $this->parameters['properties'] = $properties;
