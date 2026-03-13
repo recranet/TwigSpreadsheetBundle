@@ -9,6 +9,7 @@ use Twig\Node\Expression\ConstantExpression;
 use Twig\Node\Expression\MacroReferenceExpression;
 use Twig\Node\Expression\MethodCallExpression;
 use Twig\Node\Expression\NameExpression;
+use Twig\Node\Expression\Variable\ContextVariable;
 use Twig\Node\Node;
 use Twig\NodeVisitor\NodeVisitorInterface;
 
@@ -35,7 +36,10 @@ class MacroContextNodeVisitor implements NodeVisitorInterface
             $keyNode = new ConstantExpression(PhpSpreadsheetWrapper::INSTANCE_KEY, $node->getTemplateLine());
 
             // add wrapper even if it not exists, we fix that later
-            $valueNode = new NameExpression(PhpSpreadsheetWrapper::INSTANCE_KEY, $node->getTemplateLine());
+            // TODO: drop fallback when minimum Twig version is 3.15
+            $valueNode = class_exists(ContextVariable::class)
+                ? new ContextVariable(PhpSpreadsheetWrapper::INSTANCE_KEY, $node->getTemplateLine())
+                : new NameExpression(PhpSpreadsheetWrapper::INSTANCE_KEY, $node->getTemplateLine());
             $valueNode->setAttribute('ignore_strict_check', true);
 
             /**
