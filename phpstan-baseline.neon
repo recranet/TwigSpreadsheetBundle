@@ -1,0 +1,1031 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\DependencyInjection\\\\RecranetTwigSpreadsheetExtension\\:\\:loadInternal\\(\\) has parameter \\$mergedConfig with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/DependencyInjection/RecranetTwigSpreadsheetExtension.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Helper\\\\Arrays\\:\\:mergeRecursive\\(\\) has parameter \\$array1 with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Helper/Arrays.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Helper\\\\Arrays\\:\\:mergeRecursive\\(\\) has parameter \\$array2 with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Helper/Arrays.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Helper\\\\Arrays\\:\\:mergeRecursive\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Helper/Arrays.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Helper\\\\Filesystem\\:\\:exists\\(\\) has parameter \\$files with no value type specified in iterable type Traversable\\.$#"
+			count: 1
+			path: src/Helper/Filesystem.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Helper\\\\Filesystem\\:\\:exists\\(\\) has parameter \\$files with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Helper/Filesystem.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Helper\\\\Filesystem\\:\\:mkdir\\(\\) has parameter \\$dirs with no value type specified in iterable type Traversable\\.$#"
+			count: 1
+			path: src/Helper/Filesystem.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Helper\\\\Filesystem\\:\\:mkdir\\(\\) has parameter \\$dirs with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Helper/Filesystem.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Helper\\\\Filesystem\\:\\:remove\\(\\) has parameter \\$files with no value type specified in iterable type Traversable\\.$#"
+			count: 1
+			path: src/Helper/Filesystem.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Helper\\\\Filesystem\\:\\:remove\\(\\) has parameter \\$files with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Helper/Filesystem.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Twig\\\\Node\\\\AlignmentNode\\:\\:__construct\\(\\) has parameter \\$attributes with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Twig/Node/AlignmentNode.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Twig\\\\Node\\\\AlignmentNode\\:\\:__construct\\(\\) has parameter \\$nodes with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Twig/Node/AlignmentNode.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Twig\\\\Node\\\\HeaderFooterNode\\:\\:__construct\\(\\) has parameter \\$attributes with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Twig/Node/HeaderFooterNode.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Twig\\\\Node\\\\HeaderFooterNode\\:\\:__construct\\(\\) has parameter \\$nodes with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Twig/Node/HeaderFooterNode.php
+
+		-
+			message: "#^Property Recranet\\\\TwigSpreadsheetBundle\\\\Twig\\\\NodeVisitor\\\\SyntaxCheckNodeVisitor\\:\\:\\$path type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Twig/NodeVisitor/SyntaxCheckNodeVisitor.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Twig\\\\TokenParser\\\\AlignmentTokenParser\\:\\:__construct\\(\\) has parameter \\$attributes with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Twig/TokenParser/AlignmentTokenParser.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Twig\\\\TokenParser\\\\AlignmentTokenParser\\:\\:createNode\\(\\) has parameter \\$nodes with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Twig/TokenParser/AlignmentTokenParser.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Twig\\\\TokenParser\\\\BaseTokenParser\\:\\:__construct\\(\\) has parameter \\$attributes with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Twig/TokenParser/BaseTokenParser.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Twig\\\\TokenParser\\\\BaseTokenParser\\:\\:configureParameters\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Twig/TokenParser/BaseTokenParser.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Twig\\\\TokenParser\\\\BaseTokenParser\\:\\:createNode\\(\\) has parameter \\$nodes with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Twig/TokenParser/BaseTokenParser.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Twig\\\\TokenParser\\\\BaseTokenParser\\:\\:getAttributes\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Twig/TokenParser/BaseTokenParser.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Twig\\\\TokenParser\\\\BaseTokenParser\\:\\:parseParameters\\(\\) has parameter \\$parameterConfiguration with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Twig/TokenParser/BaseTokenParser.php
+
+		-
+			message: "#^Property Recranet\\\\TwigSpreadsheetBundle\\\\Twig\\\\TokenParser\\\\BaseTokenParser\\:\\:\\$attributes type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Twig/TokenParser/BaseTokenParser.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Twig\\\\TokenParser\\\\CellTokenParser\\:\\:configureParameters\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Twig/TokenParser/CellTokenParser.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Twig\\\\TokenParser\\\\CellTokenParser\\:\\:createNode\\(\\) has parameter \\$nodes with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Twig/TokenParser/CellTokenParser.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Twig\\\\TokenParser\\\\DocumentTokenParser\\:\\:configureParameters\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Twig/TokenParser/DocumentTokenParser.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Twig\\\\TokenParser\\\\DocumentTokenParser\\:\\:createNode\\(\\) has parameter \\$nodes with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Twig/TokenParser/DocumentTokenParser.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Twig\\\\TokenParser\\\\DrawingTokenParser\\:\\:configureParameters\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Twig/TokenParser/DrawingTokenParser.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Twig\\\\TokenParser\\\\DrawingTokenParser\\:\\:createNode\\(\\) has parameter \\$nodes with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Twig/TokenParser/DrawingTokenParser.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Twig\\\\TokenParser\\\\HeaderFooterTokenParser\\:\\:__construct\\(\\) has parameter \\$attributes with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Twig/TokenParser/HeaderFooterTokenParser.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Twig\\\\TokenParser\\\\HeaderFooterTokenParser\\:\\:configureParameters\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Twig/TokenParser/HeaderFooterTokenParser.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Twig\\\\TokenParser\\\\HeaderFooterTokenParser\\:\\:createNode\\(\\) has parameter \\$nodes with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Twig/TokenParser/HeaderFooterTokenParser.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Twig\\\\TokenParser\\\\RowTokenParser\\:\\:configureParameters\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Twig/TokenParser/RowTokenParser.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Twig\\\\TokenParser\\\\RowTokenParser\\:\\:createNode\\(\\) has parameter \\$nodes with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Twig/TokenParser/RowTokenParser.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Twig\\\\TokenParser\\\\SheetTokenParser\\:\\:configureParameters\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Twig/TokenParser/SheetTokenParser.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Twig\\\\TokenParser\\\\SheetTokenParser\\:\\:createNode\\(\\) has parameter \\$nodes with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Twig/TokenParser/SheetTokenParser.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Twig\\\\TwigSpreadsheetExtension\\:\\:__construct\\(\\) has parameter \\$attributes with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Twig/TwigSpreadsheetExtension.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Twig\\\\TwigSpreadsheetExtension\\:\\:getAttributes\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Twig/TwigSpreadsheetExtension.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Twig\\\\TwigSpreadsheetExtension\\:\\:getCurrentColumn\\(\\) has parameter \\$context with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Twig/TwigSpreadsheetExtension.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Twig\\\\TwigSpreadsheetExtension\\:\\:getCurrentRow\\(\\) has parameter \\$context with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Twig/TwigSpreadsheetExtension.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Twig\\\\TwigSpreadsheetExtension\\:\\:mergeStyles\\(\\) has parameter \\$style1 with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Twig/TwigSpreadsheetExtension.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Twig\\\\TwigSpreadsheetExtension\\:\\:mergeStyles\\(\\) has parameter \\$style2 with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Twig/TwigSpreadsheetExtension.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Twig\\\\TwigSpreadsheetExtension\\:\\:mergeStyles\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Twig/TwigSpreadsheetExtension.php
+
+		-
+			message: "#^Property Recranet\\\\TwigSpreadsheetBundle\\\\Twig\\\\TwigSpreadsheetExtension\\:\\:\\$attributes type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Twig/TwigSpreadsheetExtension.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Wrapper\\\\BaseWrapper\\:\\:__construct\\(\\) has parameter \\$context with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Wrapper/BaseWrapper.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Wrapper\\\\BaseWrapper\\:\\:configureMappings\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Wrapper/BaseWrapper.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Wrapper\\\\BaseWrapper\\:\\:getMappings\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Wrapper/BaseWrapper.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Wrapper\\\\BaseWrapper\\:\\:getParameters\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Wrapper/BaseWrapper.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Wrapper\\\\BaseWrapper\\:\\:setMappings\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/Wrapper/BaseWrapper.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Wrapper\\\\BaseWrapper\\:\\:setMappings\\(\\) has parameter \\$mappings with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Wrapper/BaseWrapper.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Wrapper\\\\BaseWrapper\\:\\:setParameters\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/Wrapper/BaseWrapper.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Wrapper\\\\BaseWrapper\\:\\:setParameters\\(\\) has parameter \\$parameters with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Wrapper/BaseWrapper.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Wrapper\\\\BaseWrapper\\:\\:setProperties\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/Wrapper/BaseWrapper.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Wrapper\\\\BaseWrapper\\:\\:setProperties\\(\\) has parameter \\$mappings with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Wrapper/BaseWrapper.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Wrapper\\\\BaseWrapper\\:\\:setProperties\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Wrapper/BaseWrapper.php
+
+		-
+			message: "#^PHPDoc tag @var for variable \\$value has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Wrapper/BaseWrapper.php
+
+		-
+			message: "#^Property Recranet\\\\TwigSpreadsheetBundle\\\\Wrapper\\\\BaseWrapper\\:\\:\\$context type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Wrapper/BaseWrapper.php
+
+		-
+			message: "#^Property Recranet\\\\TwigSpreadsheetBundle\\\\Wrapper\\\\BaseWrapper\\:\\:\\$mappings type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Wrapper/BaseWrapper.php
+
+		-
+			message: "#^Property Recranet\\\\TwigSpreadsheetBundle\\\\Wrapper\\\\BaseWrapper\\:\\:\\$parameters type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Wrapper/BaseWrapper.php
+
+		-
+			message: "#^Cannot call method getCellByColumnAndRow\\(\\) on PhpOffice\\\\PhpSpreadsheet\\\\Worksheet\\\\Worksheet\\|null\\.$#"
+			count: 1
+			path: src/Wrapper/CellWrapper.php
+
+		-
+			message: "#^Cannot call method getCoordinate\\(\\) on PhpOffice\\\\PhpSpreadsheet\\\\Cell\\\\Cell\\|null\\.$#"
+			count: 3
+			path: src/Wrapper/CellWrapper.php
+
+		-
+			message: "#^Cannot call method getDataValidation\\(\\) on PhpOffice\\\\PhpSpreadsheet\\\\Cell\\\\Cell\\|null\\.$#"
+			count: 13
+			path: src/Wrapper/CellWrapper.php
+
+		-
+			message: "#^Cannot call method getHyperlink\\(\\) on PhpOffice\\\\PhpSpreadsheet\\\\Cell\\\\Cell\\|null\\.$#"
+			count: 1
+			path: src/Wrapper/CellWrapper.php
+
+		-
+			message: "#^Cannot call method getStyle\\(\\) on PhpOffice\\\\PhpSpreadsheet\\\\Worksheet\\\\Worksheet\\|null\\.$#"
+			count: 1
+			path: src/Wrapper/CellWrapper.php
+
+		-
+			message: "#^Cannot call method mergeCells\\(\\) on PhpOffice\\\\PhpSpreadsheet\\\\Worksheet\\\\Worksheet\\|null\\.$#"
+			count: 1
+			path: src/Wrapper/CellWrapper.php
+
+		-
+			message: "#^Cannot call method setBreak\\(\\) on PhpOffice\\\\PhpSpreadsheet\\\\Worksheet\\\\Worksheet\\|null\\.$#"
+			count: 1
+			path: src/Wrapper/CellWrapper.php
+
+		-
+			message: "#^Cannot call method setDataType\\(\\) on PhpOffice\\\\PhpSpreadsheet\\\\Cell\\\\Cell\\|null\\.$#"
+			count: 1
+			path: src/Wrapper/CellWrapper.php
+
+		-
+			message: "#^Cannot call method setValue\\(\\) on PhpOffice\\\\PhpSpreadsheet\\\\Cell\\\\Cell\\|null\\.$#"
+			count: 1
+			path: src/Wrapper/CellWrapper.php
+
+		-
+			message: "#^Cannot call method setValueExplicit\\(\\) on PhpOffice\\\\PhpSpreadsheet\\\\Cell\\\\Cell\\|null\\.$#"
+			count: 1
+			path: src/Wrapper/CellWrapper.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Wrapper\\\\CellWrapper\\:\\:__construct\\(\\) has parameter \\$context with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Wrapper/CellWrapper.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Wrapper\\\\CellWrapper\\:\\:configureMappings\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Wrapper/CellWrapper.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Wrapper\\\\CellWrapper\\:\\:start\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Wrapper/CellWrapper.php
+
+		-
+			message: "#^Cannot call method getDefaultStyle\\(\\) on PhpOffice\\\\PhpSpreadsheet\\\\Spreadsheet\\|null\\.$#"
+			count: 1
+			path: src/Wrapper/DocumentWrapper.php
+
+		-
+			message: "#^Cannot call method getProperties\\(\\) on PhpOffice\\\\PhpSpreadsheet\\\\Spreadsheet\\|null\\.$#"
+			count: 11
+			path: src/Wrapper/DocumentWrapper.php
+
+		-
+			message: "#^Cannot call method getSecurity\\(\\) on PhpOffice\\\\PhpSpreadsheet\\\\Spreadsheet\\|null\\.$#"
+			count: 5
+			path: src/Wrapper/DocumentWrapper.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Wrapper\\\\DocumentWrapper\\:\\:__construct\\(\\) has parameter \\$attributes with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Wrapper/DocumentWrapper.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Wrapper\\\\DocumentWrapper\\:\\:__construct\\(\\) has parameter \\$context with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Wrapper/DocumentWrapper.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Wrapper\\\\DocumentWrapper\\:\\:configureMappings\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Wrapper/DocumentWrapper.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Wrapper\\\\DocumentWrapper\\:\\:start\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Wrapper/DocumentWrapper.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Wrapper\\\\DocumentWrapper\\:\\:write\\(\\) should return string but returns string\\|false\\.$#"
+			count: 1
+			path: src/Wrapper/DocumentWrapper.php
+
+		-
+			message: "#^Property Recranet\\\\TwigSpreadsheetBundle\\\\Wrapper\\\\DocumentWrapper\\:\\:\\$attributes type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Wrapper/DocumentWrapper.php
+
+		-
+			message: "#^Cannot call method getShadow\\(\\) on PhpOffice\\\\PhpSpreadsheet\\\\Worksheet\\\\Drawing\\|null\\.$#"
+			count: 7
+			path: src/Wrapper/DrawingWrapper.php
+
+		-
+			message: "#^Cannot call method setCoordinates\\(\\) on PhpOffice\\\\PhpSpreadsheet\\\\Worksheet\\\\Drawing\\|null\\.$#"
+			count: 1
+			path: src/Wrapper/DrawingWrapper.php
+
+		-
+			message: "#^Cannot call method setDescription\\(\\) on PhpOffice\\\\PhpSpreadsheet\\\\Worksheet\\\\Drawing\\|null\\.$#"
+			count: 1
+			path: src/Wrapper/DrawingWrapper.php
+
+		-
+			message: "#^Cannot call method setHeight\\(\\) on PhpOffice\\\\PhpSpreadsheet\\\\Worksheet\\\\Drawing\\|null\\.$#"
+			count: 1
+			path: src/Wrapper/DrawingWrapper.php
+
+		-
+			message: "#^Cannot call method setName\\(\\) on PhpOffice\\\\PhpSpreadsheet\\\\Worksheet\\\\Drawing\\|null\\.$#"
+			count: 1
+			path: src/Wrapper/DrawingWrapper.php
+
+		-
+			message: "#^Cannot call method setOffsetX\\(\\) on PhpOffice\\\\PhpSpreadsheet\\\\Worksheet\\\\Drawing\\|null\\.$#"
+			count: 1
+			path: src/Wrapper/DrawingWrapper.php
+
+		-
+			message: "#^Cannot call method setOffsetY\\(\\) on PhpOffice\\\\PhpSpreadsheet\\\\Worksheet\\\\Drawing\\|null\\.$#"
+			count: 1
+			path: src/Wrapper/DrawingWrapper.php
+
+		-
+			message: "#^Cannot call method setResizeProportional\\(\\) on PhpOffice\\\\PhpSpreadsheet\\\\Worksheet\\\\Drawing\\|null\\.$#"
+			count: 1
+			path: src/Wrapper/DrawingWrapper.php
+
+		-
+			message: "#^Cannot call method setRotation\\(\\) on PhpOffice\\\\PhpSpreadsheet\\\\Worksheet\\\\Drawing\\|null\\.$#"
+			count: 1
+			path: src/Wrapper/DrawingWrapper.php
+
+		-
+			message: "#^Cannot call method setWidth\\(\\) on PhpOffice\\\\PhpSpreadsheet\\\\Worksheet\\\\Drawing\\|null\\.$#"
+			count: 1
+			path: src/Wrapper/DrawingWrapper.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Wrapper\\\\DrawingWrapper\\:\\:__construct\\(\\) has parameter \\$attributes with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Wrapper/DrawingWrapper.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Wrapper\\\\DrawingWrapper\\:\\:__construct\\(\\) has parameter \\$context with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Wrapper/DrawingWrapper.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Wrapper\\\\DrawingWrapper\\:\\:configureMappings\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Wrapper/DrawingWrapper.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Wrapper\\\\DrawingWrapper\\:\\:start\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Wrapper/DrawingWrapper.php
+
+		-
+			message: "#^Property Recranet\\\\TwigSpreadsheetBundle\\\\Wrapper\\\\DrawingWrapper\\:\\:\\$attributes type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Wrapper/DrawingWrapper.php
+
+		-
+			message: "#^Cannot call method setAlignWithMargins\\(\\) on PhpOffice\\\\PhpSpreadsheet\\\\Worksheet\\\\HeaderFooter\\|null\\.$#"
+			count: 1
+			path: src/Wrapper/HeaderFooterWrapper.php
+
+		-
+			message: "#^Cannot call method setScaleWithDocument\\(\\) on PhpOffice\\\\PhpSpreadsheet\\\\Worksheet\\\\HeaderFooter\\|null\\.$#"
+			count: 1
+			path: src/Wrapper/HeaderFooterWrapper.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Wrapper\\\\HeaderFooterWrapper\\:\\:__construct\\(\\) has parameter \\$context with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Wrapper/HeaderFooterWrapper.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Wrapper\\\\HeaderFooterWrapper\\:\\:configureMappings\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Wrapper/HeaderFooterWrapper.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Wrapper\\\\HeaderFooterWrapper\\:\\:getAlignmentParameters\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Wrapper/HeaderFooterWrapper.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Wrapper\\\\HeaderFooterWrapper\\:\\:setAlignmentParameters\\(\\) has parameter \\$alignmentParameters with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Wrapper/HeaderFooterWrapper.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Wrapper\\\\HeaderFooterWrapper\\:\\:start\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Wrapper/HeaderFooterWrapper.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Wrapper\\\\HeaderFooterWrapper\\:\\:startAlignment\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Wrapper/HeaderFooterWrapper.php
+
+		-
+			message: "#^Property Recranet\\\\TwigSpreadsheetBundle\\\\Wrapper\\\\HeaderFooterWrapper\\:\\:\\$alignmentParameters type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Wrapper/HeaderFooterWrapper.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Wrapper\\\\PhpSpreadsheetWrapper\\:\\:__construct\\(\\) has parameter \\$attributes with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Wrapper/PhpSpreadsheetWrapper.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Wrapper\\\\PhpSpreadsheetWrapper\\:\\:__construct\\(\\) has parameter \\$context with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Wrapper/PhpSpreadsheetWrapper.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Wrapper\\\\PhpSpreadsheetWrapper\\:\\:fixContext\\(\\) has parameter \\$context with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Wrapper/PhpSpreadsheetWrapper.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Wrapper\\\\PhpSpreadsheetWrapper\\:\\:fixContext\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Wrapper/PhpSpreadsheetWrapper.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Wrapper\\\\PhpSpreadsheetWrapper\\:\\:startAlignment\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Wrapper/PhpSpreadsheetWrapper.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Wrapper\\\\PhpSpreadsheetWrapper\\:\\:startCell\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Wrapper/PhpSpreadsheetWrapper.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Wrapper\\\\PhpSpreadsheetWrapper\\:\\:startDocument\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Wrapper/PhpSpreadsheetWrapper.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Wrapper\\\\PhpSpreadsheetWrapper\\:\\:startDrawing\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Wrapper/PhpSpreadsheetWrapper.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Wrapper\\\\PhpSpreadsheetWrapper\\:\\:startHeaderFooter\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Wrapper/PhpSpreadsheetWrapper.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Wrapper\\\\PhpSpreadsheetWrapper\\:\\:startSheet\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Wrapper/PhpSpreadsheetWrapper.php
+
+		-
+			message: "#^Parameter \\#1 \\$alignment of method Recranet\\\\TwigSpreadsheetBundle\\\\Wrapper\\\\HeaderFooterWrapper\\:\\:startAlignment\\(\\) expects string, string\\|null given\\.$#"
+			count: 1
+			path: src/Wrapper/PhpSpreadsheetWrapper.php
+
+		-
+			message: "#^Parameter \\#1 \\$value of method Recranet\\\\TwigSpreadsheetBundle\\\\Wrapper\\\\HeaderFooterWrapper\\:\\:endAlignment\\(\\) expects string, string\\|null given\\.$#"
+			count: 1
+			path: src/Wrapper/PhpSpreadsheetWrapper.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Wrapper\\\\RowWrapper\\:\\:__construct\\(\\) has parameter \\$context with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Wrapper/RowWrapper.php
+
+		-
+			message: "#^Cannot call method freezePane\\(\\) on PhpOffice\\\\PhpSpreadsheet\\\\Worksheet\\\\Worksheet\\|null\\.$#"
+			count: 1
+			path: src/Wrapper/SheetWrapper.php
+
+		-
+			message: "#^Cannot call method getColumnDimension\\(\\) on PhpOffice\\\\PhpSpreadsheet\\\\Worksheet\\\\Worksheet\\|null\\.$#"
+			count: 1
+			path: src/Wrapper/SheetWrapper.php
+
+		-
+			message: "#^Cannot call method getDefaultColumnDimension\\(\\) on PhpOffice\\\\PhpSpreadsheet\\\\Worksheet\\\\Worksheet\\|null\\.$#"
+			count: 1
+			path: src/Wrapper/SheetWrapper.php
+
+		-
+			message: "#^Cannot call method getDefaultRowDimension\\(\\) on PhpOffice\\\\PhpSpreadsheet\\\\Worksheet\\\\Worksheet\\|null\\.$#"
+			count: 1
+			path: src/Wrapper/SheetWrapper.php
+
+		-
+			message: "#^Cannot call method getPageMargins\\(\\) on PhpOffice\\\\PhpSpreadsheet\\\\Worksheet\\\\Worksheet\\|null\\.$#"
+			count: 6
+			path: src/Wrapper/SheetWrapper.php
+
+		-
+			message: "#^Cannot call method getPageSetup\\(\\) on PhpOffice\\\\PhpSpreadsheet\\\\Worksheet\\\\Worksheet\\|null\\.$#"
+			count: 9
+			path: src/Wrapper/SheetWrapper.php
+
+		-
+			message: "#^Cannot call method getProtection\\(\\) on PhpOffice\\\\PhpSpreadsheet\\\\Worksheet\\\\Worksheet\\|null\\.$#"
+			count: 17
+			path: src/Wrapper/SheetWrapper.php
+
+		-
+			message: "#^Cannot call method getRowDimension\\(\\) on PhpOffice\\\\PhpSpreadsheet\\\\Worksheet\\\\Worksheet\\|null\\.$#"
+			count: 1
+			path: src/Wrapper/SheetWrapper.php
+
+		-
+			message: "#^Cannot call method getSheetView\\(\\) on PhpOffice\\\\PhpSpreadsheet\\\\Worksheet\\\\Worksheet\\|null\\.$#"
+			count: 1
+			path: src/Wrapper/SheetWrapper.php
+
+		-
+			message: "#^Cannot call method getTabColor\\(\\) on PhpOffice\\\\PhpSpreadsheet\\\\Worksheet\\\\Worksheet\\|null\\.$#"
+			count: 1
+			path: src/Wrapper/SheetWrapper.php
+
+		-
+			message: "#^Cannot call method setAutoFilter\\(\\) on PhpOffice\\\\PhpSpreadsheet\\\\Worksheet\\\\Worksheet\\|null\\.$#"
+			count: 1
+			path: src/Wrapper/SheetWrapper.php
+
+		-
+			message: "#^Cannot call method setPrintGridlines\\(\\) on PhpOffice\\\\PhpSpreadsheet\\\\Worksheet\\\\Worksheet\\|null\\.$#"
+			count: 1
+			path: src/Wrapper/SheetWrapper.php
+
+		-
+			message: "#^Cannot call method setRightToLeft\\(\\) on PhpOffice\\\\PhpSpreadsheet\\\\Worksheet\\\\Worksheet\\|null\\.$#"
+			count: 1
+			path: src/Wrapper/SheetWrapper.php
+
+		-
+			message: "#^Cannot call method setSheetState\\(\\) on PhpOffice\\\\PhpSpreadsheet\\\\Worksheet\\\\Worksheet\\|null\\.$#"
+			count: 1
+			path: src/Wrapper/SheetWrapper.php
+
+		-
+			message: "#^Cannot call method setShowGridlines\\(\\) on PhpOffice\\\\PhpSpreadsheet\\\\Worksheet\\\\Worksheet\\|null\\.$#"
+			count: 1
+			path: src/Wrapper/SheetWrapper.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Wrapper\\\\SheetWrapper\\:\\:__construct\\(\\) has parameter \\$context with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Wrapper/SheetWrapper.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Wrapper\\\\SheetWrapper\\:\\:configureMappings\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Wrapper/SheetWrapper.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Wrapper\\\\SheetWrapper\\:\\:start\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Wrapper/SheetWrapper.php
+
+		-
+			message: "#^PHPDoc tag @var for variable \\$columnDimension has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Wrapper/SheetWrapper.php
+
+		-
+			message: "#^Cannot call method getContainer\\(\\) on Symfony\\\\Component\\\\HttpKernel\\\\KernelInterface\\|null\\.$#"
+			count: 1
+			path: tests/Functional/BaseFunctionalTest.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Tests\\\\Functional\\\\BaseFunctionalTest\\:\\:generateUrl\\(\\) has parameter \\$parameters with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/Functional/BaseFunctionalTest.php
+
+		-
+			message: "#^Parameter \\#2 \\$content of static method Recranet\\\\TwigSpreadsheetBundle\\\\Helper\\\\Filesystem\\:\\:dumpFile\\(\\) expects string, string\\|false given\\.$#"
+			count: 1
+			path: tests/Functional/BaseFunctionalTest.php
+
+		-
+			message: "#^Cannot call method getContainer\\(\\) on Symfony\\\\Component\\\\HttpKernel\\\\KernelInterface\\|null\\.$#"
+			count: 1
+			path: tests/Functional/ConfigFunctionalTest.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Tests\\\\Functional\\\\ConfigFunctionalTest\\:\\:testCsvWriterAttributes\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/Functional/ConfigFunctionalTest.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Tests\\\\Functional\\\\ConfigFunctionalTest\\:\\:testPreCalculateFormulas\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/Functional/ConfigFunctionalTest.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Tests\\\\Functional\\\\ConfigFunctionalTest\\:\\:testXmlCacheDirectory\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/Functional/ConfigFunctionalTest.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Tests\\\\Functional\\\\OdsXlsXlsxFunctionalTest\\:\\:formatProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/Functional/OdsXlsXlsxFunctionalTest.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Tests\\\\Functional\\\\OdsXlsXlsxFunctionalTest\\:\\:testCustomResponse\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/Functional/OdsXlsXlsxFunctionalTest.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Tests\\\\Functional\\\\OdsXlsXlsxFunctionalTest\\:\\:testDocumentTemplatePath1\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/Functional/OdsXlsXlsxFunctionalTest.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Tests\\\\Functional\\\\OdsXlsXlsxFunctionalTest\\:\\:testDocumentTemplatePath2\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/Functional/OdsXlsXlsxFunctionalTest.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Tests\\\\Functional\\\\OdsXlsXlsxFunctionalTest\\:\\:testSimple\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/Functional/OdsXlsXlsxFunctionalTest.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Tests\\\\RecranetTwigSpreadsheetBundleTest\\:\\:testShouldReturnNewContainerExtension\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/RecranetTwigSpreadsheetBundleTest.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Tests\\\\Twig\\\\CsvOdsXlsXlsxErrorTwigTest\\:\\:formatProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/Twig/CsvOdsXlsXlsxErrorTwigTest.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Tests\\\\Twig\\\\CsvOdsXlsXlsxErrorTwigTest\\:\\:testDocumentError\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/Twig/CsvOdsXlsXlsxErrorTwigTest.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Tests\\\\Twig\\\\CsvOdsXlsXlsxErrorTwigTest\\:\\:testDocumentErrorTextAfter\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/Twig/CsvOdsXlsXlsxErrorTwigTest.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Tests\\\\Twig\\\\CsvOdsXlsXlsxErrorTwigTest\\:\\:testDocumentErrorTextBefore\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/Twig/CsvOdsXlsXlsxErrorTwigTest.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Tests\\\\Twig\\\\CsvOdsXlsXlsxErrorTwigTest\\:\\:testSheetError\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/Twig/CsvOdsXlsXlsxErrorTwigTest.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Tests\\\\Twig\\\\CsvOdsXlsXlsxTwigTest\\:\\:formatProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/Twig/CsvOdsXlsXlsxTwigTest.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Tests\\\\Twig\\\\CsvOdsXlsXlsxTwigTest\\:\\:testDocumentSimple\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/Twig/CsvOdsXlsXlsxTwigTest.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Tests\\\\Twig\\\\CsvOdsXlsXlsxTwigTest\\:\\:testDocumentTemplate\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/Twig/CsvOdsXlsXlsxTwigTest.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Tests\\\\Twig\\\\CsvOdsXlsXlsxTwigTest\\:\\:testFunctionIndex\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/Twig/CsvOdsXlsXlsxTwigTest.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Tests\\\\Twig\\\\OdsXlsXlsxTwigTest\\:\\:formatProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/Twig/OdsXlsXlsxTwigTest.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Tests\\\\Twig\\\\OdsXlsXlsxTwigTest\\:\\:testBlock\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/Twig/OdsXlsXlsxTwigTest.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Tests\\\\Twig\\\\OdsXlsXlsxTwigTest\\:\\:testBlockOverrideCell\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/Twig/OdsXlsXlsxTwigTest.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Tests\\\\Twig\\\\OdsXlsXlsxTwigTest\\:\\:testBlockOverrideContent\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/Twig/OdsXlsXlsxTwigTest.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Tests\\\\Twig\\\\OdsXlsXlsxTwigTest\\:\\:testBlockOverrideRow\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/Twig/OdsXlsXlsxTwigTest.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Tests\\\\Twig\\\\OdsXlsXlsxTwigTest\\:\\:testBlockOverrideSheet\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/Twig/OdsXlsXlsxTwigTest.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Tests\\\\Twig\\\\OdsXlsXlsxTwigTest\\:\\:testCellFormula\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/Twig/OdsXlsXlsxTwigTest.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Tests\\\\Twig\\\\OdsXlsXlsxTwigTest\\:\\:testCellIndex\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/Twig/OdsXlsXlsxTwigTest.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Tests\\\\Twig\\\\OdsXlsXlsxTwigTest\\:\\:testCellProperties\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/Twig/OdsXlsXlsxTwigTest.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Tests\\\\Twig\\\\OdsXlsXlsxTwigTest\\:\\:testCellValue\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/Twig/OdsXlsXlsxTwigTest.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Tests\\\\Twig\\\\OdsXlsXlsxTwigTest\\:\\:testDocumentProperties\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/Twig/OdsXlsXlsxTwigTest.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Tests\\\\Twig\\\\OdsXlsXlsxTwigTest\\:\\:testDocumentWhitespace\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/Twig/OdsXlsXlsxTwigTest.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Tests\\\\Twig\\\\OdsXlsXlsxTwigTest\\:\\:testInclude\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/Twig/OdsXlsXlsxTwigTest.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Tests\\\\Twig\\\\OdsXlsXlsxTwigTest\\:\\:testMacro\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/Twig/OdsXlsXlsxTwigTest.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Tests\\\\Twig\\\\OdsXlsXlsxTwigTest\\:\\:testRowIndex\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/Twig/OdsXlsXlsxTwigTest.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Tests\\\\Twig\\\\OdsXlsXlsxTwigTest\\:\\:testSheet\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/Twig/OdsXlsXlsxTwigTest.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Tests\\\\Twig\\\\OdsXlsXlsxTwigTest\\:\\:testSheetComplex\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/Twig/OdsXlsXlsxTwigTest.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Tests\\\\Twig\\\\OdsXlsXlsxTwigTest\\:\\:testSheetProperties\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/Twig/OdsXlsXlsxTwigTest.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Tests\\\\Twig\\\\PdfTwigTest\\:\\:formatProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/Twig/PdfTwigTest.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Tests\\\\Twig\\\\PdfTwigTest\\:\\:testBasic\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/Twig/PdfTwigTest.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Tests\\\\Twig\\\\XlsXlsxTwigTest\\:\\:formatProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/Twig/XlsXlsxTwigTest.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Tests\\\\Twig\\\\XlsXlsxTwigTest\\:\\:testCellIndexMerge\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/Twig/XlsXlsxTwigTest.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Tests\\\\Twig\\\\XlsXlsxTwigTest\\:\\:testCellProperties\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/Twig/XlsXlsxTwigTest.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Tests\\\\Twig\\\\XlsXlsxTwigTest\\:\\:testDocumentProperties\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/Twig/XlsXlsxTwigTest.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Tests\\\\Twig\\\\XlsXlsxTwigTest\\:\\:testDrawingProperties\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/Twig/XlsXlsxTwigTest.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Tests\\\\Twig\\\\XlsXlsxTwigTest\\:\\:testDrawingSimple\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/Twig/XlsXlsxTwigTest.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Tests\\\\Twig\\\\XlsXlsxTwigTest\\:\\:testFunctionMergeStyles\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/Twig/XlsXlsxTwigTest.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Tests\\\\Twig\\\\XlsXlsxTwigTest\\:\\:testHeaderFooterComplex\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/Twig/XlsXlsxTwigTest.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Tests\\\\Twig\\\\XlsXlsxTwigTest\\:\\:testSheetProperties\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/Twig/XlsXlsxTwigTest.php
+
+		-
+			message: "#^Cannot call method getCell\\(\\) on PhpOffice\\\\PhpSpreadsheet\\\\Worksheet\\\\Worksheet\\|null\\.$#"
+			count: 1
+			path: tests/Twig/XlsxTwigTest.php
+
+		-
+			message: "#^Cannot call method getDescription\\(\\) on PhpOffice\\\\PhpSpreadsheet\\\\Worksheet\\\\BaseDrawing\\|null\\.$#"
+			count: 1
+			path: tests/Twig/XlsxTwigTest.php
+
+		-
+			message: "#^Cannot call method getHeight\\(\\) on PhpOffice\\\\PhpSpreadsheet\\\\Worksheet\\\\BaseDrawing\\|null\\.$#"
+			count: 1
+			path: tests/Twig/XlsxTwigTest.php
+
+		-
+			message: "#^Cannot call method getName\\(\\) on PhpOffice\\\\PhpSpreadsheet\\\\Worksheet\\\\BaseDrawing\\|null\\.$#"
+			count: 1
+			path: tests/Twig/XlsxTwigTest.php
+
+		-
+			message: "#^Cannot call method getOffsetX\\(\\) on PhpOffice\\\\PhpSpreadsheet\\\\Worksheet\\\\BaseDrawing\\|null\\.$#"
+			count: 1
+			path: tests/Twig/XlsxTwigTest.php
+
+		-
+			message: "#^Cannot call method getOffsetY\\(\\) on PhpOffice\\\\PhpSpreadsheet\\\\Worksheet\\\\BaseDrawing\\|null\\.$#"
+			count: 1
+			path: tests/Twig/XlsxTwigTest.php
+
+		-
+			message: "#^Cannot call method getRotation\\(\\) on PhpOffice\\\\PhpSpreadsheet\\\\Worksheet\\\\BaseDrawing\\|null\\.$#"
+			count: 1
+			path: tests/Twig/XlsxTwigTest.php
+
+		-
+			message: "#^Cannot call method getShadow\\(\\) on PhpOffice\\\\PhpSpreadsheet\\\\Worksheet\\\\BaseDrawing\\|null\\.$#"
+			count: 1
+			path: tests/Twig/XlsxTwigTest.php
+
+		-
+			message: "#^Cannot call method getWidth\\(\\) on PhpOffice\\\\PhpSpreadsheet\\\\Worksheet\\\\BaseDrawing\\|null\\.$#"
+			count: 1
+			path: tests/Twig/XlsxTwigTest.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Tests\\\\Twig\\\\XlsxTwigTest\\:\\:formatProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/Twig/XlsxTwigTest.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Tests\\\\Twig\\\\XlsxTwigTest\\:\\:testCellProperties\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/Twig/XlsxTwigTest.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Tests\\\\Twig\\\\XlsxTwigTest\\:\\:testDocumentProperties\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/Twig/XlsxTwigTest.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Tests\\\\Twig\\\\XlsxTwigTest\\:\\:testDocumentTemplate\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/Twig/XlsxTwigTest.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Tests\\\\Twig\\\\XlsxTwigTest\\:\\:testDrawingProperties\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/Twig/XlsxTwigTest.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Tests\\\\Twig\\\\XlsxTwigTest\\:\\:testHeaderFooterComplex\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/Twig/XlsxTwigTest.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Tests\\\\Twig\\\\XlsxTwigTest\\:\\:testHeaderFooterDrawing\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/Twig/XlsxTwigTest.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Tests\\\\Twig\\\\XlsxTwigTest\\:\\:testHeaderFooterProperties\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/Twig/XlsxTwigTest.php
+
+		-
+			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Tests\\\\Twig\\\\XlsxTwigTest\\:\\:testSheetProperties\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/Twig/XlsxTwigTest.php
