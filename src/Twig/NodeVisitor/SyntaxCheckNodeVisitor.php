@@ -44,7 +44,7 @@ class SyntaxCheckNodeVisitor implements NodeVisitorInterface
             throw $e;
         }
 
-        $this->path[] = $node !== null ? \get_class($node) : null;
+        $this->path[] = \get_class($node);
 
         return $node;
     }
