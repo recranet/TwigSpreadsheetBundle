@@ -36,9 +36,9 @@ class XlsxTwigTest extends BaseTwigTest
         static::assertTrue($dataValidation->getAllowBlank(), 'Unexpected value in allowBlank');
         static::assertEquals('Test error', $dataValidation->getError(), 'Unexpected value in error');
         static::assertEquals('Test errorTitle', $dataValidation->getErrorTitle(), 'Unexpected value in errorTitle');
-        static::assertEquals('', $dataValidation->getFormula1(), 'Unexpected value in formula1');
-        static::assertEquals('', $dataValidation->getFormula2(), 'Unexpected value in formula2');
-        static::assertEquals('', $dataValidation->getOperator(), 'Unexpected value in operator');
+        static::assertEquals('1', $dataValidation->getFormula1(), 'Unexpected value in formula1');
+        static::assertEquals('2', $dataValidation->getFormula2(), 'Unexpected value in formula2');
+        static::assertEquals('notBetween', $dataValidation->getOperator(), 'Unexpected value in operator');
         static::assertEquals('Test prompt', $dataValidation->getPrompt(), 'Unexpected value in prompt');
         static::assertEquals('Test promptTitle', $dataValidation->getPromptTitle(), 'Unexpected value in promptTitle');
         static::assertTrue($dataValidation->getShowDropDown(), 'Unexpected value in showDropDown');
