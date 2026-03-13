@@ -311,16 +311,6 @@ parameters:
 			path: src/Wrapper/CellWrapper.php
 
 		-
-			message: "#^Parameter \\#1 \\$columnIndex of method PhpOffice\\\\PhpSpreadsheet\\\\Worksheet\\\\Worksheet\\:\\:getCellByColumnAndRow\\(\\) expects int, int\\|null given\\.$#"
-			count: 1
-			path: src/Wrapper/CellWrapper.php
-
-		-
-			message: "#^Parameter \\#2 \\$row of method PhpOffice\\\\PhpSpreadsheet\\\\Worksheet\\\\Worksheet\\:\\:getCellByColumnAndRow\\(\\) expects int, int\\|null given\\.$#"
-			count: 1
-			path: src/Wrapper/CellWrapper.php
-
-		-
 			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Wrapper\\\\DocumentWrapper\\:\\:__construct\\(\\) has parameter \\$attributes with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Wrapper/DocumentWrapper.php

@@ -42,6 +42,10 @@ class CellWrapper extends BaseWrapper
             $this->sheetWrapper->setColumn($index);
         }
 
+        if ($this->sheetWrapper->getColumn() === null || $this->sheetWrapper->getRow() === null) {
+            throw new \LogicException('Column index or row number has not been set');
+        }
+
         $this->object = $this->sheetWrapper->getObject()->getCellByColumnAndRow(
             $this->sheetWrapper->getColumn(),
             $this->sheetWrapper->getRow()
