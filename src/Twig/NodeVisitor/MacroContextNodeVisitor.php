@@ -6,6 +6,7 @@ use Recranet\TwigSpreadsheetBundle\Wrapper\PhpSpreadsheetWrapper;
 use Twig\Environment;
 use Twig\Node\Expression\ArrayExpression;
 use Twig\Node\Expression\ConstantExpression;
+use Twig\Node\Expression\MacroReferenceExpression;
 use Twig\Node\Expression\MethodCallExpression;
 use Twig\Node\Expression\NameExpression;
 use Twig\Node\Node;
@@ -29,8 +30,8 @@ class MacroContextNodeVisitor implements NodeVisitorInterface
      */
     public function enterNode(Node $node, Environment $env): Node
     {
-        // add wrapper instance as argument on all method calls
-        if ($node instanceof MethodCallExpression) {
+        // add wrapper instance as argument on all method and macro calls
+        if ($node instanceof MethodCallExpression || $node instanceof MacroReferenceExpression) {
             $keyNode = new ConstantExpression(PhpSpreadsheetWrapper::INSTANCE_KEY, $node->getTemplateLine());
 
             // add wrapper even if it not exists, we fix that later
