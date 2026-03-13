@@ -105,7 +105,10 @@ abstract class BaseTokenParser extends AbstractTokenParser
         // parse expressions
         $expressions = [];
         while (!$this->parser->getStream()->test(Token::BLOCK_END_TYPE)) {
-            $expressions[] = $this->parser->getExpressionParser()->parseExpression();
+            // TODO: drop fallback when minimum Twig version is 3.21
+            $expressions[] = method_exists($this->parser, 'parseExpression')
+                ? $this->parser->parseExpression()
+                : $this->parser->getExpressionParser()->parseExpression();
         }
 
         // end of expressions
