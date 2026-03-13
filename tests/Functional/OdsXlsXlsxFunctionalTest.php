@@ -80,7 +80,7 @@ class OdsXlsXlsxFunctionalTest extends BaseFunctionalTest
     {
         $client = static::createClient();
 
-        $url = $this->generateUrl('test_default', ['templateName' => 'documentTemplatePath1', '_format' => $format], $format);
+        $url = $this->generateUrl('test_default', ['templateName' => 'documentTemplatePath1', '_format' => $format]);
         $client->request('GET', $url);
 
         $response = $client->getResponse();
@@ -108,7 +108,7 @@ class OdsXlsXlsxFunctionalTest extends BaseFunctionalTest
     {
         $client = static::createClient();
 
-        $url = $this->generateUrl('test_default', ['templateName' => 'documentTemplatePath2', '_format' => $format], $format);
+        $url = $this->generateUrl('test_default', ['templateName' => 'documentTemplatePath2', '_format' => $format]);
         $client->request('GET', $url);
 
         $response = $client->getResponse();
