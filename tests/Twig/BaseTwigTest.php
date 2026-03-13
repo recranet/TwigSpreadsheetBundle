@@ -21,12 +21,12 @@ abstract class BaseTwigTest extends TestCase
      */
     protected static $environment;
 
-    private static function getCacheDir(): string
+    protected static function getCacheDir(): string
     {
         return sprintf('%s/var/cache/%s', dirname(dirname(__DIR__)) , str_replace('\\', \DIRECTORY_SEPARATOR, static::class));
     }
 
-    private static function getResultDir(): string
+    protected static function getResultDir(): string
     {
         return sprintf('%s/var/result/%s', dirname(dirname(__DIR__)) , str_replace('\\', \DIRECTORY_SEPARATOR, static::class));
     }
