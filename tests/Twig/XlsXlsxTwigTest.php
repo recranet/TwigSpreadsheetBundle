@@ -69,7 +69,8 @@ class XlsXlsxTwigTest extends BaseTwigTest
         static::assertNotNull($font, 'Font does not exist');
         static::assertEquals(18, $font->getSize(), 'Unexpected value in size');
 
-        static::assertEquals('http://example.com/', $cell->getHyperlink()->getUrl(), 'Unexpected value in url');
+        $hyperlink = $cell->getHyperlink();
+        static::assertEquals('http://example.com/', $hyperlink->getUrl(), 'Unexpected value in url');
     }
 
     /**
