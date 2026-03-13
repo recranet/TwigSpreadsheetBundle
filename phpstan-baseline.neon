@@ -296,56 +296,6 @@ parameters:
 			path: src/Wrapper/BaseWrapper.php
 
 		-
-			message: "#^Cannot call method getCellByColumnAndRow\\(\\) on PhpOffice\\\\PhpSpreadsheet\\\\Worksheet\\\\Worksheet\\|null\\.$#"
-			count: 1
-			path: src/Wrapper/CellWrapper.php
-
-		-
-			message: "#^Cannot call method getCoordinate\\(\\) on PhpOffice\\\\PhpSpreadsheet\\\\Cell\\\\Cell\\|null\\.$#"
-			count: 3
-			path: src/Wrapper/CellWrapper.php
-
-		-
-			message: "#^Cannot call method getDataValidation\\(\\) on PhpOffice\\\\PhpSpreadsheet\\\\Cell\\\\Cell\\|null\\.$#"
-			count: 13
-			path: src/Wrapper/CellWrapper.php
-
-		-
-			message: "#^Cannot call method getHyperlink\\(\\) on PhpOffice\\\\PhpSpreadsheet\\\\Cell\\\\Cell\\|null\\.$#"
-			count: 1
-			path: src/Wrapper/CellWrapper.php
-
-		-
-			message: "#^Cannot call method getStyle\\(\\) on PhpOffice\\\\PhpSpreadsheet\\\\Worksheet\\\\Worksheet\\|null\\.$#"
-			count: 1
-			path: src/Wrapper/CellWrapper.php
-
-		-
-			message: "#^Cannot call method mergeCells\\(\\) on PhpOffice\\\\PhpSpreadsheet\\\\Worksheet\\\\Worksheet\\|null\\.$#"
-			count: 1
-			path: src/Wrapper/CellWrapper.php
-
-		-
-			message: "#^Cannot call method setBreak\\(\\) on PhpOffice\\\\PhpSpreadsheet\\\\Worksheet\\\\Worksheet\\|null\\.$#"
-			count: 1
-			path: src/Wrapper/CellWrapper.php
-
-		-
-			message: "#^Cannot call method setDataType\\(\\) on PhpOffice\\\\PhpSpreadsheet\\\\Cell\\\\Cell\\|null\\.$#"
-			count: 1
-			path: src/Wrapper/CellWrapper.php
-
-		-
-			message: "#^Cannot call method setValue\\(\\) on PhpOffice\\\\PhpSpreadsheet\\\\Cell\\\\Cell\\|null\\.$#"
-			count: 1
-			path: src/Wrapper/CellWrapper.php
-
-		-
-			message: "#^Cannot call method setValueExplicit\\(\\) on PhpOffice\\\\PhpSpreadsheet\\\\Cell\\\\Cell\\|null\\.$#"
-			count: 1
-			path: src/Wrapper/CellWrapper.php
-
-		-
 			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Wrapper\\\\CellWrapper\\:\\:__construct\\(\\) has parameter \\$context with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Wrapper/CellWrapper.php
@@ -361,19 +311,14 @@ parameters:
 			path: src/Wrapper/CellWrapper.php
 
 		-
-			message: "#^Cannot call method getDefaultStyle\\(\\) on PhpOffice\\\\PhpSpreadsheet\\\\Spreadsheet\\|null\\.$#"
+			message: "#^Parameter \\#1 \\$columnIndex of method PhpOffice\\\\PhpSpreadsheet\\\\Worksheet\\\\Worksheet\\:\\:getCellByColumnAndRow\\(\\) expects int, int\\|null given\\.$#"
 			count: 1
-			path: src/Wrapper/DocumentWrapper.php
+			path: src/Wrapper/CellWrapper.php
 
 		-
-			message: "#^Cannot call method getProperties\\(\\) on PhpOffice\\\\PhpSpreadsheet\\\\Spreadsheet\\|null\\.$#"
-			count: 11
-			path: src/Wrapper/DocumentWrapper.php
-
-		-
-			message: "#^Cannot call method getSecurity\\(\\) on PhpOffice\\\\PhpSpreadsheet\\\\Spreadsheet\\|null\\.$#"
-			count: 5
-			path: src/Wrapper/DocumentWrapper.php
+			message: "#^Parameter \\#2 \\$row of method PhpOffice\\\\PhpSpreadsheet\\\\Worksheet\\\\Worksheet\\:\\:getCellByColumnAndRow\\(\\) expects int, int\\|null given\\.$#"
+			count: 1
+			path: src/Wrapper/CellWrapper.php
 
 		-
 			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Wrapper\\\\DocumentWrapper\\:\\:__construct\\(\\) has parameter \\$attributes with no value type specified in iterable type array\\.$#"
@@ -406,56 +351,6 @@ parameters:
 			path: src/Wrapper/DocumentWrapper.php
 
 		-
-			message: "#^Cannot call method getShadow\\(\\) on PhpOffice\\\\PhpSpreadsheet\\\\Worksheet\\\\Drawing\\|null\\.$#"
-			count: 7
-			path: src/Wrapper/DrawingWrapper.php
-
-		-
-			message: "#^Cannot call method setCoordinates\\(\\) on PhpOffice\\\\PhpSpreadsheet\\\\Worksheet\\\\Drawing\\|null\\.$#"
-			count: 1
-			path: src/Wrapper/DrawingWrapper.php
-
-		-
-			message: "#^Cannot call method setDescription\\(\\) on PhpOffice\\\\PhpSpreadsheet\\\\Worksheet\\\\Drawing\\|null\\.$#"
-			count: 1
-			path: src/Wrapper/DrawingWrapper.php
-
-		-
-			message: "#^Cannot call method setHeight\\(\\) on PhpOffice\\\\PhpSpreadsheet\\\\Worksheet\\\\Drawing\\|null\\.$#"
-			count: 1
-			path: src/Wrapper/DrawingWrapper.php
-
-		-
-			message: "#^Cannot call method setName\\(\\) on PhpOffice\\\\PhpSpreadsheet\\\\Worksheet\\\\Drawing\\|null\\.$#"
-			count: 1
-			path: src/Wrapper/DrawingWrapper.php
-
-		-
-			message: "#^Cannot call method setOffsetX\\(\\) on PhpOffice\\\\PhpSpreadsheet\\\\Worksheet\\\\Drawing\\|null\\.$#"
-			count: 1
-			path: src/Wrapper/DrawingWrapper.php
-
-		-
-			message: "#^Cannot call method setOffsetY\\(\\) on PhpOffice\\\\PhpSpreadsheet\\\\Worksheet\\\\Drawing\\|null\\.$#"
-			count: 1
-			path: src/Wrapper/DrawingWrapper.php
-
-		-
-			message: "#^Cannot call method setResizeProportional\\(\\) on PhpOffice\\\\PhpSpreadsheet\\\\Worksheet\\\\Drawing\\|null\\.$#"
-			count: 1
-			path: src/Wrapper/DrawingWrapper.php
-
-		-
-			message: "#^Cannot call method setRotation\\(\\) on PhpOffice\\\\PhpSpreadsheet\\\\Worksheet\\\\Drawing\\|null\\.$#"
-			count: 1
-			path: src/Wrapper/DrawingWrapper.php
-
-		-
-			message: "#^Cannot call method setWidth\\(\\) on PhpOffice\\\\PhpSpreadsheet\\\\Worksheet\\\\Drawing\\|null\\.$#"
-			count: 1
-			path: src/Wrapper/DrawingWrapper.php
-
-		-
 			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Wrapper\\\\DrawingWrapper\\:\\:__construct\\(\\) has parameter \\$attributes with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Wrapper/DrawingWrapper.php
@@ -479,16 +374,6 @@ parameters:
 			message: "#^Property Recranet\\\\TwigSpreadsheetBundle\\\\Wrapper\\\\DrawingWrapper\\:\\:\\$attributes type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Wrapper/DrawingWrapper.php
-
-		-
-			message: "#^Cannot call method setAlignWithMargins\\(\\) on PhpOffice\\\\PhpSpreadsheet\\\\Worksheet\\\\HeaderFooter\\|null\\.$#"
-			count: 1
-			path: src/Wrapper/HeaderFooterWrapper.php
-
-		-
-			message: "#^Cannot call method setScaleWithDocument\\(\\) on PhpOffice\\\\PhpSpreadsheet\\\\Worksheet\\\\HeaderFooter\\|null\\.$#"
-			count: 1
-			path: src/Wrapper/HeaderFooterWrapper.php
 
 		-
 			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Wrapper\\\\HeaderFooterWrapper\\:\\:__construct\\(\\) has parameter \\$context with no value type specified in iterable type array\\.$#"
@@ -589,81 +474,6 @@ parameters:
 			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Wrapper\\\\RowWrapper\\:\\:__construct\\(\\) has parameter \\$context with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Wrapper/RowWrapper.php
-
-		-
-			message: "#^Cannot call method freezePane\\(\\) on PhpOffice\\\\PhpSpreadsheet\\\\Worksheet\\\\Worksheet\\|null\\.$#"
-			count: 1
-			path: src/Wrapper/SheetWrapper.php
-
-		-
-			message: "#^Cannot call method getColumnDimension\\(\\) on PhpOffice\\\\PhpSpreadsheet\\\\Worksheet\\\\Worksheet\\|null\\.$#"
-			count: 1
-			path: src/Wrapper/SheetWrapper.php
-
-		-
-			message: "#^Cannot call method getDefaultColumnDimension\\(\\) on PhpOffice\\\\PhpSpreadsheet\\\\Worksheet\\\\Worksheet\\|null\\.$#"
-			count: 1
-			path: src/Wrapper/SheetWrapper.php
-
-		-
-			message: "#^Cannot call method getDefaultRowDimension\\(\\) on PhpOffice\\\\PhpSpreadsheet\\\\Worksheet\\\\Worksheet\\|null\\.$#"
-			count: 1
-			path: src/Wrapper/SheetWrapper.php
-
-		-
-			message: "#^Cannot call method getPageMargins\\(\\) on PhpOffice\\\\PhpSpreadsheet\\\\Worksheet\\\\Worksheet\\|null\\.$#"
-			count: 6
-			path: src/Wrapper/SheetWrapper.php
-
-		-
-			message: "#^Cannot call method getPageSetup\\(\\) on PhpOffice\\\\PhpSpreadsheet\\\\Worksheet\\\\Worksheet\\|null\\.$#"
-			count: 9
-			path: src/Wrapper/SheetWrapper.php
-
-		-
-			message: "#^Cannot call method getProtection\\(\\) on PhpOffice\\\\PhpSpreadsheet\\\\Worksheet\\\\Worksheet\\|null\\.$#"
-			count: 17
-			path: src/Wrapper/SheetWrapper.php
-
-		-
-			message: "#^Cannot call method getRowDimension\\(\\) on PhpOffice\\\\PhpSpreadsheet\\\\Worksheet\\\\Worksheet\\|null\\.$#"
-			count: 1
-			path: src/Wrapper/SheetWrapper.php
-
-		-
-			message: "#^Cannot call method getSheetView\\(\\) on PhpOffice\\\\PhpSpreadsheet\\\\Worksheet\\\\Worksheet\\|null\\.$#"
-			count: 1
-			path: src/Wrapper/SheetWrapper.php
-
-		-
-			message: "#^Cannot call method getTabColor\\(\\) on PhpOffice\\\\PhpSpreadsheet\\\\Worksheet\\\\Worksheet\\|null\\.$#"
-			count: 1
-			path: src/Wrapper/SheetWrapper.php
-
-		-
-			message: "#^Cannot call method setAutoFilter\\(\\) on PhpOffice\\\\PhpSpreadsheet\\\\Worksheet\\\\Worksheet\\|null\\.$#"
-			count: 1
-			path: src/Wrapper/SheetWrapper.php
-
-		-
-			message: "#^Cannot call method setPrintGridlines\\(\\) on PhpOffice\\\\PhpSpreadsheet\\\\Worksheet\\\\Worksheet\\|null\\.$#"
-			count: 1
-			path: src/Wrapper/SheetWrapper.php
-
-		-
-			message: "#^Cannot call method setRightToLeft\\(\\) on PhpOffice\\\\PhpSpreadsheet\\\\Worksheet\\\\Worksheet\\|null\\.$#"
-			count: 1
-			path: src/Wrapper/SheetWrapper.php
-
-		-
-			message: "#^Cannot call method setSheetState\\(\\) on PhpOffice\\\\PhpSpreadsheet\\\\Worksheet\\\\Worksheet\\|null\\.$#"
-			count: 1
-			path: src/Wrapper/SheetWrapper.php
-
-		-
-			message: "#^Cannot call method setShowGridlines\\(\\) on PhpOffice\\\\PhpSpreadsheet\\\\Worksheet\\\\Worksheet\\|null\\.$#"
-			count: 1
-			path: src/Wrapper/SheetWrapper.php
 
 		-
 			message: "#^Method Recranet\\\\TwigSpreadsheetBundle\\\\Wrapper\\\\SheetWrapper\\:\\:__construct\\(\\) has parameter \\$context with no value type specified in iterable type array\\.$#"

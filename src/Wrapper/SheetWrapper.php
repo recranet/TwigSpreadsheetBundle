@@ -56,10 +56,6 @@ class SheetWrapper extends BaseWrapper
      */
     public function start($index, array $properties = []): void
     {
-        if ($this->documentWrapper->getObject() === null) {
-            throw new \LogicException();
-        }
-
         if (\is_int($index) && $index < $this->documentWrapper->getObject()->getSheetCount()) {
             $this->object = $this->documentWrapper->getObject()->setActiveSheetIndex($index);
         } elseif (\is_string($index)) {
@@ -87,7 +83,7 @@ class SheetWrapper extends BaseWrapper
     public function end(): void
     {
         if ($this->object === null) {
-            throw new \LogicException();
+            throw new \LogicException('A sheet must be started before ending it.');
         }
 
         // auto-size columns
@@ -135,17 +131,18 @@ class SheetWrapper extends BaseWrapper
         $this->column = $this->column === null ? self::COLUMN_DEFAULT : $this->column + 1;
     }
 
-    public function getObject(): ?Worksheet
+    public function getObject(): Worksheet
     {
+        if ($this->object === null) {
+            throw new \LogicException('Object is not initialized');
+        }
+
         return $this->object;
     }
 
-    /**
-     * @param Worksheet $object
-     */
-    public function setObject(Worksheet $object): void
+    public function hasObject(): bool
     {
-        $this->object = $object;
+        return $this->object !== null;
     }
 
     /**
@@ -189,12 +186,12 @@ class SheetWrapper extends BaseWrapper
     {
         return [
             'autoFilter' => function ($value) {
-                $this->object->setAutoFilter($value);
+                $this->getObject()->setAutoFilter($value);
             },
             'columnDimension' => [
                 '__multi' => fn ($index = 'default'): ColumnDimension => $index === 'default' ?
-                    $this->object->getDefaultColumnDimension() :
-                    $this->object->getColumnDimension($index),
+                    $this->getObject()->getDefaultColumnDimension() :
+                    $this->getObject()->getColumnDimension($index),
                 'autoSize' => function ($value, ColumnDimension $object) {
                     $object->setAutoSize($value);
                 },
@@ -219,116 +216,116 @@ class SheetWrapper extends BaseWrapper
             ],
             'pageMargins' => [
                 'top' => function ($value) {
-                    $this->object->getPageMargins()->setTop($value);
+                    $this->getObject()->getPageMargins()->setTop($value);
                 },
                 'bottom' => function ($value) {
-                    $this->object->getPageMargins()->setBottom($value);
+                    $this->getObject()->getPageMargins()->setBottom($value);
                 },
                 'left' => function ($value) {
-                    $this->object->getPageMargins()->setLeft($value);
+                    $this->getObject()->getPageMargins()->setLeft($value);
                 },
                 'right' => function ($value) {
-                    $this->object->getPageMargins()->setRight($value);
+                    $this->getObject()->getPageMargins()->setRight($value);
                 },
                 'header' => function ($value) {
-                    $this->object->getPageMargins()->setHeader($value);
+                    $this->getObject()->getPageMargins()->setHeader($value);
                 },
                 'footer' => function ($value) {
-                    $this->object->getPageMargins()->setFooter($value);
+                    $this->getObject()->getPageMargins()->setFooter($value);
                 },
             ],
             'pageSetup' => [
                 'fitToHeight' => function ($value) {
-                    $this->object->getPageSetup()->setFitToHeight($value);
+                    $this->getObject()->getPageSetup()->setFitToHeight($value);
                 },
                 'fitToPage' => function ($value) {
-                    $this->object->getPageSetup()->setFitToPage($value);
+                    $this->getObject()->getPageSetup()->setFitToPage($value);
                 },
                 'fitToWidth' => function ($value) {
-                    $this->object->getPageSetup()->setFitToWidth($value);
+                    $this->getObject()->getPageSetup()->setFitToWidth($value);
                 },
                 'horizontalCentered' => function ($value) {
-                    $this->object->getPageSetup()->setHorizontalCentered($value);
+                    $this->getObject()->getPageSetup()->setHorizontalCentered($value);
                 },
                 'orientation' => function ($value) {
-                    $this->object->getPageSetup()->setOrientation($value);
+                    $this->getObject()->getPageSetup()->setOrientation($value);
                 },
                 'paperSize' => function ($value) {
-                    $this->object->getPageSetup()->setPaperSize($value);
+                    $this->getObject()->getPageSetup()->setPaperSize($value);
                 },
                 'printArea' => function ($value) {
-                    $this->object->getPageSetup()->setPrintArea($value);
+                    $this->getObject()->getPageSetup()->setPrintArea($value);
                 },
                 'scale' => function ($value) {
-                    $this->object->getPageSetup()->setScale($value);
+                    $this->getObject()->getPageSetup()->setScale($value);
                 },
                 'verticalCentered' => function ($value) {
-                    $this->object->getPageSetup()->setVerticalCentered($value);
+                    $this->getObject()->getPageSetup()->setVerticalCentered($value);
                 },
             ],
             'printGridlines' => function ($value) {
-                $this->object->setPrintGridlines($value);
+                $this->getObject()->setPrintGridlines($value);
             },
             'protection' => [
                 'autoFilter' => function ($value) {
-                    $this->object->getProtection()->setAutoFilter($value);
+                    $this->getObject()->getProtection()->setAutoFilter($value);
                 },
                 'deleteColumns' => function ($value) {
-                    $this->object->getProtection()->setDeleteColumns($value);
+                    $this->getObject()->getProtection()->setDeleteColumns($value);
                 },
                 'deleteRows' => function ($value) {
-                    $this->object->getProtection()->setDeleteRows($value);
+                    $this->getObject()->getProtection()->setDeleteRows($value);
                 },
                 'formatCells' => function ($value) {
-                    $this->object->getProtection()->setFormatCells($value);
+                    $this->getObject()->getProtection()->setFormatCells($value);
                 },
                 'formatColumns' => function ($value) {
-                    $this->object->getProtection()->setFormatColumns($value);
+                    $this->getObject()->getProtection()->setFormatColumns($value);
                 },
                 'formatRows' => function ($value) {
-                    $this->object->getProtection()->setFormatRows($value);
+                    $this->getObject()->getProtection()->setFormatRows($value);
                 },
                 'insertColumns' => function ($value) {
-                    $this->object->getProtection()->setInsertColumns($value);
+                    $this->getObject()->getProtection()->setInsertColumns($value);
                 },
                 'insertHyperlinks' => function ($value) {
-                    $this->object->getProtection()->setInsertHyperlinks($value);
+                    $this->getObject()->getProtection()->setInsertHyperlinks($value);
                 },
                 'insertRows' => function ($value) {
-                    $this->object->getProtection()->setInsertRows($value);
+                    $this->getObject()->getProtection()->setInsertRows($value);
                 },
                 'objects' => function ($value) {
-                    $this->object->getProtection()->setObjects($value);
+                    $this->getObject()->getProtection()->setObjects($value);
                 },
                 'password' => function ($value) {
-                    $this->object->getProtection()->setPassword($value);
+                    $this->getObject()->getProtection()->setPassword($value);
                 },
                 'pivotTables' => function ($value) {
-                    $this->object->getProtection()->setPivotTables($value);
+                    $this->getObject()->getProtection()->setPivotTables($value);
                 },
                 'scenarios' => function ($value) {
-                    $this->object->getProtection()->setScenarios($value);
+                    $this->getObject()->getProtection()->setScenarios($value);
                 },
                 'selectLockedCells' => function ($value) {
-                    $this->object->getProtection()->setSelectLockedCells($value);
+                    $this->getObject()->getProtection()->setSelectLockedCells($value);
                 },
                 'selectUnlockedCells' => function ($value) {
-                    $this->object->getProtection()->setSelectUnlockedCells($value);
+                    $this->getObject()->getProtection()->setSelectUnlockedCells($value);
                 },
                 'sheet' => function ($value) {
-                    $this->object->getProtection()->setSheet($value);
+                    $this->getObject()->getProtection()->setSheet($value);
                 },
                 'sort' => function ($value) {
-                    $this->object->getProtection()->setSort($value);
+                    $this->getObject()->getProtection()->setSort($value);
                 },
             ],
             'rightToLeft' => function ($value) {
-                $this->object->setRightToLeft($value);
+                $this->getObject()->setRightToLeft($value);
             },
             'rowDimension' => [
                 '__multi' => fn ($index = 'default'): RowDimension => $index === 'default' ?
-                    $this->object->getDefaultRowDimension() :
-                    $this->object->getRowDimension($index),
+                    $this->getObject()->getDefaultRowDimension() :
+                    $this->getObject()->getRowDimension($index),
                 'collapsed' => function ($value, RowDimension $object) {
                     $object->setCollapsed($value);
                 },
@@ -352,19 +349,19 @@ class SheetWrapper extends BaseWrapper
                 },
             ],
             'sheetState' => function ($value) {
-                $this->object->setSheetState($value);
+                $this->getObject()->setSheetState($value);
             },
             'showGridlines' => function ($value) {
-                $this->object->setShowGridlines($value);
+                $this->getObject()->setShowGridlines($value);
             },
             'tabColor' => function ($value) {
-                $this->object->getTabColor()->setRGB($value);
+                $this->getObject()->getTabColor()->setRGB($value);
             },
             'zoomScale' => function ($value) {
-                $this->object->getSheetView()->setZoomScale($value);
+                $this->getObject()->getSheetView()->setZoomScale($value);
             },
             'freezePane' => function ($value) {
-                $this->object->freezePane($value);
+                $this->getObject()->freezePane($value);
             },
         ];
     }

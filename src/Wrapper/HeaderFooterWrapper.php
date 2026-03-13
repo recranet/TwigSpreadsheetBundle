@@ -84,10 +84,6 @@ class HeaderFooterWrapper extends BaseWrapper
      */
     public function start(string $baseType, ?string $type = null, array $properties = []): void
     {
-        if ($this->sheetWrapper->getObject() === null) {
-            throw new \LogicException();
-        }
-
         if ($type !== null) {
             $type = strtolower($type);
 
@@ -112,7 +108,7 @@ class HeaderFooterWrapper extends BaseWrapper
     public function end(): void
     {
         if ($this->object === null) {
-            throw new \LogicException();
+            throw new \LogicException('A header/footer must be started before ending it.');
         }
 
         $value = implode('', $this->parameters['value']);
@@ -169,7 +165,7 @@ class HeaderFooterWrapper extends BaseWrapper
     public function startAlignment(string $alignment, array $properties = []): void
     {
         if ($this->object === null) {
-            throw new \LogicException();
+            throw new \LogicException('A header/footer must be started before starting an alignment.');
         }
 
         $alignment = self::validateAlignment(strtolower($alignment));
@@ -198,8 +194,12 @@ class HeaderFooterWrapper extends BaseWrapper
      */
     public function endAlignment($value): void
     {
-        if ($this->object === null || !isset($this->alignmentParameters['type'])) {
-            throw new \LogicException();
+        if ($this->object === null) {
+            throw new \LogicException('A header/footer and alignment must be started before ending an alignment.');
+        }
+
+        if (!isset($this->alignmentParameters['type'])) {
+            throw new \InvalidArgumentException();
         }
 
         if (!str_contains($this->parameters['value'][$this->alignmentParameters['type']], '&G')) {
@@ -209,20 +209,18 @@ class HeaderFooterWrapper extends BaseWrapper
         $this->alignmentParameters = [];
     }
 
-    /**
-     * @return HeaderFooter|null
-     */
-    public function getObject(): ?HeaderFooter
+    public function getObject(): HeaderFooter
     {
+        if ($this->object === null) {
+            throw new \LogicException('Object is not initialized');
+        }
+
         return $this->object;
     }
 
-    /**
-     * @param HeaderFooter|null $object
-     */
-    public function setObject(?HeaderFooter $object = null): void
+    public function hasObject(): bool
     {
-        $this->object = $object;
+        return $this->object !== null;
     }
 
     /**
@@ -248,10 +246,10 @@ class HeaderFooterWrapper extends BaseWrapper
     {
         return [
             'scaleWithDocument' => function ($value) {
-                $this->object->setScaleWithDocument($value);
+                $this->getObject()->setScaleWithDocument($value);
             },
             'alignWithMargins' => function ($value) {
-                $this->object->setAlignWithMargins($value);
+                $this->getObject()->setAlignWithMargins($value);
             },
         ];
     }

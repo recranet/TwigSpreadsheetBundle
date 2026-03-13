@@ -47,12 +47,8 @@ class DrawingWrapper extends BaseWrapper
      */
     public function start(string $path, array $properties = []): void
     {
-        if ($this->sheetWrapper->getObject() === null) {
-            throw new \LogicException();
-        }
-
         // add to header/footer
-        if ($this->headerFooterWrapper->getObject()) {
+        if ($this->headerFooterWrapper->hasObject()) {
             $headerFooterParameters = $this->headerFooterWrapper->getParameters();
             $alignment = $this->headerFooterWrapper->getAlignmentParameters()['type'];
             $location = '';
@@ -94,21 +90,26 @@ class DrawingWrapper extends BaseWrapper
 
     public function end(): void
     {
+        if ($this->object === null) {
+            throw new \LogicException('A drawing must be started before ending it.');
+        }
+
         $this->object = null;
         $this->parameters = [];
     }
 
-    public function getObject(): ?Drawing
+    public function getObject(): Drawing
     {
+        if ($this->object === null) {
+            throw new \LogicException('Object is not initialized');
+        }
+
         return $this->object;
     }
 
-    /**
-     * @param Drawing $object
-     */
-    public function setObject(Drawing $object): void
+    public function hasObject(): bool
     {
-        $this->object = $object;
+        return $this->object !== null;
     }
 
     /**
@@ -118,54 +119,54 @@ class DrawingWrapper extends BaseWrapper
     {
         return [
             'coordinates' => function ($value) {
-                $this->object->setCoordinates($value);
+                $this->getObject()->setCoordinates($value);
             },
             'description' => function ($value) {
-                $this->object->setDescription($value);
+                $this->getObject()->setDescription($value);
             },
             'height' => function ($value) {
-                $this->object->setHeight($value);
+                $this->getObject()->setHeight($value);
             },
             'name' => function ($value) {
-                $this->object->setName($value);
+                $this->getObject()->setName($value);
             },
             'offsetX' => function ($value) {
-                $this->object->setOffsetX($value);
+                $this->getObject()->setOffsetX($value);
             },
             'offsetY' => function ($value) {
-                $this->object->setOffsetY($value);
+                $this->getObject()->setOffsetY($value);
             },
             'resizeProportional' => function ($value) {
-                $this->object->setResizeProportional($value);
+                $this->getObject()->setResizeProportional($value);
             },
             'rotation' => function ($value) {
-                $this->object->setRotation($value);
+                $this->getObject()->setRotation($value);
             },
             'shadow' => [
                 'alignment' => function ($value) {
-                    $this->object->getShadow()->setAlignment($value);
+                    $this->getObject()->getShadow()->setAlignment($value);
                 },
                 'alpha' => function ($value) {
-                    $this->object->getShadow()->setAlpha($value);
+                    $this->getObject()->getShadow()->setAlpha($value);
                 },
                 'blurRadius' => function ($value) {
-                    $this->object->getShadow()->setBlurRadius($value);
+                    $this->getObject()->getShadow()->setBlurRadius($value);
                 },
                 'color' => function ($value) {
-                    $this->object->getShadow()->getColor()->setRGB($value);
+                    $this->getObject()->getShadow()->getColor()->setRGB($value);
                 },
                 'direction' => function ($value) {
-                    $this->object->getShadow()->setDirection($value);
+                    $this->getObject()->getShadow()->setDirection($value);
                 },
                 'distance' => function ($value) {
-                    $this->object->getShadow()->setDistance($value);
+                    $this->getObject()->getShadow()->setDistance($value);
                 },
                 'visible' => function ($value) {
-                    $this->object->getShadow()->setVisible($value);
+                    $this->getObject()->getShadow()->setVisible($value);
                 },
             ],
             'width' => function ($value) {
-                $this->object->setWidth($value);
+                $this->getObject()->setWidth($value);
             },
         ];
     }

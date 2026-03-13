@@ -32,10 +32,6 @@ class RowWrapper extends BaseWrapper
      */
     public function start(?int $index = null): void
     {
-        if ($this->sheetWrapper->getObject() === null) {
-            throw new \LogicException();
-        }
-
         if ($index === null) {
             $this->sheetWrapper->increaseRow();
         } else {
@@ -48,10 +44,6 @@ class RowWrapper extends BaseWrapper
      */
     public function end(): void
     {
-        if ($this->sheetWrapper->getObject() === null) {
-            throw new \LogicException();
-        }
-
         $this->sheetWrapper->setColumn(null);
     }
 }

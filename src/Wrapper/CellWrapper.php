@@ -40,10 +40,6 @@ class CellWrapper extends BaseWrapper
      */
     public function start(?int $index = null, array $properties = []): void
     {
-        if ($this->sheetWrapper->getObject() === null) {
-            throw new \LogicException();
-        }
-
         if ($index === null) {
             $this->sheetWrapper->increaseColumn();
         } else {
@@ -67,6 +63,10 @@ class CellWrapper extends BaseWrapper
      */
     public function value($value = null): void
     {
+        if ($this->object === null) {
+            throw new \LogicException('A cell must be started before writing a value.');
+        }
+
         if ($value !== null) {
             if (isset($this->parameters['properties']['dataType'])) {
                 $this->object->setValueExplicit($value, $this->parameters['properties']['dataType']);
@@ -80,24 +80,26 @@ class CellWrapper extends BaseWrapper
 
     public function end(): void
     {
+        if ($this->object === null) {
+            throw new \LogicException('A cell must be started before ending it.');
+        }
+
         $this->object = null;
         $this->parameters = [];
     }
 
-    /**
-     * @return Cell|null
-     */
-    public function getObject(): ?Cell
+    public function getObject(): Cell
     {
+        if ($this->object === null) {
+            throw new \LogicException('Object is not initialized');
+        }
+
         return $this->object;
     }
 
-    /**
-     * @param Cell|null $object
-     */
-    public function setObject(?Cell $object = null): void
+    public function hasObject(): bool
     {
-        $this->object = $object;
+        return $this->object !== null;
     }
 
     /**
@@ -109,63 +111,63 @@ class CellWrapper extends BaseWrapper
     {
         return [
             'break' => function ($value) {
-                $this->sheetWrapper->getObject()->setBreak($this->object->getCoordinate(), $value);
+                $this->sheetWrapper->getObject()->setBreak($this->getObject()->getCoordinate(), $value);
             },
             'dataType' => function ($value) {
-                $this->object->setDataType($value);
+                $this->getObject()->setDataType($value);
             },
             'dataValidation' => [
                 'allowBlank' => function ($value) {
-                    $this->object->getDataValidation()->setAllowBlank($value);
+                    $this->getObject()->getDataValidation()->setAllowBlank($value);
                 },
                 'error' => function ($value) {
-                    $this->object->getDataValidation()->setError($value);
+                    $this->getObject()->getDataValidation()->setError($value);
                 },
                 'errorStyle' => function ($value) {
-                    $this->object->getDataValidation()->setErrorStyle($value);
+                    $this->getObject()->getDataValidation()->setErrorStyle($value);
                 },
                 'errorTitle' => function ($value) {
-                    $this->object->getDataValidation()->setErrorTitle($value);
+                    $this->getObject()->getDataValidation()->setErrorTitle($value);
                 },
                 'formula1' => function ($value) {
-                    $this->object->getDataValidation()->setFormula1($value);
+                    $this->getObject()->getDataValidation()->setFormula1($value);
                 },
                 'formula2' => function ($value) {
-                    $this->object->getDataValidation()->setFormula2($value);
+                    $this->getObject()->getDataValidation()->setFormula2($value);
                 },
                 'operator' => function ($value) {
-                    $this->object->getDataValidation()->setOperator($value);
+                    $this->getObject()->getDataValidation()->setOperator($value);
                 },
                 'prompt' => function ($value) {
-                    $this->object->getDataValidation()->setPrompt($value);
+                    $this->getObject()->getDataValidation()->setPrompt($value);
                 },
                 'promptTitle' => function ($value) {
-                    $this->object->getDataValidation()->setPromptTitle($value);
+                    $this->getObject()->getDataValidation()->setPromptTitle($value);
                 },
                 'showDropDown' => function ($value) {
-                    $this->object->getDataValidation()->setShowDropDown($value);
+                    $this->getObject()->getDataValidation()->setShowDropDown($value);
                 },
                 'showErrorMessage' => function ($value) {
-                    $this->object->getDataValidation()->setShowErrorMessage($value);
+                    $this->getObject()->getDataValidation()->setShowErrorMessage($value);
                 },
                 'showInputMessage' => function ($value) {
-                    $this->object->getDataValidation()->setShowInputMessage($value);
+                    $this->getObject()->getDataValidation()->setShowInputMessage($value);
                 },
                 'type' => function ($value) {
-                    $this->object->getDataValidation()->setType($value);
+                    $this->getObject()->getDataValidation()->setType($value);
                 },
             ],
             'merge' => function ($value) {
                 if (\is_int($value)) {
                     $value = Coordinate::stringFromColumnIndex($value).$this->sheetWrapper->getRow();
                 }
-                $this->sheetWrapper->getObject()->mergeCells(sprintf('%s:%s', $this->object->getCoordinate(), $value));
+                $this->sheetWrapper->getObject()->mergeCells(sprintf('%s:%s', $this->getObject()->getCoordinate(), $value));
             },
             'style' => function ($value) {
-                $this->sheetWrapper->getObject()->getStyle($this->object->getCoordinate())->applyFromArray($value);
+                $this->sheetWrapper->getObject()->getStyle($this->getObject()->getCoordinate())->applyFromArray($value);
             },
             'url' => function ($value) {
-                $this->object->getHyperlink()->setUrl($value);
+                $this->getObject()->getHyperlink()->setUrl($value);
             },
         ];
     }

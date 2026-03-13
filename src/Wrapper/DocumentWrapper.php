@@ -77,7 +77,7 @@ class DocumentWrapper extends BaseWrapper
     public function write(): string
     {
         if ($this->object === null) {
-            throw new \LogicException();
+            throw new \LogicException('A document must be started before writing.');
         }
 
         $format = null;
@@ -154,27 +154,25 @@ class DocumentWrapper extends BaseWrapper
     public function end(): void
     {
         if ($this->object === null) {
-            throw new \LogicException();
+            throw new \LogicException('A document must be started before ending it.');
         }
 
         $this->object = null;
         $this->parameters = [];
     }
 
-    /**
-     * @return Spreadsheet|null
-     */
-    public function getObject(): ?Spreadsheet
+    public function getObject(): Spreadsheet
     {
+        if ($this->object === null) {
+            throw new \LogicException('Object is not initialized');
+        }
+
         return $this->object;
     }
 
-    /**
-     * @param Spreadsheet|null $object
-     */
-    public function setObject(?Spreadsheet $object = null): void
+    public function hasObject(): bool
     {
-        $this->object = $object;
+        return $this->object !== null;
     }
 
     /**
@@ -186,63 +184,63 @@ class DocumentWrapper extends BaseWrapper
     {
         return [
             'category' => function ($value) {
-                $this->object->getProperties()->setCategory($value);
+                $this->getObject()->getProperties()->setCategory($value);
             },
             'company' => function ($value) {
-                $this->object->getProperties()->setCompany($value);
+                $this->getObject()->getProperties()->setCompany($value);
             },
             'created' => function ($value) {
-                $this->object->getProperties()->setCreated($value);
+                $this->getObject()->getProperties()->setCreated($value);
             },
             'creator' => function ($value) {
-                $this->object->getProperties()->setCreator($value);
+                $this->getObject()->getProperties()->setCreator($value);
             },
             'defaultStyle' => function ($value) {
-                $this->object->getDefaultStyle()->applyFromArray($value);
+                $this->getObject()->getDefaultStyle()->applyFromArray($value);
             },
             'description' => function ($value) {
-                $this->object->getProperties()->setDescription($value);
+                $this->getObject()->getProperties()->setDescription($value);
             },
             'format' => function ($value) {
                 $this->parameters['format'] = $value;
             },
             'keywords' => function ($value) {
-                $this->object->getProperties()->setKeywords($value);
+                $this->getObject()->getProperties()->setKeywords($value);
             },
             'lastModifiedBy' => function ($value) {
-                $this->object->getProperties()->setLastModifiedBy($value);
+                $this->getObject()->getProperties()->setLastModifiedBy($value);
             },
             'manager' => function ($value) {
-                $this->object->getProperties()->setManager($value);
+                $this->getObject()->getProperties()->setManager($value);
             },
             'modified' => function ($value) {
-                $this->object->getProperties()->setModified($value);
+                $this->getObject()->getProperties()->setModified($value);
             },
             'security' => [
                 'lockRevision' => function ($value) {
-                    $this->object->getSecurity()->setLockRevision($value);
+                    $this->getObject()->getSecurity()->setLockRevision($value);
                 },
                 'lockStructure' => function ($value) {
-                    $this->object->getSecurity()->setLockStructure($value);
+                    $this->getObject()->getSecurity()->setLockStructure($value);
                 },
                 'lockWindows' => function ($value) {
-                    $this->object->getSecurity()->setLockWindows($value);
+                    $this->getObject()->getSecurity()->setLockWindows($value);
                 },
                 'revisionsPassword' => function ($value) {
-                    $this->object->getSecurity()->setRevisionsPassword($value);
+                    $this->getObject()->getSecurity()->setRevisionsPassword($value);
                 },
                 'workbookPassword' => function ($value) {
-                    $this->object->getSecurity()->setWorkbookPassword($value);
+                    $this->getObject()->getSecurity()->setWorkbookPassword($value);
                 },
             ],
             'subject' => function ($value) {
-                $this->object->getProperties()->setSubject($value);
+                $this->getObject()->getProperties()->setSubject($value);
             },
             'template' => function ($value) {
                 $this->parameters['template'] = $value;
             },
             'title' => function ($value) {
-                $this->object->getProperties()->setTitle($value);
+                $this->getObject()->getProperties()->setTitle($value);
             },
         ];
     }
