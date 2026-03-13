@@ -74,9 +74,6 @@ abstract class BaseTokenParser extends AbstractTokenParser
 
     /**
      * {@inheritdoc}
-     *
-     * @throws \Exception
-     * @throws \InvalidArgumentException
      */
     public function parse(Token $token): Node
     {
@@ -94,8 +91,6 @@ abstract class BaseTokenParser extends AbstractTokenParser
     /**
      * @param array $parameterConfiguration
      *
-     * @throws \Exception
-     * @throws \InvalidArgumentException
      * @throws SyntaxError
      *
      * @return AbstractExpression[]
@@ -127,7 +122,7 @@ abstract class BaseTokenParser extends AbstractTokenParser
                         break;
                     case self::PARAMETER_TYPE_VALUE:
                         // check if expression is valid value
-                        $valid = !($expression instanceof ArrayExpression);
+                        $valid = !$expression instanceof ArrayExpression;
                         break;
                     default:
                         throw new \InvalidArgumentException('Invalid parameter type');

@@ -51,8 +51,6 @@ class SheetWrapper extends BaseWrapper
      * @param array           $properties
      *
      * @throws Exception
-     * @throws \RuntimeException
-     * @throws \LogicException
      */
     public function start($index, array $properties = []): void
     {
@@ -76,10 +74,6 @@ class SheetWrapper extends BaseWrapper
         $this->setProperties($properties);
     }
 
-    /**
-     * @throws \Exception
-     * @throws \LogicException
-     */
     public function end(): void
     {
         if ($this->object === null) {
@@ -192,25 +186,25 @@ class SheetWrapper extends BaseWrapper
                 '__multi' => fn ($index = 'default'): ColumnDimension => $index === 'default' ?
                     $this->getObject()->getDefaultColumnDimension() :
                     $this->getObject()->getColumnDimension($index),
-                'autoSize' => function ($value, ColumnDimension $object) {
+                'autoSize' => static function ($value, ColumnDimension $object) {
                     $object->setAutoSize($value);
                 },
-                'collapsed' => function ($value, ColumnDimension $object) {
+                'collapsed' => static function ($value, ColumnDimension $object) {
                     $object->setCollapsed($value);
                 },
-                'columnIndex' => function ($value, ColumnDimension $object) {
+                'columnIndex' => static function ($value, ColumnDimension $object) {
                     $object->setColumnIndex($value);
                 },
-                'outlineLevel' => function ($value, ColumnDimension $object) {
+                'outlineLevel' => static function ($value, ColumnDimension $object) {
                     $object->setOutlineLevel($value);
                 },
-                'visible' => function ($value, ColumnDimension $object) {
+                'visible' => static function ($value, ColumnDimension $object) {
                     $object->setVisible($value);
                 },
-                'width' => function ($value, ColumnDimension $object) {
+                'width' => static function ($value, ColumnDimension $object) {
                     $object->setWidth($value);
                 },
-                'xfIndex' => function ($value, ColumnDimension $object) {
+                'xfIndex' => static function ($value, ColumnDimension $object) {
                     $object->setXfIndex($value);
                 },
             ],
@@ -326,25 +320,25 @@ class SheetWrapper extends BaseWrapper
                 '__multi' => fn ($index = 'default'): RowDimension => $index === 'default' ?
                     $this->getObject()->getDefaultRowDimension() :
                     $this->getObject()->getRowDimension($index),
-                'collapsed' => function ($value, RowDimension $object) {
+                'collapsed' => static function ($value, RowDimension $object) {
                     $object->setCollapsed($value);
                 },
-                'outlineLevel' => function ($value, RowDimension $object) {
+                'outlineLevel' => static function ($value, RowDimension $object) {
                     $object->setOutlineLevel($value);
                 },
-                'rowHeight' => function ($value, RowDimension $object) {
+                'rowHeight' => static function ($value, RowDimension $object) {
                     $object->setRowHeight($value);
                 },
-                'rowIndex' => function ($value, RowDimension $object) {
+                'rowIndex' => static function ($value, RowDimension $object) {
                     $object->setRowIndex($value);
                 },
-                'visible' => function ($value, RowDimension $object) {
+                'visible' => static function ($value, RowDimension $object) {
                     $object->setVisible($value);
                 },
-                'xfIndex' => function ($value, RowDimension $object) {
+                'xfIndex' => static function ($value, RowDimension $object) {
                     $object->setXfIndex($value);
                 },
-                'zeroHeight' => function ($value, RowDimension $object) {
+                'zeroHeight' => static function ($value, RowDimension $object) {
                     $object->setZeroHeight($value);
                 },
             ],

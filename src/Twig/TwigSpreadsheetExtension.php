@@ -57,8 +57,6 @@ class TwigSpreadsheetExtension extends AbstractExtension
 
     /**
      * {@inheritdoc}
-     *
-     * @throws \InvalidArgumentException
      */
     public function getTokenParsers(): array
     {

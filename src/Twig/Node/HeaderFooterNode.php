@@ -17,12 +17,10 @@ class HeaderFooterNode extends BaseNode
     /**
      * HeaderFooterNode constructor.
      *
-     * @param array       $nodes
-     * @param array       $attributes
-     * @param int         $lineNo
-     * @param string      $baseType
-     *
-     * @throws \InvalidArgumentException
+     * @param array  $nodes
+     * @param array  $attributes
+     * @param int    $lineNo
+     * @param string $baseType
      */
     public function __construct(array $nodes = [], array $attributes = [], int $lineNo = 0, string $baseType = HeaderFooterWrapper::BASETYPE_HEADER)
     {

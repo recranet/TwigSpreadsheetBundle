@@ -74,8 +74,6 @@ abstract class BaseWrapper
      * @param array       $properties
      * @param array|null  $mappings
      * @param string|null $column
-     *
-     * @throws \RuntimeException
      */
     protected function setProperties(array $properties, ?array $mappings = null, ?string $column = null)
     {
@@ -85,7 +83,7 @@ abstract class BaseWrapper
 
         foreach ($properties as $key => $value) {
             if (!isset($mappings[$key])) {
-                throw new \RuntimeException(sprintf('Missing mapping for key "%s"', $key));
+                throw new \RuntimeException(\sprintf('Missing mapping for key "%s"', $key));
             }
 
             if (\is_array($value) && \is_array($mappings[$key])) {
@@ -110,7 +108,7 @@ abstract class BaseWrapper
                     $column !== null ? $mappings['__multi']($column) : null
                 );
             } else {
-                throw new \RuntimeException(sprintf('Invalid mapping for key "%s"', $key));
+                throw new \RuntimeException(\sprintf('Invalid mapping for key "%s"', $key));
             }
         }
     }

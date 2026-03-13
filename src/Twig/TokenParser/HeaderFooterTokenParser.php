@@ -21,8 +21,6 @@ class HeaderFooterTokenParser extends BaseTokenParser
      *
      * @param array  $attributes optional attributes for the corresponding node
      * @param string $baseType
-     *
-     * @throws \InvalidArgumentException
      */
     public function __construct(array $attributes = [], string $baseType = HeaderFooterWrapper::BASETYPE_HEADER)
     {
@@ -50,8 +48,6 @@ class HeaderFooterTokenParser extends BaseTokenParser
 
     /**
      * {@inheritdoc}
-     *
-     * @throws \InvalidArgumentException
      */
     public function createNode(array $nodes = [], int $lineNo = 0): Node
     {

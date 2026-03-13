@@ -44,14 +44,12 @@ class HeaderFooterWrapper extends BaseWrapper
     /**
      * @param string $alignment
      *
-     * @throws \InvalidArgumentException
-     *
      * @return string
      */
     public static function validateAlignment(string $alignment): string
     {
         if (!\in_array($alignment, [self::ALIGNMENT_CENTER, self::ALIGNMENT_LEFT, self::ALIGNMENT_RIGHT], true)) {
-            throw new \InvalidArgumentException(sprintf('Unknown alignment "%s"', $alignment));
+            throw new \InvalidArgumentException(\sprintf('Unknown alignment "%s"', $alignment));
         }
 
         return $alignment;
@@ -60,14 +58,12 @@ class HeaderFooterWrapper extends BaseWrapper
     /**
      * @param string $baseType
      *
-     * @throws \InvalidArgumentException
-     *
      * @return string
      */
     public static function validateBaseType(string $baseType): string
     {
         if (!\in_array($baseType, [self::BASETYPE_FOOTER, self::BASETYPE_HEADER], true)) {
-            throw new \InvalidArgumentException(sprintf('Unknown base type "%s"', $baseType));
+            throw new \InvalidArgumentException(\sprintf('Unknown base type "%s"', $baseType));
         }
 
         return $baseType;
@@ -77,10 +73,6 @@ class HeaderFooterWrapper extends BaseWrapper
      * @param string      $baseType
      * @param string|null $type
      * @param array       $properties
-     *
-     * @throws \InvalidArgumentException
-     * @throws \LogicException
-     * @throws \RuntimeException
      */
     public function start(string $baseType, ?string $type = null, array $properties = []): void
     {
@@ -88,7 +80,7 @@ class HeaderFooterWrapper extends BaseWrapper
             $type = strtolower($type);
 
             if (!\in_array($type, [self::TYPE_EVEN, self::TYPE_FIRST, self::TYPE_ODD], true)) {
-                throw new \InvalidArgumentException(sprintf('Unknown type "%s"', $type));
+                throw new \InvalidArgumentException(\sprintf('Unknown type "%s"', $type));
             }
         }
 
@@ -101,10 +93,6 @@ class HeaderFooterWrapper extends BaseWrapper
         $this->setProperties($properties);
     }
 
-    /**
-     * @throws \InvalidArgumentException
-     * @throws \LogicException
-     */
     public function end(): void
     {
         if ($this->object === null) {
@@ -158,9 +146,6 @@ class HeaderFooterWrapper extends BaseWrapper
     /**
      * @param string $alignment
      * @param array  $properties
-     *
-     * @throws \InvalidArgumentException
-     * @throws \LogicException
      */
     public function startAlignment(string $alignment, array $properties = []): void
     {
@@ -188,9 +173,6 @@ class HeaderFooterWrapper extends BaseWrapper
 
     /**
      * @param string $value
-     *
-     * @throws \InvalidArgumentException
-     * @throws \LogicException
      */
     public function endAlignment($value): void
     {

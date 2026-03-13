@@ -33,10 +33,6 @@ class CellWrapper extends BaseWrapper
     /**
      * @param int|null $index
      * @param array    $properties
-     *
-     * @throws \InvalidArgumentException
-     * @throws \LogicException
-     * @throws \RuntimeException
      */
     public function start(?int $index = null, array $properties = []): void
     {
@@ -161,7 +157,7 @@ class CellWrapper extends BaseWrapper
                 if (\is_int($value)) {
                     $value = Coordinate::stringFromColumnIndex($value).$this->sheetWrapper->getRow();
                 }
-                $this->sheetWrapper->getObject()->mergeCells(sprintf('%s:%s', $this->getObject()->getCoordinate(), $value));
+                $this->sheetWrapper->getObject()->mergeCells(\sprintf('%s:%s', $this->getObject()->getCoordinate(), $value));
             },
             'style' => function ($value) {
                 $this->sheetWrapper->getObject()->getStyle($this->getObject()->getCoordinate())->applyFromArray($value);

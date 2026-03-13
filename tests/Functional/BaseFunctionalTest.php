@@ -15,16 +15,6 @@ use Symfony\Component\Routing\RouterInterface;
  */
 abstract class BaseFunctionalTest extends WebTestCase
 {
-    protected static function getCacheDir(): string
-    {
-        return sprintf('%s/var/cache/%s', dirname(dirname(__DIR__)) , str_replace('\\', \DIRECTORY_SEPARATOR, static::class));
-    }
-
-    protected static function getResultDir(): string
-    {
-        return sprintf('%s/var/result/%s', dirname(dirname(__DIR__)) , str_replace('\\', \DIRECTORY_SEPARATOR, static::class));
-    }
-
     /**
      * {@inheritdoc}
      *
@@ -37,6 +27,16 @@ abstract class BaseFunctionalTest extends WebTestCase
         Filesystem::remove(static::getResultDir());
     }
 
+    protected static function getCacheDir(): string
+    {
+        return \sprintf('%s/var/cache/%s', \dirname(__DIR__, 2), str_replace('\\', \DIRECTORY_SEPARATOR, static::class));
+    }
+
+    protected static function getResultDir(): string
+    {
+        return \sprintf('%s/var/result/%s', \dirname(__DIR__, 2), str_replace('\\', \DIRECTORY_SEPARATOR, static::class));
+    }
+
     /**
      * {@inheritdoc}
      */
@@ -47,7 +47,7 @@ abstract class BaseFunctionalTest extends WebTestCase
 
     /**
      * @param Response $response
-     * @param string $format
+     * @param string   $format
      *
      * @throws \Symfony\Component\Filesystem\Exception\IOException
      * @throws \PhpOffice\PhpSpreadsheet\Reader\Exception
@@ -71,7 +71,7 @@ abstract class BaseFunctionalTest extends WebTestCase
 
     /**
      * @param string $name
-     * @param array $parameters
+     * @param array  $parameters
      *
      * @return string
      */

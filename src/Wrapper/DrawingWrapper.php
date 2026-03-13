@@ -40,9 +40,6 @@ class DrawingWrapper extends BaseWrapper
      * @param string $path
      * @param array  $properties
      *
-     * @throws \LogicException
-     * @throws \InvalidArgumentException
-     * @throws \RuntimeException
      * @throws Exception
      */
     public function start(string $path, array $properties = []): void
@@ -67,7 +64,7 @@ class DrawingWrapper extends BaseWrapper
                     $headerFooterParameters['value'][HeaderFooterWrapper::ALIGNMENT_RIGHT] .= '&G';
                     break;
                 default:
-                    throw new \InvalidArgumentException(sprintf('Unknown alignment type "%s"', $alignment));
+                    throw new \InvalidArgumentException(\sprintf('Unknown alignment type "%s"', $alignment));
             }
 
             $location .= $headerFooterParameters['baseType'] === HeaderFooterWrapper::BASETYPE_HEADER ? 'H' : 'F';

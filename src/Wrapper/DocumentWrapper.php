@@ -42,7 +42,6 @@ class DocumentWrapper extends BaseWrapper
     /**
      * @param array $properties
      *
-     * @throws \RuntimeException
      * @throws Exception
      * @throws \PhpOffice\PhpSpreadsheet\Exception
      */
@@ -67,9 +66,6 @@ class DocumentWrapper extends BaseWrapper
     }
 
     /**
-     * @throws \LogicException
-     * @throws \RuntimeException
-     * @throws \InvalidArgumentException
      * @throws \PhpOffice\PhpSpreadsheet\Exception
      * @throws \PhpOffice\PhpSpreadsheet\Writer\Exception
      * @throws IOException

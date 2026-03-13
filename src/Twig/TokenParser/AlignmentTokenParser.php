@@ -18,8 +18,6 @@ class AlignmentTokenParser extends BaseTokenParser
      *
      * @param array  $attributes optional attributes for the corresponding node
      * @param string $alignment
-     *
-     * @throws \InvalidArgumentException
      */
     public function __construct(array $attributes = [], string $alignment = HeaderFooterWrapper::ALIGNMENT_CENTER)
     {
@@ -30,8 +28,6 @@ class AlignmentTokenParser extends BaseTokenParser
 
     /**
      * {@inheritdoc}
-     *
-     * @throws \InvalidArgumentException
      */
     public function createNode(array $nodes = [], int $lineNo = 0): Node
     {

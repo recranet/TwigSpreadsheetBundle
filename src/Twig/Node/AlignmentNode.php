@@ -17,12 +17,10 @@ class AlignmentNode extends BaseNode
     /**
      * AlignmentNode constructor.
      *
-     * @param array       $nodes
-     * @param array       $attributes
-     * @param int         $lineNo
-     * @param string      $alignment
-     *
-     * @throws \InvalidArgumentException
+     * @param array  $nodes
+     * @param array  $attributes
+     * @param int    $lineNo
+     * @param string $alignment
      */
     public function __construct(array $nodes = [], array $attributes = [], int $lineNo = 0, string $alignment = HeaderFooterWrapper::ALIGNMENT_CENTER)
     {

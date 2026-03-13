@@ -27,8 +27,6 @@ class RowWrapper extends BaseWrapper
 
     /**
      * @param int|null $index
-     *
-     * @throws \LogicException
      */
     public function start(?int $index = null): void
     {
@@ -39,9 +37,6 @@ class RowWrapper extends BaseWrapper
         }
     }
 
-    /**
-     * @throws \LogicException
-     */
     public function end(): void
     {
         $this->sheetWrapper->setColumn(null);

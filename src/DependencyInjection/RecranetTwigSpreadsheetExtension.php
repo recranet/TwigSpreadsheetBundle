@@ -14,8 +14,6 @@ class RecranetTwigSpreadsheetExtension extends ConfigurableExtension
 {
     /**
      * {@inheritdoc}
-     *
-     * @throws \Exception
      */
     protected function loadInternal(array $mergedConfig, ContainerBuilder $container): void
     {

@@ -61,7 +61,6 @@ class PhpSpreadsheetWrapper
      *
      * @throws Exception
      * @throws \PhpOffice\PhpSpreadsheet\Reader\Exception
-     * @throws \RuntimeException
      */
     public function startDocument(array $properties = []): void
     {
@@ -69,23 +68,17 @@ class PhpSpreadsheetWrapper
     }
 
     /**
-     * @return \Generator<string>
-     *
-     * @throws \RuntimeException
-     * @throws \LogicException
-     * @throws \InvalidArgumentException
      * @throws Exception
      * @throws \PhpOffice\PhpSpreadsheet\Writer\Exception
      * @throws IOException
+     *
+     * @return \Generator<string>
      */
     public function yieldDocument(): \Generator
     {
         yield $this->documentWrapper->write();
     }
 
-    /**
-     * @throws \LogicException
-     */
     public function endDocument(): void
     {
         $this->documentWrapper->end();
@@ -95,19 +88,13 @@ class PhpSpreadsheetWrapper
      * @param int|string|null $index
      * @param array           $properties
      *
-     * @throws \LogicException
      * @throws Exception
-     * @throws \RuntimeException
      */
     public function startSheet($index = null, array $properties = []): void
     {
         $this->sheetWrapper->start($index, $properties);
     }
 
-    /**
-     * @throws \LogicException
-     * @throws \Exception
-     */
     public function endSheet(): void
     {
         $this->sheetWrapper->end();
@@ -115,17 +102,12 @@ class PhpSpreadsheetWrapper
 
     /**
      * @param int|null $index
-     *
-     * @throws \LogicException
      */
     public function startRow(?int $index = null): void
     {
         $this->rowWrapper->start($index);
     }
 
-    /**
-     * @throws \LogicException
-     */
     public function endRow(): void
     {
         $this->rowWrapper->end();
@@ -134,10 +116,6 @@ class PhpSpreadsheetWrapper
     /**
      * @param int|null $index
      * @param array    $properties
-     *
-     * @throws \InvalidArgumentException
-     * @throws \LogicException
-     * @throws \RuntimeException
      */
     public function startCell(?int $index = null, array $properties = []): void
     {
@@ -163,20 +141,12 @@ class PhpSpreadsheetWrapper
      * @param string      $baseType
      * @param string|null $type
      * @param array       $properties
-     *
-     * @throws \LogicException
-     * @throws \RuntimeException
-     * @throws \InvalidArgumentException
      */
     public function startHeaderFooter(string $baseType, ?string $type = null, array $properties = []): void
     {
         $this->headerFooterWrapper->start($baseType, $type, $properties);
     }
 
-    /**
-     * @throws \LogicException
-     * @throws \InvalidArgumentException
-     */
     public function endHeaderFooter(): void
     {
         $this->headerFooterWrapper->end();
@@ -185,9 +155,6 @@ class PhpSpreadsheetWrapper
     /**
      * @param string|null $type
      * @param array       $properties
-     *
-     * @throws \InvalidArgumentException
-     * @throws \LogicException
      */
     public function startAlignment(?string $type = null, array $properties = []): void
     {
@@ -196,9 +163,6 @@ class PhpSpreadsheetWrapper
 
     /**
      * @param string|null $value
-     *
-     * @throws \InvalidArgumentException
-     * @throws \LogicException
      */
     public function endAlignment(?string $value = null): void
     {
@@ -210,9 +174,6 @@ class PhpSpreadsheetWrapper
      * @param array  $properties
      *
      * @throws IOException
-     * @throws \InvalidArgumentException
-     * @throws \LogicException
-     * @throws \RuntimeException
      * @throws Exception
      */
     public function startDrawing(string $path, array $properties = []): void

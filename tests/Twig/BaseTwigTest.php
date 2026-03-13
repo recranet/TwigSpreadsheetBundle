@@ -21,16 +21,6 @@ abstract class BaseTwigTest extends TestCase
      */
     protected static $environment;
 
-    protected static function getCacheDir(): string
-    {
-        return sprintf('%s/var/cache/%s', dirname(dirname(__DIR__)) , str_replace('\\', \DIRECTORY_SEPARATOR, static::class));
-    }
-
-    protected static function getResultDir(): string
-    {
-        return sprintf('%s/var/result/%s', dirname(dirname(__DIR__)) , str_replace('\\', \DIRECTORY_SEPARATOR, static::class));
-    }
-
     /**
      * {@inheritdoc}
      *
@@ -69,15 +59,25 @@ abstract class BaseTwigTest extends TestCase
         static::$environment->addGlobal('assetsDir', __DIR__.'/Fixtures/assets');
     }
 
+    protected static function getCacheDir(): string
+    {
+        return \sprintf('%s/var/cache/%s', \dirname(__DIR__, 2), str_replace('\\', \DIRECTORY_SEPARATOR, static::class));
+    }
+
+    protected static function getResultDir(): string
+    {
+        return \sprintf('%s/var/result/%s', \dirname(__DIR__, 2), str_replace('\\', \DIRECTORY_SEPARATOR, static::class));
+    }
+
     /**
      * @param string $templateName
      * @param string $format
      *
-     * @return string
-     *
      * @throws \PhpOffice\PhpSpreadsheet\Reader\Exception
      * @throws \Symfony\Component\Filesystem\Exception\IOException
      * @throws \Twig\Error\Error
+     *
+     * @return string
      */
     protected function render(string $templateName, string $format = 'xlsx'): string
     {
@@ -111,11 +111,11 @@ abstract class BaseTwigTest extends TestCase
      * @param string $templateName
      * @param string $format
      *
-     * @return Spreadsheet
-     *
      * @throws \PhpOffice\PhpSpreadsheet\Reader\Exception
      * @throws \Symfony\Component\Filesystem\Exception\IOException
      * @throws \Twig\Error\Error
+     *
+     * @return Spreadsheet
      */
     protected function renderSpreadsheet(string $templateName, string $format = 'xlsx'): Spreadsheet
     {

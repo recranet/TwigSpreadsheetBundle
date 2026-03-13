@@ -44,7 +44,7 @@ class SyntaxCheckNodeVisitor implements NodeVisitorInterface
             throw $e;
         }
 
-        $this->path[] = \get_class($node);
+        $this->path[] = $node::class;
 
         return $node;
     }
@@ -75,12 +75,12 @@ class SyntaxCheckNodeVisitor implements NodeVisitorInterface
         foreach ($node->getIterator() as $currentNode) {
             if ($currentNode instanceof TextNode) {
                 if ($hasDocumentNode) {
-                    throw new SyntaxError(sprintf('Node "%s" is not allowed after Node "%s".', TextNode::class, DocumentNode::class));
+                    throw new SyntaxError(\sprintf('Node "%s" is not allowed after Node "%s".', TextNode::class, DocumentNode::class));
                 }
                 $hasTextNode = true;
             } elseif ($currentNode instanceof DocumentNode) {
                 if ($hasTextNode) {
-                    throw new SyntaxError(sprintf('Node "%s" is not allowed before Node "%s".', TextNode::class, DocumentNode::class));
+                    throw new SyntaxError(\sprintf('Node "%s" is not allowed before Node "%s".', TextNode::class, DocumentNode::class));
                 }
                 $hasDocumentNode = true;
             }
@@ -116,6 +116,6 @@ class SyntaxCheckNodeVisitor implements NodeVisitorInterface
             }
         }
 
-        throw new SyntaxError(sprintf('Node "%s" is not allowed inside of Node "%s".', \get_class($node), $parentName));
+        throw new SyntaxError(\sprintf('Node "%s" is not allowed inside of Node "%s".', $node::class, $parentName));
     }
 }

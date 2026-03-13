@@ -38,7 +38,7 @@ class TestController extends AbstractController
                     ['name' => 'Kena Kea', 'salary' => 4090.0],
                     ['name' => 'Evita Chittum', 'salary' => 4639.0],
                 ],
-                'bundlePath' => dirname(__DIR__),
+                'bundlePath' => \dirname(__DIR__),
             ]
         );
     }
