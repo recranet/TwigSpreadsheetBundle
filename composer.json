@@ -30,9 +30,6 @@
         "symfony/phpunit-bridge": "^6.4.1|^7.0.1",
         "symfony/yaml": "^6.4|^7.0"
     },
-    "conflict": {
-        "phpoffice/phpspreadsheet": ">=5.4"
-    },
     "suggest": {
         "dompdf/dompdf": "Add support for PDF rendering using dompdf",
         "mpdf/mpdf": "Add support for PDF rendering using mPDF",

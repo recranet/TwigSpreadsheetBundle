@@ -132,6 +132,16 @@ class PhpSpreadsheetWrapper
         $this->cellWrapper->value($value);
     }
 
+    /**
+     * @param string|null $url
+     *
+     * @throws Exception
+     */
+    public function setHyperlink($url = null): void
+    {
+        $this->cellWrapper->hyperlinkUrl($url);
+    }
+
     public function endCell(): void
     {
         $this->cellWrapper->end();

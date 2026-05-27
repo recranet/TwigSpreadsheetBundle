@@ -52,6 +52,14 @@ class CellWrapper extends BaseWrapper
         ]);
 
         $this->parameters['value'] = null;
+        $this->parameters['url'] = null;
+
+        // Remove hyperlink URL from cell properties
+        if (isset($properties['url'])) {
+            $this->parameters['url'] = $properties['url'];
+            unset($properties['url']);
+        }
+
         $this->parameters['properties'] = $properties;
         $this->setProperties($properties);
     }
@@ -78,11 +86,35 @@ class CellWrapper extends BaseWrapper
         $this->parameters['value'] = $value;
     }
 
+    public function hyperlinkUrl($url = null): void
+    {
+        if ($this->object === null) {
+            throw new \LogicException('A cell must be started before setting a hyperlink.');
+        }
+
+        if ($url !== null) {
+            $this->object->getHyperlink()->setUrl($url);
+        } else {
+            $this->object->setHyperlink(null);
+        }
+
+        $this->parameters['url'] = $url;
+    }
+
+    public function applyHyperlink(): void
+    {
+        if ($this->parameters['url'] !== null) {
+            $this->hyperlinkUrl($this->parameters['url']);
+        }
+    }
+
     public function end(): void
     {
         if ($this->object === null) {
             throw new \LogicException('A cell must be started before ending it.');
         }
+
+        $this->applyHyperlink();
 
         $this->object = null;
         $this->parameters = [];
@@ -165,9 +197,6 @@ class CellWrapper extends BaseWrapper
             },
             'style' => function ($value) {
                 $this->sheetWrapper->getObject()->getStyle($this->getObject()->getCoordinate())->applyFromArray($value);
-            },
-            'url' => function ($value) {
-                $this->getObject()->getHyperlink()->setUrl($value);
             },
         ];
     }
