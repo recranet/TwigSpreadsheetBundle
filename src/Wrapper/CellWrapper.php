@@ -142,60 +142,60 @@ class CellWrapper extends BaseWrapper
     protected function configureMappings(): array
     {
         return [
-            'break' => function ($value) {
+            'break' => function ($value): void {
                 $this->sheetWrapper->getObject()->setBreak($this->getObject()->getCoordinate(), $value);
             },
-            'dataType' => function ($value) {
+            'dataType' => function ($value): void {
                 $this->getObject()->setDataType($value);
             },
             'dataValidation' => [
-                'allowBlank' => function ($value) {
+                'allowBlank' => function ($value): void {
                     $this->getObject()->getDataValidation()->setAllowBlank($value);
                 },
-                'error' => function ($value) {
+                'error' => function ($value): void {
                     $this->getObject()->getDataValidation()->setError($value);
                 },
-                'errorStyle' => function ($value) {
+                'errorStyle' => function ($value): void {
                     $this->getObject()->getDataValidation()->setErrorStyle($value);
                 },
-                'errorTitle' => function ($value) {
+                'errorTitle' => function ($value): void {
                     $this->getObject()->getDataValidation()->setErrorTitle($value);
                 },
-                'formula1' => function ($value) {
+                'formula1' => function ($value): void {
                     $this->getObject()->getDataValidation()->setFormula1($value);
                 },
-                'formula2' => function ($value) {
+                'formula2' => function ($value): void {
                     $this->getObject()->getDataValidation()->setFormula2($value);
                 },
-                'operator' => function ($value) {
+                'operator' => function ($value): void {
                     $this->getObject()->getDataValidation()->setOperator($value);
                 },
-                'prompt' => function ($value) {
+                'prompt' => function ($value): void {
                     $this->getObject()->getDataValidation()->setPrompt($value);
                 },
-                'promptTitle' => function ($value) {
+                'promptTitle' => function ($value): void {
                     $this->getObject()->getDataValidation()->setPromptTitle($value);
                 },
-                'showDropDown' => function ($value) {
+                'showDropDown' => function ($value): void {
                     $this->getObject()->getDataValidation()->setShowDropDown($value);
                 },
-                'showErrorMessage' => function ($value) {
+                'showErrorMessage' => function ($value): void {
                     $this->getObject()->getDataValidation()->setShowErrorMessage($value);
                 },
-                'showInputMessage' => function ($value) {
+                'showInputMessage' => function ($value): void {
                     $this->getObject()->getDataValidation()->setShowInputMessage($value);
                 },
-                'type' => function ($value) {
+                'type' => function ($value): void {
                     $this->getObject()->getDataValidation()->setType($value);
                 },
             ],
-            'merge' => function ($value) {
+            'merge' => function ($value): void {
                 if (\is_int($value)) {
                     $value = Coordinate::stringFromColumnIndex($value).$this->sheetWrapper->getRow();
                 }
                 $this->sheetWrapper->getObject()->mergeCells(\sprintf('%s:%s', $this->getObject()->getCoordinate(), $value));
             },
-            'style' => function ($value) {
+            'style' => function ($value): void {
                 $this->sheetWrapper->getObject()->getStyle($this->getObject()->getCoordinate())->applyFromArray($value);
             },
         ];

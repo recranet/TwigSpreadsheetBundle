@@ -179,63 +179,63 @@ class DocumentWrapper extends BaseWrapper
     protected function configureMappings(): array
     {
         return [
-            'category' => function ($value) {
+            'category' => function ($value): void {
                 $this->getObject()->getProperties()->setCategory($value);
             },
-            'company' => function ($value) {
+            'company' => function ($value): void {
                 $this->getObject()->getProperties()->setCompany($value);
             },
-            'created' => function ($value) {
+            'created' => function ($value): void {
                 $this->getObject()->getProperties()->setCreated($value);
             },
-            'creator' => function ($value) {
+            'creator' => function ($value): void {
                 $this->getObject()->getProperties()->setCreator($value);
             },
-            'defaultStyle' => function ($value) {
+            'defaultStyle' => function ($value): void {
                 $this->getObject()->getDefaultStyle()->applyFromArray($value);
             },
-            'description' => function ($value) {
+            'description' => function ($value): void {
                 $this->getObject()->getProperties()->setDescription($value);
             },
-            'format' => function ($value) {
+            'format' => function ($value): void {
                 $this->parameters['format'] = $value;
             },
-            'keywords' => function ($value) {
+            'keywords' => function ($value): void {
                 $this->getObject()->getProperties()->setKeywords($value);
             },
-            'lastModifiedBy' => function ($value) {
+            'lastModifiedBy' => function ($value): void {
                 $this->getObject()->getProperties()->setLastModifiedBy($value);
             },
-            'manager' => function ($value) {
+            'manager' => function ($value): void {
                 $this->getObject()->getProperties()->setManager($value);
             },
-            'modified' => function ($value) {
+            'modified' => function ($value): void {
                 $this->getObject()->getProperties()->setModified($value);
             },
             'security' => [
-                'lockRevision' => function ($value) {
+                'lockRevision' => function ($value): void {
                     $this->getObject()->getSecurity()->setLockRevision($value);
                 },
-                'lockStructure' => function ($value) {
+                'lockStructure' => function ($value): void {
                     $this->getObject()->getSecurity()->setLockStructure($value);
                 },
-                'lockWindows' => function ($value) {
+                'lockWindows' => function ($value): void {
                     $this->getObject()->getSecurity()->setLockWindows($value);
                 },
-                'revisionsPassword' => function ($value) {
+                'revisionsPassword' => function ($value): void {
                     $this->getObject()->getSecurity()->setRevisionsPassword($value);
                 },
-                'workbookPassword' => function ($value) {
+                'workbookPassword' => function ($value): void {
                     $this->getObject()->getSecurity()->setWorkbookPassword($value);
                 },
             ],
-            'subject' => function ($value) {
+            'subject' => function ($value): void {
                 $this->getObject()->getProperties()->setSubject($value);
             },
-            'template' => function ($value) {
+            'template' => function ($value): void {
                 $this->parameters['template'] = $value;
             },
-            'title' => function ($value) {
+            'title' => function ($value): void {
                 $this->getObject()->getProperties()->setTitle($value);
             },
         ];

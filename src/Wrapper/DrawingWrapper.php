@@ -115,54 +115,54 @@ class DrawingWrapper extends BaseWrapper
     protected function configureMappings(): array
     {
         return [
-            'coordinates' => function ($value) {
+            'coordinates' => function ($value): void {
                 $this->getObject()->setCoordinates($value);
             },
-            'description' => function ($value) {
+            'description' => function ($value): void {
                 $this->getObject()->setDescription($value);
             },
-            'height' => function ($value) {
+            'height' => function ($value): void {
                 $this->getObject()->setHeight($value);
             },
-            'name' => function ($value) {
+            'name' => function ($value): void {
                 $this->getObject()->setName($value);
             },
-            'offsetX' => function ($value) {
+            'offsetX' => function ($value): void {
                 $this->getObject()->setOffsetX($value);
             },
-            'offsetY' => function ($value) {
+            'offsetY' => function ($value): void {
                 $this->getObject()->setOffsetY($value);
             },
-            'resizeProportional' => function ($value) {
+            'resizeProportional' => function ($value): void {
                 $this->getObject()->setResizeProportional($value);
             },
-            'rotation' => function ($value) {
+            'rotation' => function ($value): void {
                 $this->getObject()->setRotation($value);
             },
             'shadow' => [
-                'alignment' => function ($value) {
+                'alignment' => function ($value): void {
                     $this->getObject()->getShadow()->setAlignment($value);
                 },
-                'alpha' => function ($value) {
+                'alpha' => function ($value): void {
                     $this->getObject()->getShadow()->setAlpha($value);
                 },
-                'blurRadius' => function ($value) {
+                'blurRadius' => function ($value): void {
                     $this->getObject()->getShadow()->setBlurRadius($value);
                 },
-                'color' => function ($value) {
+                'color' => function ($value): void {
                     $this->getObject()->getShadow()->getColor()->setRGB($value);
                 },
-                'direction' => function ($value) {
+                'direction' => function ($value): void {
                     $this->getObject()->getShadow()->setDirection($value);
                 },
-                'distance' => function ($value) {
+                'distance' => function ($value): void {
                     $this->getObject()->getShadow()->setDistance($value);
                 },
-                'visible' => function ($value) {
+                'visible' => function ($value): void {
                     $this->getObject()->getShadow()->setVisible($value);
                 },
             ],
-            'width' => function ($value) {
+            'width' => function ($value): void {
                 $this->getObject()->setWidth($value);
             },
         ];
