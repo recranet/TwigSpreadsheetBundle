@@ -44,9 +44,9 @@ jobs:
         uses: actions/cache@v4
         with:
           path: vendor
-          key: ${{ runner.os }}-php-${{ matrix.php-version }}-${{ hashFiles('**/composer.lock') }}
+          key: ${{ runner.os }}-php-${{ matrix.php-version }}-${{ matrix.dependency-versions }}-${{ hashFiles('**/composer.json') }}
           restore-keys: |
-            ${{ runner.os }}-php-${{ matrix.php-version }}-
+            ${{ runner.os }}-php-${{ matrix.php-version }}-${{ matrix.dependency-versions }}-
 
       - name: Install dependencies
         uses: ramsey/composer-install@v3
@@ -97,3 +97,40 @@ jobs:
 
       - name: Run PHPUnit
         run: vendor/bin/simple-phpunit tests/Twig/Pdf
+
+  phpstan:
+    name: PHPStan
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.5"
+          coverage: none
+
+      - name: Cache Composer packages
+        id: composer-cache
+        uses: actions/cache@v4
+        with:
+          path: vendor
+          key: ${{ runner.os }}-php-8.5-highest-${{ hashFiles('**/composer.json') }}
+          restore-keys: |
+            ${{ runner.os }}-php-8.5-highest-
+
+      - name: Install dependencies
+        uses: ramsey/composer-install@v3
+
+      - name: Cache PHPStan result cache
+        uses: actions/cache@v4
+        with:
+          path: var/phpstan
+          key: ${{ runner.os }}-phpstan-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-phpstan-
+
+      - name: Run PHPStan
+        run: vendor/bin/phpstan analyse --no-progress
