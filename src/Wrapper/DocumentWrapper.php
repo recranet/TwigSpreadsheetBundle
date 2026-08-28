@@ -86,9 +86,6 @@ class DocumentWrapper extends BaseWrapper
 
         // try Symfony request
         elseif (isset($this->context['app'])) {
-            /**
-             * @var AppVariable $appVariable
-             */
             $appVariable = $this->context['app'];
             if ($appVariable instanceof AppVariable && $appVariable->getRequest() !== null) {
                 $format = $appVariable->getRequest()->getRequestFormat();

@@ -86,7 +86,7 @@ class CellWrapper extends BaseWrapper
         $this->parameters['value'] = $value;
     }
 
-    public function hyperlinkUrl($url = null): void
+    public function hyperlinkUrl(?string $url = null): void
     {
         if ($this->object === null) {
             throw new \LogicException('A cell must be started before setting a hyperlink.');

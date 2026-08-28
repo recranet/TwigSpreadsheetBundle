@@ -337,22 +337,10 @@ parameters:
 			path: src/Wrapper/CellWrapper.php
 
 		-
-			message: '#^Method Recranet\\TwigSpreadsheetBundle\\Wrapper\\CellWrapper\:\:hyperlinkUrl\(\) has parameter \$url with no type specified\.$#'
-			identifier: missingType.parameter
-			count: 1
-			path: src/Wrapper/CellWrapper.php
-
-		-
 			message: '#^Method Recranet\\TwigSpreadsheetBundle\\Wrapper\\CellWrapper\:\:start\(\) has parameter \$properties with no value type specified in iterable type array\.$#'
 			identifier: missingType.iterableValue
 			count: 1
 			path: src/Wrapper/CellWrapper.php
-
-		-
-			message: '#^Instanceof between Symfony\\Bridge\\Twig\\AppVariable and Symfony\\Bridge\\Twig\\AppVariable will always evaluate to true\.$#'
-			identifier: instanceof.alwaysTrue
-			count: 1
-			path: src/Wrapper/DocumentWrapper.php
 
 		-
 			message: '#^Method Recranet\\TwigSpreadsheetBundle\\Wrapper\\DocumentWrapper\:\:__construct\(\) has parameter \$attributes with no value type specified in iterable type array\.$#'
