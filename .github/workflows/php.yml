@@ -56,3 +56,45 @@ jobs:
 
       - name: Run PHPUnit
         run: vendor/bin/simple-phpunit
+
+  phpunit-pdf:
+    name: PHPUnit (${{ matrix.pdf-library }})
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        pdf-library:
+          - "dompdf/dompdf"
+          - "mpdf/mpdf"
+          # TCPDF 7 is a rewrite that PhpSpreadsheet's writer does not support yet
+          - "tecnickcom/tcpdf:^6.6"
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.4"
+          extensions: curl, gd, mbstring, xml, zip
+          coverage: none
+
+      - name: Require PDF library
+        run: composer require --dev --no-update "${{ matrix.pdf-library }}"
+
+      - name: Cache Composer packages
+        id: composer-cache
+        uses: actions/cache@v4
+        with:
+          path: vendor
+          key: ${{ runner.os }}-php-8.4-${{ matrix.pdf-library }}-${{ hashFiles('**/composer.json') }}
+          restore-keys: |
+            ${{ runner.os }}-php-8.4-${{ matrix.pdf-library }}-
+
+      - name: Install dependencies
+        uses: ramsey/composer-install@v3
+
+      - name: Run PHPUnit
+        run: vendor/bin/simple-phpunit tests/Twig/Pdf

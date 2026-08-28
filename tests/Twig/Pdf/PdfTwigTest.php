@@ -1,6 +1,8 @@
 <?php
 
-namespace Recranet\TwigSpreadsheetBundle\Tests\Twig;
+namespace Recranet\TwigSpreadsheetBundle\Tests\Twig\Pdf;
+
+use Recranet\TwigSpreadsheetBundle\Tests\Twig\BaseTwigTest;
 
 /**
  * Class PdfTwigTest.
@@ -28,6 +30,10 @@ class PdfTwigTest extends BaseTwigTest
      */
     public function testBasic($format)
     {
+        if (!class_exists('\\Dompdf\\Dompdf') && !class_exists('\\Mpdf\\Mpdf') && !class_exists('\\TCPDF')) {
+            static::markTestSkipped('PDF rendering requires dompdf, mPDF or TCPDF');
+        }
+
         $path = $this->render('cellProperties', $format);
 
         static::assertFileExists($path, 'File does not exist');
