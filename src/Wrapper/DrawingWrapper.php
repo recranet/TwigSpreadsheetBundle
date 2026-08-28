@@ -12,10 +12,7 @@ use Twig\Environment;
  */
 class DrawingWrapper extends BaseWrapper
 {
-    protected SheetWrapper $sheetWrapper;
-    protected HeaderFooterWrapper $headerFooterWrapper;
     protected ?Drawing $object;
-    protected array $attributes;
 
     /**
      * DrawingWrapper constructor.
@@ -26,14 +23,15 @@ class DrawingWrapper extends BaseWrapper
      * @param HeaderFooterWrapper $headerFooterWrapper
      * @param array               $attributes
      */
-    public function __construct(array $context, Environment $environment, SheetWrapper $sheetWrapper, HeaderFooterWrapper $headerFooterWrapper, array $attributes = [])
-    {
+    public function __construct(
+        array $context,
+        Environment $environment,
+        protected SheetWrapper $sheetWrapper,
+        protected HeaderFooterWrapper $headerFooterWrapper,
+        protected array $attributes = [],
+    ) {
         parent::__construct($context, $environment);
-
-        $this->sheetWrapper = $sheetWrapper;
-        $this->headerFooterWrapper = $headerFooterWrapper;
         $this->object = null;
-        $this->attributes = $attributes;
     }
 
     /**

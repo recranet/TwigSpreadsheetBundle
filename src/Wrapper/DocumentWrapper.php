@@ -22,7 +22,6 @@ use Twig\Loader\FilesystemLoader;
 class DocumentWrapper extends BaseWrapper
 {
     protected ?Spreadsheet $object;
-    protected array $attributes;
 
     /**
      * DocumentWrapper constructor.
@@ -31,12 +30,14 @@ class DocumentWrapper extends BaseWrapper
      * @param Environment $environment
      * @param array       $attributes
      */
-    public function __construct(array $context, Environment $environment, array $attributes = [])
-    {
+    public function __construct(
+        array $context,
+        Environment $environment,
+        protected array $attributes = [],
+    ) {
         parent::__construct($context, $environment);
 
         $this->object = null;
-        $this->attributes = $attributes;
     }
 
     /**

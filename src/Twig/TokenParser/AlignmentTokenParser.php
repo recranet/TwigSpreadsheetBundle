@@ -11,7 +11,7 @@ use Twig\Node\Node;
  */
 class AlignmentTokenParser extends BaseTokenParser
 {
-    private string $alignment;
+    private readonly string $alignment;
 
     /**
      * AlignmentTokenParser constructor.

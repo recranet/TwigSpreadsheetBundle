@@ -12,7 +12,6 @@ use Twig\Environment;
  */
 class CellWrapper extends BaseWrapper
 {
-    protected SheetWrapper $sheetWrapper;
     protected ?Cell $object;
 
     /**
@@ -22,11 +21,12 @@ class CellWrapper extends BaseWrapper
      * @param Environment  $environment
      * @param SheetWrapper $sheetWrapper
      */
-    public function __construct(array $context, Environment $environment, SheetWrapper $sheetWrapper)
-    {
+    public function __construct(
+        array $context,
+        Environment $environment,
+        protected SheetWrapper $sheetWrapper,
+    ) {
         parent::__construct($context, $environment);
-
-        $this->sheetWrapper = $sheetWrapper;
         $this->object = null;
     }
 

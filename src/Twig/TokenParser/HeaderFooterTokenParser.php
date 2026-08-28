@@ -14,7 +14,7 @@ use Twig\Token;
  */
 class HeaderFooterTokenParser extends BaseTokenParser
 {
-    private string $baseType;
+    private readonly string $baseType;
 
     /**
      * HeaderFooterTokenParser constructor.

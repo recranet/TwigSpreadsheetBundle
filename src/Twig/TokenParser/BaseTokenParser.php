@@ -24,16 +24,14 @@ abstract class BaseTokenParser extends AbstractTokenParser
      */
     public const PARAMETER_TYPE_VALUE = 1;
 
-    private array $attributes;
-
     /**
      * BaseTokenParser constructor.
      *
      * @param array $attributes optional attributes for the corresponding node
      */
-    public function __construct(array $attributes = [])
-    {
-        $this->attributes = $attributes;
+    public function __construct(
+        private readonly array $attributes = [],
+    ) {
     }
 
     /**
@@ -115,18 +113,13 @@ abstract class BaseTokenParser extends AbstractTokenParser
             // try mapping expression
             $expression = reset($expressions);
             if ($expression !== false) {
-                switch ($parameterOptions['type']) {
-                    case self::PARAMETER_TYPE_ARRAY:
-                        // check if expression is valid array
-                        $valid = $expression instanceof ArrayExpression;
-                        break;
-                    case self::PARAMETER_TYPE_VALUE:
-                        // check if expression is valid value
-                        $valid = !$expression instanceof ArrayExpression;
-                        break;
-                    default:
-                        throw new \InvalidArgumentException('Invalid parameter type');
-                }
+                $valid = match ($parameterOptions['type']) {
+                    // check if expression is valid array
+                    self::PARAMETER_TYPE_ARRAY => $expression instanceof ArrayExpression,
+                    // check if expression is valid value
+                    self::PARAMETER_TYPE_VALUE => !$expression instanceof ArrayExpression,
+                    default => throw new \InvalidArgumentException('Invalid parameter type'),
+                };
 
                 if ($valid) {
                     // set expression as parameter and remove it from expressions list

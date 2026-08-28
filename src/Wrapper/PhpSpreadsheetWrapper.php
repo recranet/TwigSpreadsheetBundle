@@ -16,12 +16,12 @@ class PhpSpreadsheetWrapper
      */
     public const INSTANCE_KEY = '_tsb';
 
-    private DocumentWrapper $documentWrapper;
-    private SheetWrapper $sheetWrapper;
-    private RowWrapper $rowWrapper;
-    private CellWrapper $cellWrapper;
-    private HeaderFooterWrapper $headerFooterWrapper;
-    private DrawingWrapper $drawingWrapper;
+    private readonly DocumentWrapper $documentWrapper;
+    private readonly SheetWrapper $sheetWrapper;
+    private readonly RowWrapper $rowWrapper;
+    private readonly CellWrapper $cellWrapper;
+    private readonly HeaderFooterWrapper $headerFooterWrapper;
+    private readonly DrawingWrapper $drawingWrapper;
 
     /**
      * PhpSpreadsheetWrapper constructor.

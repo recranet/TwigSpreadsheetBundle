@@ -9,8 +9,6 @@ use Twig\Environment;
  */
 class RowWrapper extends BaseWrapper
 {
-    protected SheetWrapper $sheetWrapper;
-
     /**
      * RowWrapper constructor.
      *
@@ -18,11 +16,12 @@ class RowWrapper extends BaseWrapper
      * @param Environment  $environment
      * @param SheetWrapper $sheetWrapper
      */
-    public function __construct(array $context, Environment $environment, SheetWrapper $sheetWrapper)
-    {
+    public function __construct(
+        array $context,
+        Environment $environment,
+        protected SheetWrapper $sheetWrapper,
+    ) {
         parent::__construct($context, $environment);
-
-        $this->sheetWrapper = $sheetWrapper;
     }
 
     /**

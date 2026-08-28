@@ -9,8 +9,6 @@ use Twig\Environment;
  */
 abstract class BaseWrapper
 {
-    protected array $context;
-    protected Environment $environment;
     protected array $parameters;
     protected array $mappings;
 
@@ -20,10 +18,10 @@ abstract class BaseWrapper
      * @param array       $context
      * @param Environment $environment
      */
-    public function __construct(array $context, Environment $environment)
-    {
-        $this->context = $context;
-        $this->environment = $environment;
+    public function __construct(
+        protected array $context,
+        protected Environment $environment,
+    ) {
         $this->parameters = [];
         $this->mappings = $this->configureMappings();
     }
@@ -77,9 +75,7 @@ abstract class BaseWrapper
      */
     protected function setProperties(array $properties, ?array $mappings = null, ?string $column = null)
     {
-        if ($mappings === null) {
-            $mappings = $this->mappings;
-        }
+        $mappings ??= $this->mappings;
 
         foreach ($properties as $key => $value) {
             if (!isset($mappings[$key])) {

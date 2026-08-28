@@ -22,8 +22,6 @@ class SheetWrapper extends BaseWrapper
      * @var int
      */
     public const ROW_DEFAULT = 1;
-
-    protected DocumentWrapper $documentWrapper;
     protected ?Worksheet $object;
     protected ?int $row;
     protected ?int $column;
@@ -35,11 +33,12 @@ class SheetWrapper extends BaseWrapper
      * @param Environment     $environment
      * @param DocumentWrapper $documentWrapper
      */
-    public function __construct(array $context, Environment $environment, DocumentWrapper $documentWrapper)
-    {
+    public function __construct(
+        array $context,
+        Environment $environment,
+        protected DocumentWrapper $documentWrapper,
+    ) {
         parent::__construct($context, $environment);
-
-        $this->documentWrapper = $documentWrapper;
 
         $this->object = null;
         $this->row = null;
@@ -99,7 +98,7 @@ class SheetWrapper extends BaseWrapper
                             foreach ($cellIterator as $cell) {
                                 $this->object->getColumnDimension($cell->getColumn())->setAutoSize($value['autoSize']);
                             }
-                        } catch (Exception $e) {
+                        } catch (Exception) {
                             // ignore exceptions thrown when no cells are defined
                         }
                     } else {

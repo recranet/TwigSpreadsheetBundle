@@ -23,16 +23,14 @@ use Twig\TwigFunction;
  */
 class TwigSpreadsheetExtension extends AbstractExtension
 {
-    private array $attributes;
-
     /**
      * TwigSpreadsheetExtension constructor.
      *
      * @param array $attributes
      */
-    public function __construct(array $attributes = [])
-    {
-        $this->attributes = $attributes;
+    public function __construct(
+        private readonly array $attributes = [],
+    ) {
     }
 
     /**
@@ -49,9 +47,9 @@ class TwigSpreadsheetExtension extends AbstractExtension
     public function getFunctions(): array
     {
         return [
-            new TwigFunction('xlsmergestyles', [$this, 'mergeStyles']),
-            new TwigFunction('xlscellindex', [$this, 'getCurrentColumn'], ['needs_context' => true]),
-            new TwigFunction('xlsrowindex', [$this, 'getCurrentRow'], ['needs_context' => true]),
+            new TwigFunction('xlsmergestyles', $this->mergeStyles(...)),
+            new TwigFunction('xlscellindex', $this->getCurrentColumn(...), ['needs_context' => true]),
+            new TwigFunction('xlsrowindex', $this->getCurrentRow(...), ['needs_context' => true]),
         ];
     }
 

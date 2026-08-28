@@ -12,7 +12,7 @@ use Twig\Compiler;
 #[YieldReady]
 class AlignmentNode extends BaseNode
 {
-    private string $alignment;
+    private readonly string $alignment;
 
     /**
      * AlignmentNode constructor.

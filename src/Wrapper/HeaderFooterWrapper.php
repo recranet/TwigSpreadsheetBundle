@@ -20,8 +20,6 @@ class HeaderFooterWrapper extends BaseWrapper
     public const TYPE_EVEN = 'even';
     public const TYPE_FIRST = 'first';
     public const TYPE_ODD = 'odd';
-
-    protected SheetWrapper $sheetWrapper;
     protected ?HeaderFooter $object;
     protected array $alignmentParameters;
 
@@ -32,11 +30,12 @@ class HeaderFooterWrapper extends BaseWrapper
      * @param Environment  $environment
      * @param SheetWrapper $sheetWrapper
      */
-    public function __construct(array $context, Environment $environment, SheetWrapper $sheetWrapper)
-    {
+    public function __construct(
+        array $context,
+        Environment $environment,
+        protected SheetWrapper $sheetWrapper,
+    ) {
         parent::__construct($context, $environment);
-
-        $this->sheetWrapper = $sheetWrapper;
         $this->object = null;
         $this->alignmentParameters = [];
     }

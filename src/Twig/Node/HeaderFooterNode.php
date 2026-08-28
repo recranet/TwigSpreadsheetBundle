@@ -12,7 +12,7 @@ use Twig\Compiler;
 #[YieldReady]
 class HeaderFooterNode extends BaseNode
 {
-    private string $baseType;
+    private readonly string $baseType;
 
     /**
      * HeaderFooterNode constructor.
