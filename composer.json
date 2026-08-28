@@ -12,22 +12,22 @@
         }
     ],
     "require": {
-        "php": "^8.1",
+        "php": "^8.2",
         "ext-mbstring": "*",
         "phpoffice/phpspreadsheet": "^1.23|^2.0|^3.3|^4.0|^5.0",
-        "symfony/framework-bundle": "^6.4|^7.0",
-        "symfony/routing": "^6.4|^7.0",
-        "symfony/twig-bridge": "^6.4|^7.0",
-        "symfony/twig-bundle": "^6.4|^7.0",
+        "symfony/framework-bundle": "^7.4|^8.0",
+        "symfony/routing": "^7.4|^8.0",
+        "symfony/twig-bridge": "^7.4|^8.0",
+        "symfony/twig-bundle": "^7.4|^8.0",
         "twig/twig": "^3.12"
     },
     "require-dev": {
         "phpstan/phpstan": "^2.2",
         "phpunit/phpunit": "^9",
         "rector/rector": "^2.6",
-        "symfony/browser-kit": "^6.4|^7.0",
-        "symfony/phpunit-bridge": "^6.4.1|^7.0.1",
-        "symfony/yaml": "^6.4|^7.0"
+        "symfony/browser-kit": "^7.4|^8.0",
+        "symfony/phpunit-bridge": "^7.4|^8.0",
+        "symfony/yaml": "^7.4|^8.0"
     },
     "suggest": {
         "dompdf/dompdf": "Add support for PDF rendering using dompdf",
