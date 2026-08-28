@@ -17,6 +17,7 @@ return (new PhpCsFixer\Config())
         ],
         'heredoc_to_nowdoc' => true,
         'echo_tag_syntax' => true,
+        'multiline_promoted_properties' => true,
         'no_extra_blank_lines' => [
             'tokens' => ['break', 'continue', 'extra', 'return', 'throw', 'use', 'parenthesis_brace_block', 'square_brace_block', 'curly_brace_block'],
         ],
