@@ -1,4 +1,4 @@
-## Unreleased
+## 2.5
 
  * Add support for Symfony 8, drop support for Symfony 6.4 and 7.0 to 7.3
  * Drop support for PHP 8.1, support PHP 8.2 and later
