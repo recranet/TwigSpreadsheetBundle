@@ -8,7 +8,7 @@ use Recranet\TwigSpreadsheetBundle\RecranetTwigSpreadsheetBundle;
 
 class RecranetTwigSpreadsheetBundleTest extends TestCase
 {
-    public function testShouldReturnNewContainerExtension()
+    public function testShouldReturnNewContainerExtension(): void
     {
         $testBundle = new RecranetTwigSpreadsheetBundle();
 

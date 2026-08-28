@@ -28,7 +28,7 @@ class OdsXlsXlsxTwigTest extends BaseTwigTest
      *
      * @dataProvider formatProvider
      */
-    public function testBlock($format)
+    public function testBlock($format): void
     {
         $document = $this->renderSpreadsheet('block', $format);
         static::assertNotNull($document, 'Document does not exist');
@@ -49,7 +49,7 @@ class OdsXlsXlsxTwigTest extends BaseTwigTest
      *
      * @dataProvider formatProvider
      */
-    public function testBlockOverrideCell($format)
+    public function testBlockOverrideCell($format): void
     {
         $document = $this->renderSpreadsheet('blockOverrideCell', $format);
         static::assertNotNull($document, 'Document does not exist');
@@ -70,7 +70,7 @@ class OdsXlsXlsxTwigTest extends BaseTwigTest
      *
      * @dataProvider formatProvider
      */
-    public function testBlockOverrideContent($format)
+    public function testBlockOverrideContent($format): void
     {
         $document = $this->renderSpreadsheet('blockOverrideContent', $format);
         static::assertNotNull($document, 'Document does not exist');
@@ -91,7 +91,7 @@ class OdsXlsXlsxTwigTest extends BaseTwigTest
      *
      * @dataProvider formatProvider
      */
-    public function testBlockOverrideRow($format)
+    public function testBlockOverrideRow($format): void
     {
         $document = $this->renderSpreadsheet('blockOverrideRow', $format);
         static::assertNotNull($document, 'Document does not exist');
@@ -112,7 +112,7 @@ class OdsXlsXlsxTwigTest extends BaseTwigTest
      *
      * @dataProvider formatProvider
      */
-    public function testBlockOverrideSheet($format)
+    public function testBlockOverrideSheet($format): void
     {
         $document = $this->renderSpreadsheet('blockOverrideSheet', $format);
         static::assertNotNull($document, 'Document does not exist');
@@ -133,7 +133,7 @@ class OdsXlsXlsxTwigTest extends BaseTwigTest
      *
      * @dataProvider formatProvider
      */
-    public function testCellFormula($format)
+    public function testCellFormula($format): void
     {
         $document = $this->renderSpreadsheet('cellFormula', $format);
         static::assertNotNull($document, 'Document does not exist');
@@ -157,7 +157,7 @@ class OdsXlsXlsxTwigTest extends BaseTwigTest
      *
      * @dataProvider formatProvider
      */
-    public function testCellIndex($format)
+    public function testCellIndex($format): void
     {
         $document = $this->renderSpreadsheet('cellIndex', $format);
         static::assertNotNull($document, 'Document does not exist');
@@ -187,7 +187,7 @@ class OdsXlsXlsxTwigTest extends BaseTwigTest
      *
      * @dataProvider formatProvider
      */
-    public function testCellProperties($format)
+    public function testCellProperties($format): void
     {
         $document = $this->renderSpreadsheet('cellProperties', $format);
         static::assertNotNull($document, 'Document does not exist');
@@ -239,7 +239,7 @@ class OdsXlsXlsxTwigTest extends BaseTwigTest
      *
      * @dataProvider formatProvider
      */
-    public function testCellValue($format)
+    public function testCellValue($format): void
     {
         $document = $this->renderSpreadsheet('cellValue', $format);
         static::assertNotNull($document, 'Document does not exist');
@@ -286,7 +286,7 @@ class OdsXlsXlsxTwigTest extends BaseTwigTest
      *
      * @dataProvider formatProvider
      */
-    public function testDocumentProperties($format)
+    public function testDocumentProperties($format): void
     {
         $document = $this->renderSpreadsheet('documentProperties', $format);
         static::assertNotNull($document, 'Document does not exist');
@@ -321,7 +321,7 @@ class OdsXlsXlsxTwigTest extends BaseTwigTest
      *
      * @dataProvider formatProvider
      */
-    public function testDocumentWhitespace($format)
+    public function testDocumentWhitespace($format): void
     {
         $document = $this->renderSpreadsheet('documentWhitespace', $format);
         static::assertNotNull($document, 'Document does not exist');
@@ -342,7 +342,7 @@ class OdsXlsXlsxTwigTest extends BaseTwigTest
      *
      * @dataProvider formatProvider
      */
-    public function testInclude($format)
+    public function testInclude($format): void
     {
         $document = $this->renderSpreadsheet('include', $format);
         static::assertNotNull($document, 'Document does not exist');
@@ -369,7 +369,7 @@ class OdsXlsXlsxTwigTest extends BaseTwigTest
      *
      * @dataProvider formatProvider
      */
-    public function testMacro($format)
+    public function testMacro($format): void
     {
         $document = $this->renderSpreadsheet('macro', $format);
         static::assertNotNull($document, 'Document does not exist');
@@ -402,7 +402,7 @@ class OdsXlsXlsxTwigTest extends BaseTwigTest
      *
      * @dataProvider formatProvider
      */
-    public function testRowIndex($format)
+    public function testRowIndex($format): void
     {
         $document = $this->renderSpreadsheet('rowIndex', $format);
         static::assertNotNull($document, 'Document does not exist');
@@ -431,7 +431,7 @@ class OdsXlsXlsxTwigTest extends BaseTwigTest
      *
      * @dataProvider formatProvider
      */
-    public function testSheet($format)
+    public function testSheet($format): void
     {
         $document = $this->renderSpreadsheet('documentSimple', $format);
         static::assertNotNull($document, 'Document does not exist');
@@ -449,7 +449,7 @@ class OdsXlsXlsxTwigTest extends BaseTwigTest
      *
      * @dataProvider formatProvider
      */
-    public function testSheetComplex($format)
+    public function testSheetComplex($format): void
     {
         $document = $this->renderSpreadsheet('sheetComplex', $format);
         static::assertNotNull($document, 'Document does not exist');
@@ -490,7 +490,7 @@ class OdsXlsXlsxTwigTest extends BaseTwigTest
      *
      * @dataProvider formatProvider
      */
-    public function testSheetProperties($format)
+    public function testSheetProperties($format): void
     {
         $document = $this->renderSpreadsheet('sheetProperties', $format);
         static::assertNotNull($document, 'Document does not exist');

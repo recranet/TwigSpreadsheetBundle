@@ -26,7 +26,7 @@ class CsvOdsXlsXlsxErrorTwigTest extends BaseTwigTest
      *
      * @dataProvider formatProvider
      */
-    public function testDocumentError($format)
+    public function testDocumentError($format): void
     {
         $this->expectException(\Twig\Error\SyntaxError::class);
         $this->expectExceptionMessage('Node "Recranet\TwigSpreadsheetBundle\Twig\Node\DocumentNode" is not allowed inside of Node "Recranet\TwigSpreadsheetBundle\Twig\Node\SheetNode"');
@@ -41,7 +41,7 @@ class CsvOdsXlsXlsxErrorTwigTest extends BaseTwigTest
      *
      * @dataProvider formatProvider
      */
-    public function testDocumentErrorTextAfter($format)
+    public function testDocumentErrorTextAfter($format): void
     {
         $this->expectException(\Twig\Error\SyntaxError::class);
         $this->expectExceptionMessage('Node "Twig\Node\TextNode" is not allowed after Node "Recranet\TwigSpreadsheetBundle\Twig\Node\DocumentNode"');
@@ -56,7 +56,7 @@ class CsvOdsXlsXlsxErrorTwigTest extends BaseTwigTest
      *
      * @dataProvider formatProvider
      */
-    public function testDocumentErrorTextBefore($format)
+    public function testDocumentErrorTextBefore($format): void
     {
         $this->expectException(\Twig\Error\SyntaxError::class);
         $this->expectExceptionMessage('Node "Twig\Node\TextNode" is not allowed before Node "Recranet\TwigSpreadsheetBundle\Twig\Node\DocumentNode"');
@@ -71,7 +71,7 @@ class CsvOdsXlsXlsxErrorTwigTest extends BaseTwigTest
      *
      * @dataProvider formatProvider
      */
-    public function testSheetError($format)
+    public function testSheetError($format): void
     {
         $this->expectException(\Twig\Error\SyntaxError::class);
         $this->expectExceptionMessage('Node "Recranet\TwigSpreadsheetBundle\Twig\Node\RowNode" is not allowed inside of Node "Recranet\TwigSpreadsheetBundle\Twig\Node\DocumentNode"');

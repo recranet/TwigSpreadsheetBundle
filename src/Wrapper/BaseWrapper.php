@@ -37,7 +37,7 @@ abstract class BaseWrapper
     /**
      * @param array $parameters
      */
-    public function setParameters(array $parameters)
+    public function setParameters(array $parameters): void
     {
         $this->parameters = $parameters;
     }
@@ -53,7 +53,7 @@ abstract class BaseWrapper
     /**
      * @param array $mappings
      */
-    public function setMappings(array $mappings)
+    public function setMappings(array $mappings): void
     {
         $this->mappings = $mappings;
     }
@@ -73,7 +73,7 @@ abstract class BaseWrapper
      * @param array|null  $mappings
      * @param string|null $column
      */
-    protected function setProperties(array $properties, ?array $mappings = null, ?string $column = null)
+    protected function setProperties(array $properties, ?array $mappings = null, ?string $column = null): void
     {
         $mappings ??= $this->mappings;
 

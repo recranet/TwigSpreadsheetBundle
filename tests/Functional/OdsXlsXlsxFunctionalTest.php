@@ -26,7 +26,7 @@ class OdsXlsXlsxFunctionalTest extends BaseFunctionalTest
      *
      * @dataProvider formatProvider
      */
-    public function testSimple(string $format)
+    public function testSimple(string $format): void
     {
         $client = static::createClient();
 
@@ -55,7 +55,7 @@ class OdsXlsXlsxFunctionalTest extends BaseFunctionalTest
      *
      * @dataProvider formatProvider
      */
-    public function testCustomResponse(string $format)
+    public function testCustomResponse(string $format): void
     {
         $client = static::createClient();
 
@@ -76,7 +76,7 @@ class OdsXlsXlsxFunctionalTest extends BaseFunctionalTest
      *
      * @dataProvider formatProvider
      */
-    public function testDocumentTemplatePath1(string $format)
+    public function testDocumentTemplatePath1(string $format): void
     {
         $client = static::createClient();
 
@@ -104,7 +104,7 @@ class OdsXlsXlsxFunctionalTest extends BaseFunctionalTest
      *
      * @dataProvider formatProvider
      */
-    public function testDocumentTemplatePath2(string $format)
+    public function testDocumentTemplatePath2(string $format): void
     {
         $client = static::createClient();
 

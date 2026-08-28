@@ -26,7 +26,7 @@ class CsvOdsXlsXlsxTwigTest extends BaseTwigTest
      *
      * @dataProvider formatProvider
      */
-    public function testDocumentSimple($format)
+    public function testDocumentSimple($format): void
     {
         $document = $this->renderSpreadsheet('documentSimple', $format);
         static::assertNotNull($document, 'Document does not exist');
@@ -47,7 +47,7 @@ class CsvOdsXlsXlsxTwigTest extends BaseTwigTest
      *
      * @dataProvider formatProvider
      */
-    public function testDocumentTemplate($format)
+    public function testDocumentTemplate($format): void
     {
         $document = $this->renderSpreadsheet('documentTemplate.'.$format, $format);
         static::assertNotNull($document, 'Document does not exist');
@@ -68,7 +68,7 @@ class CsvOdsXlsXlsxTwigTest extends BaseTwigTest
      *
      * @dataProvider formatProvider
      */
-    public function testFunctionIndex($format)
+    public function testFunctionIndex($format): void
     {
         $document = $this->renderSpreadsheet('functionIndex', $format);
         static::assertNotNull($document, 'Document does not exist');

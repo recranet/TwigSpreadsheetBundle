@@ -28,7 +28,7 @@ class PdfTwigTest extends BaseTwigTest
      *
      * @dataProvider formatProvider
      */
-    public function testBasic($format)
+    public function testBasic($format): void
     {
         if (!class_exists('\\Dompdf\\Dompdf') && !class_exists('\\Mpdf\\Mpdf') && !class_exists('\\TCPDF')) {
             static::markTestSkipped('PDF rendering requires dompdf, mPDF or TCPDF');

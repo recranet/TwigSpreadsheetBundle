@@ -12,7 +12,7 @@ class ConfigFunctionalTest extends BaseFunctionalTest
     /**
      * @throws \Exception
      */
-    public function testPreCalculateFormulas()
+    public function testPreCalculateFormulas(): void
     {
         /**
          * @var TwigSpreadsheetExtension $extension
@@ -27,7 +27,7 @@ class ConfigFunctionalTest extends BaseFunctionalTest
     /**
      * @throws \Exception
      */
-    public function testXmlCacheDirectory()
+    public function testXmlCacheDirectory(): void
     {
         $client = static::createClient();
 
@@ -50,7 +50,7 @@ class ConfigFunctionalTest extends BaseFunctionalTest
     /**
      * @throws \Exception
      */
-    public function testCsvWriterAttributes()
+    public function testCsvWriterAttributes(): void
     {
         /**
          * @var TwigSpreadsheetExtension $extension
