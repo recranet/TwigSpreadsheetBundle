@@ -103,12 +103,6 @@ parameters:
 			path: src/Twig/TokenParser/AlignmentTokenParser.php
 
 		-
-			message: '#^Call to function method_exists\(\) with Twig\\Parser and ''parseExpression'' will always evaluate to true\.$#'
-			identifier: function.alreadyNarrowedType
-			count: 1
-			path: src/Twig/TokenParser/BaseTokenParser.php
-
-		-
 			message: '#^Method Recranet\\TwigSpreadsheetBundle\\Twig\\TokenParser\\BaseTokenParser\:\:__construct\(\) has parameter \$attributes with no value type specified in iterable type array\.$#'
 			identifier: missingType.iterableValue
 			count: 1

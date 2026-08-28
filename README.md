@@ -28,6 +28,7 @@ The following software is required to use PhpSpreadsheet/TwigSpreadsheetBundle.
 
  * PHP 8.2 or newer
  * Symfony 7.4 or 8.0 or newer
+ * Twig 3.21 or newer
 
 **Required by PhpSpreadsheet:**
 
