@@ -1,6 +1,42 @@
+## Unreleased
+
+ * Add support for Symfony 8, drop support for Symfony 6.4 and 7.0 to 7.3
+ * Drop support for PHP 8.1, support PHP 8.2 and later
+ * Bump minimum Twig version to 3.21
+ * Improved internal code style
+
+## 2.4.1
+
+ * Fix hyperlink URL handling after changes introduced in phpoffice/phpspreadsheet v5.4
+ * Add compatibility with phpoffice/phpspreadsheet v5.4 and newer
+
+## 2.4
+
+ * Add support for PHP 8.5
+ * Fix deprecations from Twig 3.15 and 3.21
+ * Set `phpoffice/phpspreadsheet` compatibility range to v1.23 to v5.3
+
+## 2.3.1
+
+ * Fix setting context on macro references
+
+## 2.3
+
+ * Add support for PHP 8.4
+
+## 2.2
+
+ * Drop support for Symfony 5 and lower, support Symfony 6.4, 7.0 and later
+ * Bump minimum Twig version to 3.12
+
+## 2.1
+
+ * Declare conflict with twig/twig 3.9 to 3.11 due to bugs
+ * Improved internal code style
+
 ## 2.0
 
- * Drop support for Symfony 4 and lower, support Symfony 5.4 and higher
+ * Drop support for Symfony 4 and lower, support Symfony 5.4, 6.0 and later
  * Drop support for Twig 2, add support for Twig 3
  * Add support for dompdf as a PDF renderer
  * Add support for TCPDF as a PDF renderer
